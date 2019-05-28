@@ -48,7 +48,7 @@ public class MainController {
 	        int ranks=random.nextInt(6)+1;
 	        socialWorker.setSwNo(id);
 	        socialWorker.setName(name);
-	        socialWorker.setRanks(ranks+"급ㄴㄴ");
+	        socialWorker.setRanks(ranks+"급");
 	        this.socialWorkerRepository.insert(socialWorker);
 	 
 	        return "Inserted: " + socialWorker;
