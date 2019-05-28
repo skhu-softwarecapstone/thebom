@@ -7,7 +7,7 @@ import net.skhu.document.SocialWorker;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-public interface SocialWorkerRepository extends MongoRepository<SocialWorker, Integer> {
+public interface SocialWorkerRepository extends MongoRepository<SocialWorker, String> {
 
 	//담당지역으로 사회복지사 찾기
 	SocialWorker findByDistrict(String district);

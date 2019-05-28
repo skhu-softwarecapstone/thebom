@@ -37,7 +37,7 @@ public class MainController {
 	 
 	        List<SocialWorker> socialWorkers = this.socialWorkerRepository.findAll();
 	 
-	        String html = "";
+	        String html = "<socialworklist>";
 	        for (SocialWorker sw : socialWorkers) {
 	            html += sw + "<br>";
 	        }
@@ -49,7 +49,7 @@ public class MainController {
 	    @RequestMapping("/showNameLikechu")
 	    public String showFullNameLikeTom() {
 	 
-	        List<SocialWorker> socialWorkers = this.socialWorkerRepository.findByNameLike("chu");
+	        List<SocialWorker> socialWorkers = this.socialWorkerRepository.findByNameLike("추");
 	 
 	        String html = "";
 	        for (SocialWorker emp : socialWorkers) {

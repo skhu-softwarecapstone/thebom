@@ -7,11 +7,11 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection = "Social_worker")
+@Document(collection = "social_worker")
 public class SocialWorker {
 	
 	@Id
-	private int id;
+	private String id;
 	
 	@Field(value="name")
 	private String name;
@@ -31,11 +31,14 @@ public class SocialWorker {
 	@Field(value="ranks")
 	private String ranks;
 
-	public int getId() {
+	
+	
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -91,6 +94,7 @@ public class SocialWorker {
 	public String toString() {
 		return "SocialWorker [id=" + id + ", name="+ name + "]";
 	}
+
 	
 	
 
