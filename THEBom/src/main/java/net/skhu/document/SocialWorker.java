@@ -13,6 +13,9 @@ public class SocialWorker {
 	@Id
 	private String id;
 	
+	@Field(value="swNo")
+	private int swNo;
+	
 	@Field(value="name")
 	private String name;
 	
@@ -33,6 +36,14 @@ public class SocialWorker {
 
 	
 	
+
+	public int getSwNo() {
+		return swNo;
+	}
+
+	public void setSwNo(int swNo) {
+		this.swNo = swNo;
+	}
 
 	public String getId() {
 		return id;
@@ -92,9 +103,10 @@ public class SocialWorker {
 
 	@Override
 	public String toString() {
-		return "SocialWorker [id=" + id + ", name="+ name + "]";
+		return "SocialWorker [id=" + id + ", swNo=" + swNo + ", name=" + name + "]";
 	}
 
+	
 	
 	
 

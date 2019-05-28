@@ -5,7 +5,7 @@ import java.util.List;
  
 import net.skhu.document.SocialWorker;
 import net.skhu.repository.SocialWorkerRepository;
-
+import net.skhu.repository.SocialWorkerRepositoryCustom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,19 +18,44 @@ public class MainController {
 
 	 @Autowired
 	    private SocialWorkerRepository socialWorkerRepository;
+	 @Autowired
+	    private SocialWorkerRepositoryCustom socialWorkerRepositoryCustom;
 	 
 	 @ResponseBody
 	    @RequestMapping("/")
 	    public String home() {
 	        String html = "";
 	        html += "<ul>";
+	        html += " <li><a href='/testInsert'>Test Insert</a></li>";
 	        html += " <li><a href='/showAllSocialWorker'>Show All SocialWorker</a></li>";
 	        html += " <li><a href='/showNameLikechu'>Show All 'chu'</a></li>";
 	        html += " <li><a href='/deleteAllSocialWorker'>Delete All SocialWorker</a></li>";
 	        html += "</ul>";
 	        return html;
 	    }
-	//사회복지사 모두 보기 
+	 //사회복지사 테스트 데이터 삽입
+	 @ResponseBody
+	    @RequestMapping("/testInsert")
+	    public String testInsert() {
+	        SocialWorker socialWorker = new SocialWorker();
+	 
+	        int id = this.socialWorkerRepositoryCustom.getMaxSwNo() + 1;
+	        int idx = (int) (id % NAMES.length);
+	        String name = NAMES[idx];
+	 
+	        socialWorker.setSwNo(id);
+	        socialWorker.setName(name);
+	       
+	        this.socialWorkerRepository.insert(socialWorker);
+	 
+	        return "Inserted: " + socialWorker;
+	    }
+	 
+	 
+	 
+	 
+	 
+	 //사회복지사 모두 보기 
 	 @ResponseBody
 	    @RequestMapping("/showAllSocialWorker")
 	    public String showAllSocialWorker() {
@@ -49,7 +74,7 @@ public class MainController {
 	    @RequestMapping("/showNameLikechu")
 	    public String showFullNameLikeTom() {
 	 
-	        List<SocialWorker> socialWorkers = this.socialWorkerRepository.findByNameLike("추");
+	        List<SocialWorker> socialWorkers = this.socialWorkerRepository.findByNameLike("chu");
 	 
 	        String html = "";
 	        for (SocialWorker emp : socialWorkers) {
