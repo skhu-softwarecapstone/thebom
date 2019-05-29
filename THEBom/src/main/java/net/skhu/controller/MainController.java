@@ -2,7 +2,8 @@ package net.skhu.controller;
 
 import java.util.Date;
 import java.util.List;
- 
+import java.util.Random;
+
 import net.skhu.document.SocialWorker;
 import net.skhu.repository.SocialWorkerRepository;
 import net.skhu.repository.SocialWorkerRepositoryCustom;
@@ -42,10 +43,12 @@ public class MainController {
 	        int id = this.socialWorkerRepositoryCustom.getMaxSwNo() + 1;
 	        int idx = (int) (id % NAMES.length);
 	        String name = NAMES[idx];
-	 
+	        
+	        Random random=new Random();
+	        int ranks=random.nextInt(6)+1;
 	        socialWorker.setSwNo(id);
 	        socialWorker.setName(name);
-	       
+	        socialWorker.setRanks(ranks+"급");
 	        this.socialWorkerRepository.insert(socialWorker);
 	 
 	        return "Inserted: " + socialWorker;
