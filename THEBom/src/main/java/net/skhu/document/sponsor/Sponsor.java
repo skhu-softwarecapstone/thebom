@@ -1,4 +1,4 @@
-package net.skhu.document;
+package net.skhu.document.sponsor;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;

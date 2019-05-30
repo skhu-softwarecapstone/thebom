@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!-- tag library -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -18,9 +19,9 @@
 <link rel="stylesheet" type="text/css" href="res/css/template.css" />
 
 <!-- javascript -->
-	<script type="text/javascript" src="res/js/jqueryn.min.js"></script>
-	<script type="text/javascript" src="res/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="res/js/common.js"></script>
+<script type="text/javascript" src="res/js/jqueryn.min.js"></script>
+<script type="text/javascript" src="res/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="res/js/common.js"></script>
 
 </head>
 
@@ -30,7 +31,8 @@
 	<section id="nino-whatWeDo">
 		<div class="container">
 			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">THE BOM</span> 방문후원자 목록</h2>
+				<span class="nino-subHeading">THE BOM</span> 방문후원자 목록
+			</h2>
 			<p class="nino-sectionDesc">
 			<div class="skill-main">
 				<table class="table table-bordered">
@@ -82,9 +84,14 @@
 		</div>
 	</footer>
 	<!--/#footer-->
+	<script>
+		$("[data-url]").click(function() {
+			var url = $(this).attr("data-url");
+			location.href = url;
+		})
+	</script>
 
 
-	
 
 
 </body>

@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<!-- tag library -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,6 +134,13 @@
 	<!--[if lt IE 9]>
 	    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 	<![endif]-->
+	
+	<script>
+		$("#myButtons1").click(function(){
+		  alert('AJAXë¡ ì²ë¦¬íê³  ì ì ìëµì´ë©´.. hide í´ ì¤ë¤.');
+	$('#myModal').modal('hide')
+	   });
+   </script>  
 
 </body>
 </html>

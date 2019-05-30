@@ -8,7 +8,7 @@ import net.skhu.document.SocialWorker;
 import net.skhu.repository.SocialWorker.SocialWorkerRepository;
 import net.skhu.repository.SocialWorker.SocialWorkerRepositoryCustom;
 
-import net.skhu.document.Sponsor;
+import net.skhu.document.sponsor.Sponsor;
 import net.skhu.repository.SponsorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+//지금은 test용이지만 포괄적으로 사용되는 중요기능 명령내리는 곳으로 사용합시당>0<
 
 @Controller
 public class MainController {
@@ -64,6 +66,12 @@ public class MainController {
 		
 		model.addAttribute("sponsor", sponsorRepository.findById(id));
 		return "admin/sponsorview";
+	}
+	@GetMapping("circle")
+	public String SponsorView1() {
+		
+		
+		return "admin/circle";
 	}
 
 	//사회복지사 테스트 데이터 삽입

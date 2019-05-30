@@ -1,4 +1,4 @@
-package net.skhu.document;
+package net.skhu.document.sponsor;
 
 import java.util.Date;
 import lombok.Data;
