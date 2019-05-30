@@ -5,13 +5,18 @@ import java.util.List;
 import java.util.Random;
 
 import net.skhu.document.SocialWorker;
-import net.skhu.repository.SocialWorkerRepository;
-import net.skhu.repository.SocialWorkerRepositoryCustom;
+import net.skhu.repository.SocialWorker.SocialWorkerRepository;
+import net.skhu.repository.SocialWorker.SocialWorkerRepositoryCustom;
+
+import net.skhu.document.Sponsor;
+import net.skhu.repository.SponsorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,6 +29,8 @@ public class MainController {
 	private SocialWorkerRepository socialWorkerRepository;
 	@Autowired
 	private SocialWorkerRepositoryCustom socialWorkerRepositoryCustom;
+	@Autowired
+	private SponsorRepository sponsorRepository;
 
 	@GetMapping("/")
 	public ModelAndView LoginPage() {
@@ -38,8 +45,25 @@ public class MainController {
 		return "main";
 	}
 	@GetMapping("sponsor")
-	public String Sponsor() {
+	public String Sponsor(Model model) {
+		
+		List<Sponsor> sponsors=this.sponsorRepository.findAll();
+		model.addAttribute("sponsors", sponsors);
 		return "admin/sponsor";
+	}
+	
+	@GetMapping("sponsorview")
+	public String SponsorView(Model model) {
+		
+		model.addAttribute("sponsor", sponsorRepository.findBySpNo(1));
+		return "admin/sponsorview";
+	}
+	
+	@GetMapping("sponsorview1")
+	public String SponsorView1(@RequestParam("id") String id,Model model) {
+		
+		model.addAttribute("sponsor", sponsorRepository.findById(id));
+		return "admin/sponsorview";
 	}
 
 	//사회복지사 테스트 데이터 삽입
@@ -48,13 +72,13 @@ public class MainController {
 	public String testInsert() {
 		SocialWorker socialWorker = new SocialWorker();
 
-		int id = this.socialWorkerRepositoryCustom.getMaxSwNo() + 1;
-		int idx = (int) (id % NAMES.length);
-		String name = NAMES[idx];
+		int swNo = this.socialWorkerRepositoryCustom.getMaxSwNo() + 1;
+		int swNox = (int) (swNo % NAMES.length);
+		String name = NAMES[swNox];
 
 		Random random=new Random();
 		int ranks=random.nextInt(6)+1;
-		socialWorker.setSwNo(id);
+		socialWorker.setSwNo(swNo);
 		socialWorker.setName(name);
 		socialWorker.setRanks(ranks+"급");
 		this.socialWorkerRepository.insert(socialWorker);

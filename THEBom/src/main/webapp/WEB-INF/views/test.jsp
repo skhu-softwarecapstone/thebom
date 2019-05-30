@@ -14,6 +14,7 @@
 		<li><a href='/deleteAllSocialWorker'>Delete All SocialWorker</a></li>
 		<li><a href='/main'>Main Page</a></li>
 		<li><a href='/sponsor'>Sponsor Page</a></li>
+		<li><a href='/sponsorview'>Sponsor Detail Page</a></li>
 	</ul>
 </body>
 </html>

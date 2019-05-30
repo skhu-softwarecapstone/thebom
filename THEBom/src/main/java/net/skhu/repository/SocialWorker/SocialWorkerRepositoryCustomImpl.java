@@ -1,4 +1,4 @@
-package net.skhu.repository;
+package net.skhu.repository.SocialWorker;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package net.skhu.controller;
+package net.skhu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
