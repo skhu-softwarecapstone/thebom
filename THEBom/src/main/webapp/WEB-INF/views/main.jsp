@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<!-- tag library -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +16,8 @@
 
 
 	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/template.css" />
+	<link rel="stylesheet" type="text/css" href="res/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="res/css/template.css" />
 
 </head>
 
@@ -110,15 +116,15 @@
 
 
 	<!-- javascript -->
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
-	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery.hoverdir.js"></script>
-	<script type="text/javascript" src="js/modernizr.custom.97074.js"></script>
-	<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script type="text/javascript" src="js/unslider-min.js"></script>
-	<script type="text/javascript" src="js/template.js"></script>
+	<script type="text/javascript" src="res/js/jquery.min.js"></script>
+	<script type="text/javascript" src="res/js/isotope.pkgd.min.js"></script>
+	<script type="text/javascript" src="res/js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="res/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="res/js/jquery.hoverdir.js"></script>
+	<script type="text/javascript" src="res/js/modernizr.custom.97074.js"></script>
+	<script type="text/javascript" src="res/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="res/js/unslider-min.js"></script>
+	<script type="text/javascript" src="res/js/template.js"></script>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -128,6 +134,13 @@
 	<!--[if lt IE 9]>
 	    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 	<![endif]-->
+	
+	<script>
+		$("#myButtons1").click(function(){
+		  alert('AJAXë¡ ì²ë¦¬íê³  ì ì ìëµì´ë©´.. hide í´ ì¤ë¤.');
+	$('#myModal').modal('hide')
+	   });
+   </script>  
 
 </body>
 </html>
