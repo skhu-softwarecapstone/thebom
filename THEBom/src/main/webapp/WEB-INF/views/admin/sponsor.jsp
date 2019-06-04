@@ -49,7 +49,7 @@
 					</thead>
 					<tbody>
 						<c:forEach var="sponsor" items="${ sponsors }">
-							<tr data-url="sponsorview1?id=${ sponsor.id }">
+							<tr data-url="sponsorview?id=${ sponsor.id }">
 								<td>${ sponsor.id }</td>
 								<td>${ sponsor.spNo }</td>
 								<td>${ sponsor.name }</td>

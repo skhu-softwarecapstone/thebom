@@ -7,6 +7,7 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
 @import 'https://fonts.googleapis.com/css?family=Kaushan+Script';
+
 html, body {
 	line-height: 1.7;
 	margin: 0;
@@ -18,9 +19,14 @@ body {
 	font-weight: 400;
 	overflow-x: hidden;
 	position: relative;
+	
+	height: 100%;
 	font-family: 'Roboto', sans-serif;
 }
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main { 
+body.main{
+	background: url("../images/bg-header.jpg") no-repeat center center / cover;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main {
     display: block;
 }
 hr {
@@ -193,7 +199,7 @@ img.img-full-width {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	opacity: 0;	
+	opacity: 0;
 	-webkit-transition: all .3s ease-in-out;
 	   -moz-transition: all .3s ease-in-out;
 		 -o-transition: all .3s ease-in-out;
@@ -209,7 +215,7 @@ img.img-full-width {
 	top: -10px;
 }
 .nino-hoverEffect .item:hover .overlay:before {
-	opacity: 1;	
+	opacity: 1;
 }
 .nino-hoverEffect .content {
 	position: absolute;
@@ -220,7 +226,7 @@ img.img-full-width {
 	opacity: 0;
 	text-align: center;
 	color: #fff;
-	text-transform: uppercase;	
+	text-transform: uppercase;
 	-webkit-transform: translateY(-50%);
 	   -moz-transform: translateY(-50%);
 		 -o-transform: translateY(-50%);
@@ -230,6 +236,15 @@ img.img-full-width {
 .nino-hoverEffect .item:hover .content {
 	opacity: 1;
 }
+.select{
+	margin:20px;
+}
+.loginform{
+	margin: 0 auto;
+	text-align: center;
+	width:40%;
+}
+
 /* =============== LAYOUT - HEADER AREA =============== */
 #nino-header {
 	position: relative;
@@ -243,14 +258,11 @@ img.img-full-width {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(243,129,129,0.9); /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
-	background: -webkit-linear-gradient(top, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9));
-	background: -o-linear-gradient(top, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9));
-	background: linear-gradient(to bottom, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+	}
 #nino-headerInner {
 	position: relative;
 	z-index: 5;
+	padding-bottom: 70px;
 }
 /* =============== MAIN SLIDER =============== */
 #nino-slider {
@@ -275,7 +287,7 @@ img.img-full-width {
 	float: left;
 	width: 25%;
 	height: auto;
-	margin: 0;	
+	margin: 0;
 	text-indent: initial;
 	border-radius: 0;
 	background: none;
@@ -318,8 +330,9 @@ img.img-full-width {
 }
 #nino-navbar .navbar-brand {
 	color: #fff;
+	font-family: 'Montserrat', sans-serif;
 	font-weight: 700;
-	font-size: 20px;
+	font-size: 30px;
 }
 #nino-navbar .navbar-nav > li > a {
 	color: #fff;
@@ -330,7 +343,7 @@ img.img-full-width {
 	margin: 0 12px;
 }
 #nino-navbar .navbar-nav > li > a:hover,
-#nino-navbar .navbar-nav > .active > a, 
+#nino-navbar .navbar-nav > .active > a,
 #nino-navbar .navbar-nav > .active > a:hover {
 	color: #fce38a;
 	border-color: #fce38a;
@@ -416,20 +429,11 @@ section {
 	line-height: 1;
 	position: relative;
 	padding-bottom: 20px;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 	text-align: center;
 	color: #333;
 }
-.nino-sectionHeading:after {
-	content: "";
-	position: absolute;
-	left: 50%;
-	bottom: 0;
-	width: 50px;
-	height: 2px;
-	background: #f38181;
-	transform: translateX(-50%);
-}
+
 .nino-sectionHeading .nino-subHeading {
 	display: block;
 	text-transform: none;
@@ -514,7 +518,6 @@ section {
 /* =============== SECTION WHAT WE DO =============== */
 #nino-whatWeDo .panel-group {
 	margin: 0;
-	
 }
 #nino-whatWeDo .panel-group .panel+.panel {
     margin-top: 8px;
@@ -526,7 +529,6 @@ section {
 #nino-whatWeDo .panel-default > .panel-heading {
 	background: #fff;
 	padding: 0;
-
 }
 #nino-whatWeDo .panel-title {
 	font-size: 14px;
@@ -562,46 +564,14 @@ section {
 	font-weight: 300;
 }
 #nino-whatWeDo .mCS-default .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
-#nino-whatWeDo .mCS-default .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar, 
+#nino-whatWeDo .mCS-default .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
 #nino-whatWeDo .mCS-default .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar {
 	background: #95e1d3;
 }
-
+#nino-whatWeDo .mCSB_scrollTools .mCSB_draggerRail {
+	background: #f5f5f5;
+}
 /* =============== SECTION TESTIMONIAL =============== */
-
-.search{
-	padding-top: 10px;
-    padding-bottom: 10px;
-	border-radius: 10px;
-	border-width: 5px;
-	border:solid #ccc ;
-	margin-bottom: 20px;
-}
-.search-button{
-    background-color: #95e1d3;
-	border: none;
-	border-radius:10px;
-    color:#fff;
-    padding: 3px 8px 3px 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    margin: 1px;
-    cursor: pointer;
-
-}
-.seniorview{
-	border: solid #f09f9f ;
-	display: table-cell;
-	vertical-align: middle;
-	padding: 10px;
-	margin: 10px;
-	width:30%;
-}
-.seniorview:hover{
-	background-color: #f09f9f;
-}
 .nino-testimonial {
 	background: #f8f8f8;
 	padding: 60px 0;
@@ -974,74 +944,7 @@ footer .nino-copyright {
 	border-top: 1px solid #e5e5e5;
 	padding: 20px 0;
 }
-/* =============== SEARCH FORM =============== */
-#nino-searchForm {
-	position: fixed;
-	left: 0;
-	top: -100%;
-	width: 100%;
-	height: 100%;
-	background: rgba(0,0,0,.9);
-	padding: 20px;
-	z-index: 10;
-	opacity: 1;
-	-webkit-transition: all .3s ease-in-out;
-	   -moz-transition: all .3s ease-in-out;
-		 -o-transition: all .3s ease-in-out;
-		-ms-transition: all .3s ease-in-out;
-			transition: all .3s ease-in-out;
-}
-#nino-searchForm.open {
-	top: 0;
-	opacity: 1;
-}
-#nino-searchForm .nino-searchInput {
-    position: relative;
-    top: 50%;
-    height: 100px;
-    box-shadow: none;
-    font-size: 70px;
-    background: none;
-    border: none;
-    border-bottom: 1px solid #333;
-    font-weight: 700;
-    padding: 20px 0;
-    color: #fff;
-    -webkit-transform: translateY(-50%);
-	   -moz-transform: translateY(-50%);
-		 -o-transform: translateY(-50%);
-		-ms-transform: translateY(-50%);
-			transform: translateY(-50%);
-}
-#nino-searchForm .nino-close {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	font-size: 60px;
-	cursor: pointer;
-}
-#nino-searchForm .nino-close:hover {
-	color: #fff;
-}
-/* =============== GO TO TOP =============== */
-#nino-scrollToTop {
-	width: 50px; 
-	height: 50px;
-	text-align: center;
-	text-decoration: none;
-	position: fixed;
-	bottom: 10px;
-	right: 10px;
-	text-indent: -99999em;
-	display: none;
-	cursor: pointer;
-	z-index: 2;
-	background: #E74C3C url(../images/go-to-top.png) center center no-repeat;
-}
-#nino-scrollToTop:hover {
-	text-decoration: none;
-	background-color: #F75C4C;
-}
+
 /* =============== PRETTY PHOTO OVERRIDE =============== */
 div.pp_pic_holder a {
 	-webkit-transition: all 0s ease 0s;
@@ -1075,7 +978,7 @@ div.pp_default .pp_social {
 @media (max-width: 992px) {
 	section {
 		padding: 45px 0;
-	}	
+	}
 	/* =============== SECTION TESTIMONIAL =============== */
 	.nino-testimonial {
 		padding: 30px 0;
@@ -1110,41 +1013,11 @@ div.pp_default .pp_social {
 		bottom: -38px;
 		margin-left: 88px;
 		width: 110px;
-	}	
-	/* =============== SECTION WHAT WE DO =============== */
-	#nino-whatWeDo .panel-group {
-		margin-top: 20px;
-	}
-	/* =============== SECTION OUR TEAM =============== */
-	#nino-ourTeam .content .nino-icon {
-		font-size: 18px;
-		padding: 8px;
-	}
-	#nino-ourTeam .info {
-		margin-top: 25px;
-	}
-	/* =============== SECTION BRAND =============== */
-	#nino-brand {
-		padding: 20px 0;
-	}
-	/* =============== SECTION LATEST BLOG =============== */
-	#nino-latestBlog article .articleTitle {
-		font-size: 11px;
-	}
-	#nino-latestBlog article .date {
-		padding: 8px 12px;
-	}
-	#nino-latestBlog article .date .number {
-		font-size: 18px;
-	}
-	#nino-latestBlog article .date .text {
-		font-size: 11px;
 	}
 
-}
 
 @media (max-width: 768px) {
-	
+
 	/* =============== HOVER EFFECT =============== */
 	.nino-hoverEffect .item {
 		margin-bottom: 15px;
@@ -1190,7 +1063,7 @@ div.pp_default .pp_social {
 }
 
 @media (max-width: 767px) {
-	
+
 	/* =============== MENU AREA =============== */
 	#nino-navbar {
 		background: rgba(234, 83, 83, 0.70);
@@ -1201,8 +1074,8 @@ div.pp_default .pp_social {
 	#nino-navbar .navbar-nav > li > a {
 		padding: 10px 5px 5px;
 	}
-	#nino-navbar .navbar-nav > li > a:hover, 
-	#nino-navbar .navbar-nav > .active > a, 
+	#nino-navbar .navbar-nav > li > a:hover,
+	#nino-navbar .navbar-nav > .active > a,
 	#nino-navbar .navbar-nav > .active > a:hover {
 		border-color: transparent;
 	}
@@ -1325,7 +1198,7 @@ div.pp_default .pp_social {
 }
 
 @media (max-width: 480px) {
-	
+
 	/* =============== MAIN SLIDER =============== */
 	#nino-slider .carousel-indicators li .inner {
 		text-indent: -99999em;
@@ -1348,4 +1221,3 @@ div.pp_default .pp_social {
 		width: 100%;
 	}
 }
-
