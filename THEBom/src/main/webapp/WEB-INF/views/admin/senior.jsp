@@ -6,8 +6,8 @@
 	<title>The Bom</title>
 	
 	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/template.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/template.css" />
 	
 </head>
 

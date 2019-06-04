@@ -14,7 +14,8 @@
 	<title>The bom</title>
 
 
-
+    <script src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>
+    
 	<!-- css -->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
