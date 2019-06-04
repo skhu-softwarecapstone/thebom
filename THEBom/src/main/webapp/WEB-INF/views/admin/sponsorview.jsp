@@ -13,8 +13,8 @@
 <title>The Bom</title>
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="res/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="res/css/template.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/res/css/template.css" />
 
 </head>
 

@@ -15,13 +15,13 @@
 
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="res/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="res/css/template.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/res/css/template.css" />
 
 <!-- javascript -->
-<script type="text/javascript" src="res/js/jqueryn.min.js"></script>
-<script type="text/javascript" src="res/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="res/js/common.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/common.js"></script>
 
 </head>
 
@@ -49,7 +49,7 @@
 					</thead>
 					<tbody>
 						<c:forEach var="sponsor" items="${ sponsors }">
-							<tr data-url="sponsorview1?id=${ sponsor.id }">
+							<tr data-url="sponsorview?id=${ sponsor.id }">
 								<td>${ sponsor.id }</td>
 								<td>${ sponsor.spNo }</td>
 								<td>${ sponsor.name }</td>
