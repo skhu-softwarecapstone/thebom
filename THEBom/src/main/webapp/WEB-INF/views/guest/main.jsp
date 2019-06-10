@@ -47,11 +47,7 @@
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
-								<li><a href="#nino-story">후원자 등록</a></li>
-								<li><a href="#nino-services">후원정보 확인</a></li>
-								<li><a href="#nino-ourTeam">사각지대 신고</a></li>
-								<li><a href="#nino-portfolio">일지 작성</a></li>
-								<li><a href="#nino-latestBlog">마이페이지</a></li>
+								<li><a href="#nino-story">더 봄 소개</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">
@@ -83,22 +79,19 @@
 		<form class="loginform">
 			<div class="select">
 			<label class="radio-inline">
-			<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 관리자
+			<input type="radio" name="userType"  value="manager"> 관리자
 			</label>
 			<label class="radio-inline">
-			<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 후원자
-		 </label>
-		 <label class="radio-inline">
-		 <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 노인
+			<input type="radio" name="userType"  value="sponsor"> 후원자
 		 </label>
 			</div>
 			<div class="form-group">
-				<label class="sr-only" for="exampleInputEmail3">Id</label>
-				<input type="text" class="form-control" id="InputEmail3" placeholder="Id">
+				<label class="sr-only" for="Id">Id</label>
+				<input type="text" class="form-control" id="userId" placeholder="Id">
 			</div>
 			<div class="form-group">
-				<label class="sr-only" for="exampleInputPassword3">Password</label>
-				<input type="password" class="form-control" id="InputPassword3" placeholder="Password">
+				<label class="sr-only" for="Password">Password</label>
+				<input type="password" class="form-control" id="userPassword" placeholder="Password">
 			</div>
 			<div class="checkbox">
 				<label>
@@ -106,6 +99,7 @@
 				</label>
 			</div>
 			<button type="submit" id="loginbutton" class="nino-btn">LOGIN</button>
+			<button type="submit" id="joinbutton" class="nino-btn">JOIN</button>
 			<!--  <button type="submit" class="btn btn-default">Login</button> -->
 		</form>
 

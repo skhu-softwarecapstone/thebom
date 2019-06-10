@@ -44,11 +44,11 @@ public class MainController {
 	
 	@GetMapping("main")
 	public String Main() {
-		return "main";
+		return "guest/main";
 	}
 	@GetMapping("register")
 	public String Register() {
-		return "register";
+		return "sponsor/register";
 	}
 	@GetMapping("sponsor")
 	public String Sponsor(Model model) {
@@ -71,9 +71,17 @@ public class MainController {
 		model.addAttribute("sponsor", sponsorRepository.findById(id));
 		return "admin/sponsorview";
 	}
+	@GetMapping("blind")
+	public String Blind() {
+		return "sponsor/blind";
+	}
 	@GetMapping("circle")
 	public String SponsorView1() {
 		return "admin/circle";
+	}
+	@GetMapping("mypage")
+	public String Mypage() {
+		return "common/mypage";
 	}
 
 	//사회복지사 테스트 데이터 삽입

@@ -46,12 +46,12 @@
 					<div class="nino-menuItem pull-right">
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="main">홈<span class="sr-only">(current)</span></a></li>
-								<li><a href="register">후원자 등록</a></li>
+								<li><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
+								<li><a href="#nino-story">후원자 등록</a></li>
 								<li><a href="#nino-services">후원정보 확인</a></li>
-								<li><a href="blind">사각지대 신고</a></li>
+								<li><a href="#nino-ourTeam">사각지대 신고</a></li>
 								<li><a href="#nino-portfolio">일지 작성</a></li>
-								<li><a href="mypage">마이페이지</a></li>
+								<li class="active"><a href="#nino-latestBlog">마이페이지</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">
@@ -63,40 +63,11 @@
 	<section id="nino-whatWeDo">
 		<div class="container middle">
 			<h2 class="nino-sectionHeading">
-				방문후원자 목록
+				
 			</h2>
 			<p class="nino-sectionDesc">
 			<div class="skill-main">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>id</th>
-							<th>spNo</th>
-							<th>name</th>
-							<th>gender</th>
-							<th>point</th>
-							<th>phone</th>
-							<th>visits</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="sponsor" items="${ sponsors }">
-							<tr data-url="sponsorview?id=${ sponsor.id }">
-								<td>${ sponsor.id }</td>
-								<td>${ sponsor.spNo }</td>
-								<td>${ sponsor.name }</td>
-								<td><c:choose>
-										<c:when test="${ sponsor.gender==true }">男</c:when>
-										<c:otherwise>女</c:otherwise>
-									</c:choose></td>
-								<td>${ sponsor.point}</td>
-								<td>${ sponsor.phone}</td>
-								<td>${ sponsor.visits}</td>
-
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+				
 			</div>
 			</p>
 		</div>
