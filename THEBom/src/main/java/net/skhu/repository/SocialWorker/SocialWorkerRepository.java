@@ -9,7 +9,10 @@ import org.springframework.data.mongodb.repository.Query;
 
 public interface SocialWorkerRepository extends MongoRepository<SocialWorker, String> {
 
-	//담당지역으로 사회복지사 찾기
+	//로그인
+    SocialWorker findOneByLoginId(String workerId);
+    
+    //담당지역으로 사회복지사 찾기
 	SocialWorker findByDistrict(String district);
 	
 	//이름으로 사회복지사 찾기

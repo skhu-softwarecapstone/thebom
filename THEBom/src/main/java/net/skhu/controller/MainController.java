@@ -37,15 +37,22 @@ public class MainController {
 	@GetMapping("/")
 	public ModelAndView LoginPage() {
 
-		ModelAndView response = new ModelAndView("/test");
+		ModelAndView response = new ModelAndView("/main");
 
 		return response;
 	}
-	
+	/*
 	@GetMapping("main")
 	public String Main() {
 		return "main";
-	}
+	}*/
+	
+	@RequestMapping("admin/circle")
+	public String circle() {
+		return "admin/circle";
+	}//로그인 한 사용자 첫 페이지 
+	
+	
 	@GetMapping("sponsor")
 	public String Sponsor(Model model) {
 		

@@ -16,6 +16,15 @@ public class SocialWorker {
 	@Id
 	private String id;
 
+	@Field(value="workerId")
+	private String workerId;
+	
+	@Field(value="password")
+	private String password;
+	
+	@Field(value="userType")
+	private String userType;
+	
 	@Field(value="swNo")
 	private int swNo;
 
