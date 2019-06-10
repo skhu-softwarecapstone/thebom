@@ -18,13 +18,45 @@
 
 </head>
 
-<body data-target="#nino-navbar" data-spy="scroll">
+<body data-target="#nino-navbar" data-spy="scroll" class="main">
+     <nav id="nino-navbar" class="navbar navbar-default" role="navigation">
+				<div class="container">
+
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nino-navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="homepage.html">THE BOM</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="nino-menuItem pull-right">
+						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
+								<li><a href="#nino-story">후원자 등록</a></li>
+								<li><a href="#nino-services">후원정보 확인</a></li>
+								<li><a href="#nino-ourTeam">사각지대 신고</a></li>
+								<li><a href="#nino-portfolio">일지 작성</a></li>
+								<li><a href="#nino-latestBlog">마이페이지</a></li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+						<ul class="nino-iconsGroup nav navbar-nav">
+							<li><a href="#" class="nino-search"><i class="mdi mdi-magnify nino-icon"></i></a></li>
+						</ul>
+					</div>
+				</div><!-- /.container-fluid -->
+			</nav>
 	<!-- What We Do
     ================================================== -->
 	<section id="nino-whatWeDo">
-		<div class="container">
+		<div class="container middle">
 			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">THE BOM</span> 방문후원자 상세페이지
+				방문후원자 상세페이지
 			</h2>
 			<p class="nino-sectionDesc">
 			<div class="skill-main">

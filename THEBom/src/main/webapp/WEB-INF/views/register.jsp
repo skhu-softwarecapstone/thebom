@@ -5,7 +5,8 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
     <style media="screen">
       .registerform{
         margin: 0 auto;
@@ -19,10 +20,52 @@
       .form-group{
         margin: 30px;
       }
+ 	body{
+ 		color:black;
+ 	}
+	.register{
+		padding-top: 50px;
+		background-color: white;
+	} 
     </style>
   </head>
-  <body>
-    <h3>후원자 등록</h1>
+  <body class="main">
+  <nav id="nino-navbar" class="navbar navbar-default" role="navigation">
+				<div class="container">
+
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nino-navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="homepage.html">THE BOM</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="nino-menuItem pull-right">
+						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li ><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
+								<li class="active"><a href="#nino-story">후원자 등록</a></li>
+								<li><a href="#nino-services">후원정보 확인</a></li>
+								<li><a href="#nino-ourTeam">사각지대 신고</a></li>
+								<li><a href="#nino-portfolio">일지 작성</a></li>
+								<li><a href="#nino-latestBlog">마이페이지</a></li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+						<ul class="nino-iconsGroup nav navbar-nav">
+							<li><a href="#" class="nino-search"><i class="mdi mdi-magnify nino-icon"></i></a></li>
+						</ul>
+					</div>
+				</div><!-- /.container-fluid -->
+			</nav>
+   
+   <div class="register">
+   
+    <h3>후원자 등록</h3>
     <form class="registerform">
 
       <div class="form-group row">
@@ -101,11 +144,12 @@
 
       <div>
 
-      </div>
 
-    </div>
+   
 
       <button type="submit" class="btn btn-default">등록</button>
     </form>
+    
+    </div>
   </body>
 </html>

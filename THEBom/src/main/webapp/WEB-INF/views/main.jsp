@@ -70,7 +70,7 @@
 							<span class="nino-subHeading">BOM</span>
 							Welcome <br>to The Bom
 						</h2>
-						<a href="#" class="nino-btn">LOGIN</a>
+						
 					</div>
 
 				</div>
@@ -105,7 +105,8 @@
 					<input type="checkbox"> Remember me
 				</label>
 			</div>
-			<button type="submit" class="btn btn-default">Login</button>
+			<button type="submit" id="loginbutton" class="nino-btn">LOGIN</button>
+			<!--  <button type="submit" class="btn btn-default">Login</button> -->
 		</form>
 
 
@@ -118,14 +119,8 @@
 
 	<!-- javascript -->
 	<script type="text/javascript" src="res/js/jquery.min.js"></script>
-	<script type="text/javascript" src="res/js/isotope.pkgd.min.js"></script>
-	<script type="text/javascript" src="res/js/jquery.prettyPhoto.js"></script>
 	<script type="text/javascript" src="res/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="res/js/jquery.hoverdir.js"></script>
-	<script type="text/javascript" src="res/js/modernizr.custom.97074.js"></script>
-	<script type="text/javascript" src="res/js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script type="text/javascript" src="res/js/unslider-min.js"></script>
-	<script type="text/javascript" src="res/js/template.js"></script>
+
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -137,10 +132,7 @@
 	<![endif]-->
 	
 	<script>
-		$("#myButtons1").click(function(){
-		  alert('AJAXë¡ ì²ë¦¬íê³  ì ì ìëµì´ë©´.. hide í´ ì¤ë¤.');
-	$('#myModal').modal('hide')
-	   });
+	
    </script>  
 
 </body>

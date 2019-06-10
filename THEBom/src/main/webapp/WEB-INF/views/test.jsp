@@ -16,6 +16,7 @@
 		<li><a href='/sponsor'>Sponsor Page</a></li>
 		<li><a href='/sponsorview'>Sponsor Detail Page</a></li>
 		<li><a href='/circle'>Circle Page</a></li>
+		<li><a href='/register'>Register Page</a></li>
 	</ul>
 </body>
 </html>

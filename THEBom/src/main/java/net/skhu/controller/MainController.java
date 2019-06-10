@@ -46,6 +46,10 @@ public class MainController {
 	public String Main() {
 		return "main";
 	}
+	@GetMapping("register")
+	public String Register() {
+		return "register";
+	}
 	@GetMapping("sponsor")
 	public String Sponsor(Model model) {
 		
@@ -69,8 +73,6 @@ public class MainController {
 	}
 	@GetMapping("circle")
 	public String SponsorView1() {
-		
-		
 		return "admin/circle";
 	}
 
