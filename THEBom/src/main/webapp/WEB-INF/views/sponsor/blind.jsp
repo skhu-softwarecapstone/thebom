@@ -76,8 +76,8 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<section id="nino-whatWeDo">
-		<div class="container middle">
+	
+		<div class="bar">
 			<h2 class="nino-sectionHeading">사각지대 신고</h2>
 			<p class="nino-sectionDesc">
 			<div class="skill-main">
@@ -125,8 +125,7 @@
 			</div>
 			</p>
 		</div>
-		</div>
-	</section>
+		</div> 
 
 	<!-- Footer
     ================================================== -->

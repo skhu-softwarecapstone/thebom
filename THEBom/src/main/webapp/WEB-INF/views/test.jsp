@@ -8,6 +8,7 @@
 </head>
 <body>
 	<ul>
+		<li><a href='/landing'>Landing page</a></li>
 		<li><a href='/testInsert'>Test Insert</a></li>
 		<li><a href='/showAllSocialWorker'>Show All SocialWorker</a></li>
 		<li><a href='/showNameLikechu'>Show All 'chu'</a></li>

@@ -41,14 +41,21 @@ public class MainController {
 
 		return response;
 	}
-	
+	@GetMapping("landing")
+	public String Landing() {
+		return "landing";
+	}
 	@GetMapping("main")
 	public String Main() {
 		return "guest/main";
 	}
+	@GetMapping("introduce")
+	public String Introduce() {
+		return "guest/introduce";
+	}
 	@GetMapping("register")
 	public String Register() {
-		return "sponsor/register";
+		return "guest/register";
 	}
 	@GetMapping("sponsor")
 	public String Sponsor(Model model) {
@@ -102,6 +109,12 @@ public class MainController {
 		this.socialWorkerRepository.insert(socialWorker);
 
 		return "Inserted: " + socialWorker;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/insertBlind")
+	public void insertBlind() {
+		
 	}
 
 

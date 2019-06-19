@@ -57,8 +57,8 @@
 			</nav>
 	<!-- Story About Us
     ================================================== -->
-	<section id="nino-story">
-		<div class="container middle">
+	
+		<div class="bar">
 			<h2 class="nino-sectionHeading">
 				<span class="nino-subHeading">Circle management </span>
 				
@@ -182,11 +182,10 @@
 				</div>
 			</div>
 		</div>
-	</section>
 	<!--/#nino-story-->
 
 	<!-- Footer
-    ================================================== -->
+    
 	<footer id="footer">
 		<div class="container">
 			<div class="nino-copyright">Copyright &copy; 2019 <a target="_blank">The bom</a>. All Rights Reserved. <br/> MoGo free
@@ -194,7 +193,7 @@
 			</div>
 		</div>
 	</footer>
-	<!--/#footer-->
+	-->
 
 	<!-- javascript -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>

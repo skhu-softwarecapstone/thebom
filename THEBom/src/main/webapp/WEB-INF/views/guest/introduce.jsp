@@ -46,8 +46,8 @@
 					<div class="nino-menuItem pull-right">
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
-								<li><a href="introduce">더 봄 소개</a></li>
+								<li ><a href="main">홈<span class="sr-only">(current)</span></a></li>
+								<li class="active" ><a href="introduce">더 봄 소개</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">
@@ -59,36 +59,8 @@
 
 			
 		</div>
-        <div>
-		<form class="loginform middle">
-			<h3>로그인</h3>
-			<div class="select">
-			<label class="radio-inline">
-			<input type="radio" name="userType"  value="manager"> 관리자
-			</label>
-			<label class="radio-inline">
-			<input type="radio" name="userType"  value="sponsor"> 후원자
-		 </label>
-			</div>
-			<div class="form-group">
-				<label class="sr-only" for="Id">Id</label>
-				<input type="text" class="form-control" id="userId" placeholder="Id">
-			</div>
-			<div class="form-group">
-				<label class="sr-only" for="Password">Password</label>
-				<input type="password" class="form-control" id="userPassword" placeholder="Password">
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox"> Remember me
-				</label>
-			</div>
-			<button type="submit" class="btn btn-default">로그인</button>
-			<button  class="btn btn-default"><a style="color:black" href="register">회원가입</a></button>
-			
-			<!--  <button type="submit" class="btn btn-default">Login</button> -->
-		</form>
 
+		
 
 	<!-- </header> -->
 	<!--/#header-->

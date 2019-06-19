@@ -40,6 +40,17 @@ body.main {
     background-color: rgba( 255, 255, 255, 0.8 ); 
     */
 }
+.wrap{
+		background-color: white;
+ 		margin: 0 auto;
+        text-align: center;
+        width:80%
+      }
+	.bar{
+		padding-top: 50px;
+		padding-bottom: 50px;
+		background-color: white;
+	} 
 
 article, aside, details, figcaption, figure, footer, header, hgroup,
 	menu, nav, section, main {
@@ -328,6 +339,7 @@ img.img-full-width {
 
 #nino-slider .carousel-inner {
 	height: 386px;
+	padding-top: 50px;
 }
 
 #nino-slider .carousel-inner>.item {

@@ -23,10 +23,7 @@
  	body{
  		color:black;
  	}
-	.register{
-		padding-top: 50px;
-		background-color: white;
-	} 
+
     </style>
   </head>
   <body class="main">
@@ -48,12 +45,8 @@
 					<div class="nino-menuItem pull-right">
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li ><a href="main">홈<span class="sr-only">(current)</span></a></li>
-								<li class="active"><a href="register">후원자 등록</a></li>
-								<li><a href="#nino-services">후원정보 확인</a></li>
-								<li><a href="blind">사각지대 신고</a></li>
-								<li><a href="#nino-portfolio">일지 작성</a></li>
-								<li><a href="mypage">마이페이지</a></li>
+								<li class="active"><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
+								<li><a href="introduce">더 봄 소개</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">
@@ -63,9 +56,9 @@
 				</div><!-- /.container-fluid -->
 			</nav>
    
-   <div class="register">
+   <div class="bar">
    
-    <h3>후원자 등록</h3>
+    <h3>회원가입</h3>
     <form class="registerform">
 
       <div class="form-group row">

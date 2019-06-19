@@ -19,7 +19,21 @@
 	<!-- css -->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
-	
+	<style>
+	#joinus{
+		width:200px;
+		height:60px;	
+		font-size:30px;
+		font-family: 'Montserrat', sans-serif;
+	}
+	a#joinus:hover { 
+	  background-color: white;
+	  color:black;
+	}
+	#nino-headerInner{
+		height:100%;
+	}
+	</style>
 </head>
 
 <body data-target="#nino-navbar" class="main" data-spy="scroll">
@@ -39,7 +53,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="main">THE BOM</a>
+						<a class="navbar-brand" href="landing">THE BOM</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,37 +71,24 @@
 				</div><!-- /.container-fluid -->
 			</nav>
 
-			
+			<section id="nino-slider" class="carousel slide container" data-ride="carousel">
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<h2 class="nino-sectionHeading">
+							
+							Welcome <br>to The Bom
+						</h2>
+						<a href="main" id="joinus" class="nino-btn">JOIN US</a>
+					</div>
+
+				</div>
+
+				<!-- Indicators -->
+
+			</section>
 		</div>
-        <div>
-		<form class="loginform middle">
-			<h3>로그인</h3>
-			<div class="select">
-			<label class="radio-inline">
-			<input type="radio" name="userType"  value="manager"> 관리자
-			</label>
-			<label class="radio-inline">
-			<input type="radio" name="userType"  value="sponsor"> 후원자
-		 </label>
-			</div>
-			<div class="form-group">
-				<label class="sr-only" for="Id">Id</label>
-				<input type="text" class="form-control" id="userId" placeholder="Id">
-			</div>
-			<div class="form-group">
-				<label class="sr-only" for="Password">Password</label>
-				<input type="password" class="form-control" id="userPassword" placeholder="Password">
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox"> Remember me
-				</label>
-			</div>
-			<button type="submit" class="btn btn-default">로그인</button>
-			<button  class="btn btn-default"><a style="color:black" href="register">회원가입</a></button>
-			
-			<!--  <button type="submit" class="btn btn-default">Login</button> -->
-		</form>
 
 
 	<!-- </header> -->

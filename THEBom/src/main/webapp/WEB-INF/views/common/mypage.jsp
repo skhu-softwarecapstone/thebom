@@ -61,7 +61,7 @@
 				</div><!-- /.container-fluid -->
 			</nav>
 	<section id="nino-whatWeDo">
-		<div class="container middle">
+		<div class="container bar">
 			<h2 class="nino-sectionHeading">
 				
 			</h2>

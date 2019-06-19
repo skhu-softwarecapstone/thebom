@@ -53,8 +53,9 @@
 			</nav>
 	<!-- What We Do
     ================================================== -->
-	<section id="nino-whatWeDo">
-		<div class="container middle">
+	
+		<div class="wrap">
+		<div class="bar">
 			<h2 class="nino-sectionHeading">
 				방문후원자 상세페이지
 			</h2>
@@ -86,27 +87,11 @@
 				</div>
 			</div>
 			</p>
-
 		</div>
 		</div>
-	</section>
+		</div>
 	<!--/#nino-whatWeDo-->
 
-
-
-
-
-	<!-- Footer
-    ================================================== -->
-	<footer id="footer">
-		<div class="container">
-			<div class="nino-copyright">
-				Copyright &copy; 2019 <a target="_blank">The bom</a>. All Rights
-				Reserved. <br /> MoGo free PSD template by Laaqiq
-			</div>
-		</div>
-	</footer>
-	<!--/#footer-->
 
 
 	<!-- javascript -->
