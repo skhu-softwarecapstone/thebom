@@ -6,8 +6,13 @@
 	<title>The Bom</title>
 	
 	<!-- css -->
+<<<<<<< HEAD
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/template.css" />
+=======
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/template.css" />
+>>>>>>> refs/remotes/thebom/develop
 	
 </head>
 

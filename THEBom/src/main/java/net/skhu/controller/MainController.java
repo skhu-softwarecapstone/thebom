@@ -78,10 +78,18 @@ public class MainController {
 		model.addAttribute("sponsor", sponsorRepository.findById(id));
 		return "admin/sponsorview";
 	}
+	//sponsor
 	@GetMapping("blind")
 	public String Blind() {
 		return "sponsor/blind";
 	}
+	
+	@GetMapping("dailylog")
+	public String Dailylog() {
+		return "sponsor/dailylog";
+	}
+	
+	
 	@GetMapping("circle")
 	public String SponsorView1() {
 		return "admin/circle";
