@@ -17,7 +17,7 @@ import net.skhu.document.SocialWorker;
 @Component
 public class MyAuthenticationProvider implements AuthenticationProvider {
 
-    @Autowired workerService workerService;
+    @Autowired SocialWorkerService workerService;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {

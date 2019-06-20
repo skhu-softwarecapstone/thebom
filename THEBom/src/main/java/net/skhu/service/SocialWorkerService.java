@@ -8,16 +8,17 @@ import net.skhu.repository.SocialWorker.SocialWorkerRepository;
 import net.skhu.utils.EncryptionUtils;
 
 @Service
-public class workerService {
+public class SocialWorkerService {
 
     @Autowired SocialWorkerRepository workerRepository;
 
     public SocialWorker login(String loginId, String password) {
-        SocialWorker worker = workerRepository.findOneByLoginId(loginId);
-        if (worker == null) return null;
-        String pw = EncryptionUtils.encryptMD5(password);
-        if (worker.getPassword().equals(pw) == false) return null;
+        SocialWorker worker= workerRepository.findOneByLoginId(loginId);
+        if(worker == null) return null;
+        String pw= EncryptionUtils.encryptMD5(password);
+        if(worker.getPassword().equals(pw)==false) return null;
         return worker;
+    	
     }
 }
 

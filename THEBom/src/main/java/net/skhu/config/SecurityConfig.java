@@ -25,14 +25,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception
     {
         http.authorizeRequests()
-            .antMatchers("/admin/**").access("ROLE_ADMIN")
-            .antMatchers("/").permitAll()
-            .antMatchers("/**").permitAll();
+            .antMatchers("/admin/**").access("ROLE_ADMIN") //관리자 권한 가진 사람만
+            .antMatchers("/guest/**").permitAll() //방문한 모든 사람
+            .antMatchers("/").permitAll(); //쳇페이지
 
         http.csrf().disable();
 
         http.formLogin()
-            .loginPage("/") //로그인페이지
+            .loginPage("/guest/login") //로그인페이지
             .loginProcessingUrl("/login_processing") //로그인 검사
             .failureUrl("/?error")//로그인 실패 시
             .defaultSuccessUrl("/admin/circle", true)//로그인 성공 시
