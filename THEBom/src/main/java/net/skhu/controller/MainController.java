@@ -94,6 +94,7 @@ public class MainController {
 	public String SponsorView1() {
 		return "admin/circle";
 	}
+	//common
 	@GetMapping("mypage")
 	public String Mypage() {
 		return "common/mypage";

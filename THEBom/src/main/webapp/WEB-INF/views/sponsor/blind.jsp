@@ -21,6 +21,15 @@
         text-align: center;
         width:30%;
       }
+      p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+
 </style>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
@@ -76,15 +85,16 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	
+
 		<div class="bar">
 			<h2 class="nino-sectionHeading">사각지대 신고</h2>
 			<p class="nino-sectionDesc">
 			<div class="skill-main">
 
+
 				<form class="blindform">
 
-					<div>
+				
 					
 						<div class="form-group row">
 							<label class="col-form-label col-sm-5 pt-0" for="day">신고날짜</label>
@@ -114,8 +124,6 @@
 						</div>
 
 
-						<div>
-
 
 
 							<button type="submit" class="btn btn-default">등록</button>
@@ -140,9 +148,7 @@
 	</footer>
 	 -->
 	<!--/#footer-->
-	<script>
-		
-	</script>
+	
 
 
 

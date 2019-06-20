@@ -23,6 +23,68 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/res/js/common.js"></script>
 
+<style>
+	.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #FACC2E;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #DBA901;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: black;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #FFBF00;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #F5DA81;
+}
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+</style>	
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll" class="main">
@@ -60,19 +122,55 @@
 					</div>
 				</div><!-- /.container-fluid -->
 			</nav>
-	<section id="nino-whatWeDo">
-		<div class="container bar">
-			<h2 class="nino-sectionHeading">
-				
-			</h2>
-			<p class="nino-sectionDesc">
-			<div class="skill-main">
-				
-			</div>
-			</p>
-		</div>
-		</div>
-	</section>
+	<div class="bar">
+		<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>마이페이지</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Home 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">개인정보 수정</a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+	</div>
 	<!--/#nino-whatWeDo-->
 
 
@@ -91,8 +189,16 @@
 	<!--/#footer-->
 	<script>
 
-		
+	<script>
+	$(document).ready(function () {
+
+	    $('#sidebarCollapse').on('click', function () {
+	        $('#sidebar').toggleClass('active');
+	    });
+
+	});
 	</script>
+
 
 
 

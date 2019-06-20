@@ -15,13 +15,10 @@
 
 
 <!-- css -->
-<<<<<<< HEAD
+
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
-=======
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/res/css/template.css" />
->>>>>>> refs/remotes/thebom/develop
+
 
 
 

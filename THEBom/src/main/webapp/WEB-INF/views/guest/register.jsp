@@ -133,13 +133,7 @@
           <input type="image" src="" alt="사진" width="48" height="48">
         </div>
       </div>
-
-
       <div>
-
-
-   
-
       <button type="submit" class="btn btn-default">등록</button>
     </form>
     

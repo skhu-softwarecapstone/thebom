@@ -23,25 +23,17 @@ body {
 	font-weight: 400;
 	overflow-x: hidden;
 	position: relative;
-<<<<<<< HEAD
-=======
-	
->>>>>>> refs/remotes/thebom/develop
+
 	height: 100%;
 	font-family: 'Roboto', sans-serif;
 }
-<<<<<<< HEAD
 
 body.main {
 	background: url("../images/bg-header.jpg") no-repeat center center/cover;
 	
-=======
-body.main{
-	background: url("../images/bg-header.jpg") no-repeat center center / cover;
-}
+
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main {
     display: block;
->>>>>>> refs/remotes/thebom/develop
 }
 .middle{
     background-color: rgb( 255, 255, 255); 
@@ -449,19 +441,11 @@ img.img-full-width {
 	padding: 15px 5px 5px;
 	margin: 0 12px;
 }
-<<<<<<< HEAD
 
 #nino-navbar .navbar-nav>li>a:hover, #nino-navbar .navbar-nav>.active>a,
 	#nino-navbar .navbar-nav>.active>a:hover {
 	color: yellow;
 	border-color: yellow;
-=======
-#nino-navbar .navbar-nav > li > a:hover,
-#nino-navbar .navbar-nav > .active > a,
-#nino-navbar .navbar-nav > .active > a:hover {
-	color: #fce38a;
-	border-color: #fce38a;
->>>>>>> refs/remotes/thebom/develop
 	background: none;
 }
 
@@ -742,21 +726,8 @@ section {
 	font-weight: 300;
 }
 
-#nino-whatWeDo .mCS-default .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
-<<<<<<< HEAD
-	#nino-whatWeDo .mCS-default .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
-	#nino-whatWeDo .mCS-default .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar
-	{
-=======
-#nino-whatWeDo .mCS-default .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
-#nino-whatWeDo .mCS-default .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar {
->>>>>>> refs/remotes/thebom/develop
-	background: #95e1d3;
-}
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/thebom/develop
+
 #nino-whatWeDo .mCSB_scrollTools .mCSB_draggerRail {
 	background: #f5f5f5;
 }
@@ -1267,7 +1238,7 @@ div.pp_default .pp_social {
 		margin-left: 88px;
 		width: 110px;
 	}
-<<<<<<< HEAD
+
 	@media ( max-width : 768px) {
 		/* =============== HOVER EFFECT =============== */
 		.nino-hoverEffect .item {
@@ -1464,212 +1435,3 @@ div.pp_default .pp_social {
 		}
 	}
 }
-=======
-
-
-@media (max-width: 768px) {
-
-	/* =============== HOVER EFFECT =============== */
-	.nino-hoverEffect .item {
-		margin-bottom: 15px;
-	}
-	/* =============== MAIN SLIDER =============== */
-	#nino-slider {
-		padding-top: 10px;
-	}
-	#nino-slider .carousel-inner {
-		height: 270px;
-	}
-	#nino-slider .carousel-indicators {
-		margin-top: 30px;
-	}
-	#nino-slider .nino-sectionHeading {
-		font-size: 60px;
-	}
-	#nino-slider .nino-sectionHeading .nino-subHeading {
-	    font-size: 35px;
-	}
-	/* =============== SECTION UNIQUE DESIGN =============== */
-	#nino-uniqueDesign .nino-devices .mobile {
-		margin-left: 65px;
-	}
-	/* =============== SECTION OUR TEAM =============== */
-	#nino-ourTeam .info {
-		margin: 0 0 20px;
-	}
-	/* =============== SECTION OUR WORK =============== */
-	#nino-portfolio .nino-portfolioItems li {
-		width: 50%;
-	}
-	/* =============== SECTION LATEST BLOG =============== */
-	#nino-latestBlog {
-		text-align: center;
-	}
-	#nino-latestBlog article {
-		display: inline-block;
-		max-width: 380px;
-		margin-bottom: 30px;
-		text-align: left;
-	}
-}
-
-@media (max-width: 767px) {
-
-	/* =============== MENU AREA =============== */
-	#nino-navbar {
-		background: rgba(234, 83, 83, 0.70);
-	}
-	#nino-navbar .navbar-header {
-		padding-right: 80px;
-	}
-	#nino-navbar .navbar-nav > li > a {
-		padding: 10px 5px 5px;
-	}
-	#nino-navbar .navbar-nav > li > a:hover,
-	#nino-navbar .navbar-nav > .active > a,
-	#nino-navbar .navbar-nav > .active > a:hover {
-		border-color: transparent;
-	}
-	#nino-navbar .nino-menuItem,
-	#nino-navbar .navbar-collapse {
-		width: 100%;
-	}
-	#nino-navbar .navbar-collapse {
-		background: rgba(56,56,56,0.95);
-		border-color: #464646;
-		position: absolute;
-		z-index: 1;
-		left: 0px;
-	}
-	#nino-navbar .nino-iconsGroup {
-		position: absolute;
-		right: 15px;
-		top: 0;
-		margin: 0;
-	}
-	#nino-navbar .nino-iconsGroup > li {
-		display: inline-block;
-	}
-	#nino-navbar .nino-iconsGroup li a {
-		margin: 0 0 0 15px;
-		padding: 15px 0 5px;
-	}
-	/* =============== SECTION SERVICES =============== */
-	#nino-services .item:not(:nth-last-child(-n+1)) {
-		border-bottom: 1px solid #e5e5e5;
-		margin-bottom: 20px;
-		padding-bottom: 10px;
-	}
-}
-
-@media (max-width: 640px) {
-	section {
-		padding: 30px 0;
-	}
-	.nino-sectionHeading {
-		font-size: 20px;
-		margin-bottom: 20px;
-	}
-	.nino-sectionHeading .nino-subHeading {
-		font-size: 16px;
-		margin-bottom: 10px;
-	}
-	.nino-sectionDesc {
-		margin-bottom: 20px;
-	}
-	/* =============== MAIN SLIDER =============== */
-	#nino-slider .nino-sectionHeading {
-		font-size: 45px;
-	}
-	#nino-slider .nino-sectionHeading .nino-subHeading {
-		font-size: 22px;
-	}
-	#nino-slider .carousel-inner {
-		height: 205px;
-	}
-	#nino-slider .carousel-indicators li .number {
-		display: none;
-	}
-	/* =============== SECTION COUNTING =============== */
-	#nino-counting .item {
-		padding: 20px 5px;
-	}
-	#nino-counting .number {
-		font-size: 28px;
-	}
-	#nino-counting .text {
-		font-size: 9px;
-	}
-	/* =============== SECTION UNIQUE DESIGN =============== */
-	#nino-uniqueDesign .nino-devices .mobile {
-		margin-left: 65px;
-	}
-	/* =============== SECTION TESTIMONIAL =============== */
-	.nino-testimonialSlider {
-		margin: 0 40px;
-	}
-	.nino-testimonialSlider .nino-symbol {
-		font-size: 45px;
-		margin: 0 15px 0 5px;
-	}
-	.nino-testimonialSlider .quote {
-		font-size: 11px;
-	}
-	.nino-testimonialSlider .name {
-		font-size: 13px;
-	}
-	.nino-testimonialSlider .nino-avatar {
-		width: 100px;
-		margin-right: 15px;
-	}
-	/* =============== SECTION UNIQUE DESIGN =============== */
-	#nino-uniqueDesign .nino-devices .mobile {
-		margin-left: 50px;
-		width: 90px;
-	}
-	/* =============== SECTION HAPPY CLIENT =============== */
-	#nino-happyClient .nino-avatar {
-	    width: 50px;
-	    margin-right: 15px;
-	}
-	/* =============== SEARCH FORM =============== */
-	#nino-searchForm .nino-searchInput {
-		height: 60px;
-		font-size: 35px;
-
-	}
-	#nino-searchForm .nino-close {
-		font-size: 40px;
-	}
-	/* =============== FOOTER =============== */
-	footer {
-		padding-top: 30px;
-	}
-
-}
-
-@media (max-width: 480px) {
-
-	/* =============== MAIN SLIDER =============== */
-	#nino-slider .carousel-indicators li .inner {
-		text-indent: -99999em;
-		line-height: 0;
-		border-width: 3px;
-	}
-	#nino-slider .carousel-indicators .inner:after {
-		display: none;
-	}
-	#nino-slider .carousel-indicators li.active .inner {
-		border-color: #f38181;
-	}
-	/* =============== SECTION TESTIMONIAL =============== */
-	.nino-testimonialSlider .nino-symbol,
-	.nino-testimonialSlider .nino-avatar {
-		display: none;
-	}
-	/* =============== SECTION OUR WORK =============== */
-	#nino-portfolio .nino-portfolioItems li {
-		width: 100%;
-	}
-}
->>>>>>> refs/remotes/thebom/develop
