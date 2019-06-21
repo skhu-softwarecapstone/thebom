@@ -7,9 +7,7 @@ import lombok.Data;
 public class Address {
 	
 	private String city;
-	private String district;
-	private String neighborhood;
 	private String zip;
-	private Location location;
+	private double[] location;
 
 }

@@ -1,17 +1,32 @@
 package net.skhu.controller;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+
+
 import net.skhu.document.SocialWorker;
+import net.skhu.document.senior.Senior;
 import net.skhu.repository.SocialWorker.SocialWorkerRepository;
 import net.skhu.repository.SocialWorker.SocialWorkerRepositoryCustom;
 
 import net.skhu.document.sponsor.Sponsor;
+import net.skhu.repository.SeniorRepository;
 import net.skhu.repository.SponsorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.geo.Distance;
+import org.springframework.data.geo.GeoResult;
+import org.springframework.data.geo.GeoResults;
+import org.springframework.data.geo.Metrics;
+import org.springframework.data.geo.Point;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.NearQuery;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +34,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 
 //지금은 test용이지만 포괄적으로 사용되는 중요기능 명령내리는 곳으로 사용합시당>0<
 
@@ -31,8 +47,20 @@ public class MainController {
 	private SocialWorkerRepository socialWorkerRepository;
 	@Autowired
 	private SocialWorkerRepositoryCustom socialWorkerRepositoryCustom;
+	
 	@Autowired
 	private SponsorRepository sponsorRepository;
+	
+	@Autowired
+	private SeniorRepository seniorRepository;
+	
+	@Autowired 
+	MongoOperations operations;
+	
+	@Autowired
+	MongoTemplate mongoTemplate;
+	
+	
 
 	@GetMapping("/")
 	public ModelAndView LoginPage() {
@@ -133,5 +161,22 @@ public class MainController {
 
 		this.socialWorkerRepository.deleteAll();
 		return "Deleted!";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/address")
+	public List<Senior> Address() {
+
+//		Point location = new Point(126.823592, 37.492397);
+//		NearQuery query = NearQuery.near(location).maxDistance(new Distance(10, Metrics.MILES));
+//		GeoResults<Senior> results= operations.geoNear(query, Senior.class);
+//		return results.getContent().get(1);
+		
+		
+		Point location = new Point(126.823592, 37.492397);
+		List<Senior> seniors =
+		mongoTemplate.find(new Query(Criteria.where("address.location").near(location).maxDistance(0.01)), Senior.class);
+		
+		return seniors;
 	}
 }

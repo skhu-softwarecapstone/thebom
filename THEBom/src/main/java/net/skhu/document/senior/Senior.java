@@ -43,5 +43,5 @@ public class Senior {
 	private GroupInfo groupInfo;
 	
 	@Field(value="address")
-	private Address address;
+	Address address;
 }
