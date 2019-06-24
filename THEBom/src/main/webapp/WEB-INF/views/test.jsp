@@ -17,6 +17,9 @@
 		<li><a href='/sponsorview'>Sponsor Detail Page</a></li>
 		<li><a href='/circle'>Circle Page</a></li>
 		<li><a href='/address'>Address Page</a></li>
+		<li><a href='/address2'>Address Near Page</a></li>
+		<li><a href='/geocoding'>GeoCoding Page</a></li>
+		
 	</ul>
 </body>
 </html>

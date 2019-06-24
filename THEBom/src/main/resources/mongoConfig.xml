@@ -13,24 +13,28 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+<!-- 	<mongo:mongo-client	credentials="thebom:1234@no_loneliness" /> -->
+	
+<!-- 	<mongo:db-factory dbname="no_loneliness" /> -->
 
-	<mongo:db-factory dbname="no_loneliness" />
-
-	<mongo:mapping-converter>
+	<mongo:mapping-converter id="mappingConverter">
 		<mongo:custom-converters>
 			<mongo:converter ref="readConverter" />
 			<mongo:converter>
-				<bean
-					class="net.skhu.converter.PointWriteConverter" />
+				<bean class="net.skhu.converter.PointWriteConverter" />
 			</mongo:converter>
 		</mongo:custom-converters>
 	</mongo:mapping-converter>
 
-	<bean id="readConverter" class="net.skhu.converter.PointReadConverter" />
+	<bean id="readConverter"
+		class="net.skhu.converter.PointReadConverter" />
 
-	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
-		<constructor-arg name="mongoConverter" ref="mappingConverter" />
+	<bean id="mongoTemplate"
+		class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory"
+			ref="mongoDbFactory" />
+		<constructor-arg name="mongoConverter"
+			ref="mappingConverter" />
 	</bean>
-	
+
 </beans>

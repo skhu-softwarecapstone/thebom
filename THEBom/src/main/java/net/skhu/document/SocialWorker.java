@@ -1,6 +1,7 @@
 package net.skhu.document;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -36,6 +37,26 @@ public class SocialWorker {
 
 	@Field(value="ranks")
 	private String ranks;
+
+	@PersistenceConstructor
+	public SocialWorker(String id, int swNo, String name, String phone, String city, String district,
+			String neighborhood, String ranks) {
+		super();
+		this.id = id;
+		this.swNo = swNo;
+		this.name = name;
+		this.phone = phone;
+		this.city = city;
+		this.district = district;
+		this.neighborhood = neighborhood;
+		this.ranks = ranks;
+	}
+
+	public SocialWorker() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 
 
 }

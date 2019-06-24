@@ -1,13 +1,14 @@
 package net.skhu.controller;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
 
-
 import net.skhu.document.SocialWorker;
+import net.skhu.document.Venue;
 import net.skhu.document.senior.Senior;
 import net.skhu.repository.SocialWorker.SocialWorkerRepository;
 import net.skhu.repository.SocialWorker.SocialWorkerRepositoryCustom;
@@ -15,8 +16,10 @@ import net.skhu.repository.SocialWorker.SocialWorkerRepositoryCustom;
 import net.skhu.document.sponsor.Sponsor;
 import net.skhu.repository.SeniorRepository;
 import net.skhu.repository.SponsorRepository;
+import net.skhu.repository.VenueRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.GeoResult;
 import org.springframework.data.geo.GeoResults;
@@ -24,6 +27,7 @@ import org.springframework.data.geo.Metrics;
 import org.springframework.data.geo.Point;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.convert.MongoCustomConversions;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.NearQuery;
 import org.springframework.data.mongodb.core.query.Query;
@@ -45,6 +49,7 @@ public class MainController {
 
 	@Autowired
 	private SocialWorkerRepository socialWorkerRepository;
+	
 	@Autowired
 	private SocialWorkerRepositoryCustom socialWorkerRepositoryCustom;
 	
@@ -54,6 +59,9 @@ public class MainController {
 	@Autowired
 	private SeniorRepository seniorRepository;
 	
+	@Autowired
+	private VenueRepository venueRepository;
+	
 	@Autowired 
 	MongoOperations operations;
 	
@@ -61,7 +69,8 @@ public class MainController {
 	MongoTemplate mongoTemplate;
 	
 	
-
+	
+	
 	@GetMapping("/")
 	public ModelAndView LoginPage() {
 
@@ -165,18 +174,25 @@ public class MainController {
 	
 	@ResponseBody
 	@RequestMapping("/address")
-	public List<Senior> Address() {
+	public List<Venue> Address() {
 
-//		Point location = new Point(126.823592, 37.492397);
-//		NearQuery query = NearQuery.near(location).maxDistance(new Distance(10, Metrics.MILES));
-//		GeoResults<Senior> results= operations.geoNear(query, Senior.class);
-//		return results.getContent().get(1);
+		return venueRepository.findAll();
+	}
+	
+	@ResponseBody
+	@RequestMapping("/address2")
+	public List<Venue> Address2() {
+		Point point = new Point(37.487151, 126.826098);//성공회대 월당관
+		
+		List<Venue> venues =
+		    mongoTemplate.find(new Query(Criteria.where("location").near(point).maxDistance(0.01)), Venue.class);
+			return venues;
+	}
+
+	@GetMapping("/geocoding")
+	public String Geocoding() {
 		
 		
-		Point location = new Point(126.823592, 37.492397);
-		List<Senior> seniors =
-		mongoTemplate.find(new Query(Criteria.where("address.location").near(location).maxDistance(0.01)), Senior.class);
-		
-		return seniors;
+		return "geocoding";
 	}
 }

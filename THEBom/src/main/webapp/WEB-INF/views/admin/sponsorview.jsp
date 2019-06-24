@@ -39,17 +39,17 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-6 item seniorview">
-							<div layout="row">
-								<div>
-									<h4 class="nino-serviceTitle">주소</h4>
-									<p>시/도${ sponsor.address.city }</p>
-									<p>zipcode${ sponsor.address.zip }</p>
-									<p>좌표X${ sponsor.address.location.x }</p>
-									<p>좌표Y${ sponsor.address.location.y }</p>
-								</div>
-							</div>
-						</div>
+<!-- 						<div class="col-md-4 col-sm-6 item seniorview"> -->
+<!-- 							<div layout="row"> -->
+<!-- 								<div> -->
+<!-- 									<h4 class="nino-serviceTitle">주소</h4> -->
+<%-- 									<p>시/도${ sponsor.address.city }</p> --%>
+<%-- 									<p>zipcode${ sponsor.address.zip }</p> --%>
+<%-- 									<p>좌표X${ sponsor.address.location.x }</p> --%>
+<%-- 									<p>좌표Y${ sponsor.address.location.y }</p> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,7 @@
 package net.skhu.document.senior;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -44,4 +45,22 @@ public class Senior {
 	
 	@Field(value="address")
 	Address address;
+	
+	@PersistenceConstructor
+	public Senior(String id, int seNo, String name, int age, boolean gender, int point, String phone,
+			String disabilityGrade, GroupInfo groupInfo, Address address) {
+		super();
+		this.id = id;
+		this.seNo = seNo;
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.point = point;
+		this.phone = phone;
+		this.disabilityGrade = disabilityGrade;
+		this.groupInfo = groupInfo;
+		this.address = address;
+	}
+	
+	
 }
