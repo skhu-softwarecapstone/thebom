@@ -51,7 +51,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="homepage.html">THE BOM</a>
+				<a class="navbar-brand" href="/main">THE BOM</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -60,10 +60,9 @@
 					id="nino-navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="main">홈<span class="sr-only">(current)</span></a></li>
-						<li><a href="register">후원자 등록</a></li>
-						<li><a href="#nino-services">후원정보 확인</a></li>
-						<li class="active"><a href="blind">사각지대 신고</a></li>
-						<li><a href="#nino-portfolio">일지 작성</a></li>
+						<li class="active"><a href="matchinfo">후원정보 확인</a></li>
+						<li><a href="blind">사각지대 신고</a></li>
+						<li><a href="createdailylog">일지 작성</a></li>
 						<li><a href="mypage">마이페이지</a></li>
 					</ul>
 				</div>
@@ -77,64 +76,51 @@
 		<!-- /.container-fluid -->
 	</nav>
 	
-		<div class="bar">
-			<h2 class="nino-sectionHeading">일지 작성하기</h2>
+		<div class="bar row">
+			<h2 class="nino-sectionHeading">돌봄 현황</h2>
+			
+			<div class="col-sm-2">
+			<!-- Sidebar -->
+			<nav id="sidebar">
+				<div class="sidebar-header">
+					<h3 style="color: white">후원 정보 확인</h3>
+				</div>
+				<h4>현재 활동중입니다</h4>
+				<ul>
+					<li class="active"><a href="matchinfo">돌봄 현황</a></li>	
+					<li><a href="point">적립 포인트 내역</a></li>
+				</ul>
+			</nav>
+			</div>
 			<p class="nino-sectionDesc">
-			<div class="skill-main">
+			<div class="skill-main col-sm-8  ffset-sm-2">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>날짜</th>
+							<th>활동 내용</th>
+							<th>상태</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								
 
-				<form class="dailyform">
-
-					<div>
-					
-						<div class="form-group row">
-							<label class="col-form-label col-sm-5 pt-0" for="day">날짜</label>
-							<div class="col-sm-7">
-								<input type="date" name="day">
-							</div>
-						</div>
-					
-							<div class="form-group row">
-							<label class="col-form-label col-sm-5 pt-0" for="state">활동 내용</label>
-							<div class="col-sm-7">
-								<textarea name="content" rows="10" style="width:100%;"></textarea>
-
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-form-label col-sm-5 pt-0" for="state">상태</label>
-							<div class="col-sm-7">
-								<textarea name="content" rows="10" style="width:100%;"></textarea>
-
-							</div>
-						</div>
-
-
-						<div>
-
-
-
-							<button type="submit" class="btn btn-default">등록</button>
-				</form>
-
-
+							</tr>
+						
+					</tbody>
+				</table>
 			</div>
 			</p>
+			
 		</div>
-		</div> 
+	
 
-	<!-- Footer
-    ================================================== -->
-	<!-- 
-	<footer id="footer">
-		<div class="container">
-			<div class="nino-copyright">
-				Copyright &copy; 2019 <a target="_blank">The bom</a>. All Rights
-				Reserved. <br /> MoGo free PSD template by Laaqiq
-			</div>
-		</div>
-	</footer>
-	 -->
-	<!--/#footer-->
+
 	<script>
 		
 	</script>

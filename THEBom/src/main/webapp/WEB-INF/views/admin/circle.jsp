@@ -36,19 +36,19 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="homepage.html">THE BOM</a>
+						<a class="navbar-brand" href="/main">THE BOM</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="nino-menuItem pull-right">
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
-								<li><a href="#nino-story">후원자 등록</a></li>
-								<li><a href="#nino-services">후원정보 확인</a></li>
-								<li><a href="#nino-ourTeam">사각지대 신고</a></li>
-								<li><a href="#nino-portfolio">일지 작성</a></li>
-								<li><a href="#nino-latestBlog">마이페이지</a></li>
+								<li><a href="main">홈<span class="sr-only">(current)</span></a></li>
+								<li><a href="#nino-story">진행 현황 조회</a></li>
+								<li><a href="checkdailylog">일지 확인</a></li>
+								<li class="active"><a href="circle">써클 관리</a></li>
+								<li><a href="senior">관활 독거노인 조회</a></li>
+								<li><a href="sponsor">후원자 조회</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">

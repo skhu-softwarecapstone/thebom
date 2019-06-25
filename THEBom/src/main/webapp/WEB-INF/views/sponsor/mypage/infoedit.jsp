@@ -1,28 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
+<!-- tag library -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/res/css/template.css" />
-    <style media="screen">
-      .registerform{
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>The Bom</title>
+
+
+<!-- css -->
+<style>
+     .dailyform{
         margin: 0 auto;
         text-align: center;
         width:30%;
       }
-      h3{
-        text-align: center;
-        margin: 40px;
+      aside{
+      	float:left;
       }
-      .form-group{
-        margin: 30px;
-      }
-    </style>
-  </head>
-  <body data-target="#nino-navbar" data-spy="scroll" class="main">
+</style>
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/res/css/template.css" />
+
+<!-- javascript -->
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/common.js"></script>
+
+</head>
+
+<body data-target="#nino-navbar" data-spy="scroll" class="main">
 	<!-- What We Do
     ================================================== -->
 	<nav id="nino-navbar" class="navbar navbar-default" role="navigation">
@@ -45,10 +63,10 @@
 					id="nino-navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="main">홈<span class="sr-only">(current)</span></a></li>
-						<li><a href="#nino-services">후원정보 확인</a></li>
-						<li class="active"><a href="blind">사각지대 신고</a></li>
-						<li><a href="#nino-portfolio">일지 작성</a></li>
-						<li><a href="mypage">마이페이지</a></li>
+						<li><a href="matchinfo">후원정보 확인</a></li>
+						<li><a href="blind">사각지대 신고</a></li>
+						<li><a href="createdailylog">일지 작성</a></li>
+						<li class="active"><a href="mypage">마이페이지</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -60,7 +78,26 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-    <h3>후원자 등록</h3>
+	
+		<div class="bar row">
+			
+			<h2 class="nino-sectionHeading">개인정보 수정</h2>
+			<div class="col-sm-2">
+			<!-- Sidebar -->
+			<nav id="sidebar">
+				<div class="sidebar-header">
+					<h3 style="color: white">마이페이지</h3>
+				</div>
+
+				<ul>
+					<li class="active"><a href="/managedailylog">나의 일지 관리</a></li>	
+					<li><a href="/infoedit">개인정보 수정</a></li>
+				</ul>
+			</nav>
+			</div>
+			<p class="nino-sectionDesc">
+			<div class="skill-main col-sm-7 offset-sm-3">
+				
     <form class="registerform">
 
       <div class="form-group row">
@@ -91,7 +128,7 @@
           <input type="radio" name="sex"  value="woman"> 여자
           </label>
           <label class="radio-inline">
-          <input type="radio" name="sex"  value="man"> 남자
+          <input type="radio" name="sex" s value="man"> 남자
          </label>
         </div>
       </div>
@@ -135,14 +172,23 @@
           <input type="image" src="" alt="사진" width="48" height="48">
         </div>
       </div>
-
-
       <div>
-
-      </div>
-
-
       <button type="submit" class="btn btn-default">등록</button>
     </form>
-  </body>
+			</div>
+			</p>
+			
+		</div>
+		
+	
+
+
+	<script>
+		
+	</script>
+
+
+
+
+</body>
 </html>

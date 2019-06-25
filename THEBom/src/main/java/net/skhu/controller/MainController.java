@@ -83,10 +83,18 @@ public class MainController {
 	public String Blind() {
 		return "sponsor/blind";
 	}
+	@GetMapping("matchinfo")
+	public String Matchinfo() {
+		return "sponsor/matchinfo";
+	}
+	@GetMapping("point")
+	public String Point() {
+		return "sponsor/point";
+	}
 	
-	@GetMapping("dailylog")
+	@GetMapping("createdailylog")
 	public String Dailylog() {
-		return "sponsor/dailylog";
+		return "sponsor/createdailylog";
 	}
 	
 	
@@ -99,7 +107,14 @@ public class MainController {
 	public String Mypage() {
 		return "common/mypage";
 	}
-
+	@GetMapping("managedailylog")
+	public String Managedailylog() {
+		return "sponsor/mypage/managedailylog";
+	}
+	@GetMapping("infoedit")
+	public String Infoedit() {
+		return "sponsor/mypage/infoedit";
+	}
 	//사회복지사 테스트 데이터 삽입
 	@ResponseBody
 	@RequestMapping("/testInsert")

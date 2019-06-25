@@ -16,20 +16,11 @@
 
 <!-- css -->
 <style>
-     .blindform{
+     .dailyform{
         margin: 0 auto;
         text-align: center;
         width:30%;
       }
-      p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
-
-
 </style>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
@@ -69,10 +60,10 @@
 					id="nino-navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="main">홈<span class="sr-only">(current)</span></a></li>
-						<li><a href="matchinfo">후원정보 확인</a></li>
-						<li class="active"><a href="blind">사각지대 신고</a></li>
-						<li><a href="createdailylog">일지 작성</a></li>
-						<li><a href="managedailylog">마이페이지</a></li>
+						<li><a href="#nino-services">후원정보 확인</a></li>
+						<li><a href="blind">사각지대 신고</a></li>
+						<li class="active"><a href="#nino-portfolio">일지 작성</a></li>
+						<li><a href="mypage">마이페이지</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -84,34 +75,28 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-
+	
 		<div class="bar">
-			<h2 class="nino-sectionHeading">사각지대 신고</h2>
+			<h2 class="nino-sectionHeading">일지 작성하기</h2>
 			<p class="nino-sectionDesc">
 			<div class="skill-main">
 
+				<form class="dailyform">
 
-				<form class="blindform">
-
-				
+					<div>
 					
 						<div class="form-group row">
-							<label class="col-form-label col-sm-5 pt-0" for="day">신고날짜</label>
+							<label class="col-form-label col-sm-5 pt-0" for="day">날짜</label>
 							<div class="col-sm-7">
 								<input type="date" name="day">
 							</div>
 						</div>
-						<label>신고 대상 정보</label> <br /> <br />
-						<div class="form-group row">
-							<label class="col-form-label col-sm-5 pt-0" for="name">이름</label>
+					
+							<div class="form-group row">
+							<label class="col-form-label col-sm-5 pt-0" for="state">활동 내용</label>
 							<div class="col-sm-7">
-								<input type="text" name="name">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-form-label col-sm-5 pt-0" for="age">나이</label>
-							<div class="col-sm-7">
-								<input type="text" name="age">
+								<textarea name="content" rows="10" style="width:100%;"></textarea>
+
 							</div>
 						</div>
 						<div class="form-group row">
@@ -122,6 +107,8 @@
 							</div>
 						</div>
 
+
+						<div>
 
 
 
@@ -147,7 +134,9 @@
 	</footer>
 	 -->
 	<!--/#footer-->
-	
+	<script>
+		
+	</script>
 
 
 

@@ -46,7 +46,7 @@
 					<div class="nino-menuItem pull-right">
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li ><a href="main">홈<span class="sr-only">(current)</span></a></li>
+								<li ><a href="landing">홈<span class="sr-only">(current)</span></a></li>
 								<li class="active" ><a href="introduce">더 봄 소개</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
@@ -59,8 +59,10 @@
 
 			
 		</div>
-
-		
+		<div class="bar">
+		<h3 style="text-align:center">빅데이터 기반 독거노인 관련 비즈니스 구축</h3>
+		<img src="https://user-images.githubusercontent.com/25261321/54584007-6a735980-4a59-11e9-90ed-37f8ea423dae.png" alt="이미지 로드 실패">
+		</div>
 
 	<!-- </header> -->
 	<!--/#header-->

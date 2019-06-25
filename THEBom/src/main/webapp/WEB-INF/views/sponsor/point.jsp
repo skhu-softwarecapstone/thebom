@@ -16,20 +16,11 @@
 
 <!-- css -->
 <style>
-     .blindform{
+     .dailyform{
         margin: 0 auto;
         text-align: center;
         width:30%;
       }
-      p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
-
-
 </style>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
@@ -69,10 +60,10 @@
 					id="nino-navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="main">홈<span class="sr-only">(current)</span></a></li>
-						<li><a href="matchinfo">후원정보 확인</a></li>
-						<li class="active"><a href="blind">사각지대 신고</a></li>
+						<li class="active"><a href="matchinfo">후원정보 확인</a></li>
+						<li><a href="blind">사각지대 신고</a></li>
 						<li><a href="createdailylog">일지 작성</a></li>
-						<li><a href="managedailylog">마이페이지</a></li>
+						<li><a href="mypage">마이페이지</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -84,70 +75,55 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
+	
+		<div class="bar row">
+			<h2 class="nino-sectionHeading">적립 포인트 내역</h2>
+			
+			<div class="col-sm-2">
+			<!-- Sidebar -->
+			<nav id="sidebar">
+				<div class="sidebar-header">
+					<h3 style="color: white">후원 정보 확인</h3>
+				</div>
 
-		<div class="bar">
-			<h2 class="nino-sectionHeading">사각지대 신고</h2>
+				<ul>
+					<li><a href="matchinfo">돌봄 현황</a></li>	
+					<li class="active"><a href="point">적립 포인트 내역</a></li>
+				</ul>
+			</nav>
+			</div>
 			<p class="nino-sectionDesc">
-			<div class="skill-main">
-
-
-				<form class="blindform">
-
-				
-					
-						<div class="form-group row">
-							<label class="col-form-label col-sm-5 pt-0" for="day">신고날짜</label>
-							<div class="col-sm-7">
-								<input type="date" name="day">
-							</div>
-						</div>
-						<label>신고 대상 정보</label> <br /> <br />
-						<div class="form-group row">
-							<label class="col-form-label col-sm-5 pt-0" for="name">이름</label>
-							<div class="col-sm-7">
-								<input type="text" name="name">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-form-label col-sm-5 pt-0" for="age">나이</label>
-							<div class="col-sm-7">
-								<input type="text" name="age">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-form-label col-sm-5 pt-0" for="state">상태</label>
-							<div class="col-sm-7">
-								<textarea name="content" rows="10" style="width:100%;"></textarea>
-
-							</div>
-						</div>
-
-
-
-
-							<button type="submit" class="btn btn-default">등록</button>
-				</form>
-
-
+			<div class="skill-main col-sm-8  ffset-sm-2">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>날짜</th>
+							<th>활동 내용</th>
+							<th>적립 포인트</th>
+							<th>누적 포인트</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						
+					</tbody>
+				</table>
 			</div>
 			</p>
+			
 		</div>
-		</div> 
-
-	<!-- Footer
-    ================================================== -->
-	<!-- 
-	<footer id="footer">
-		<div class="container">
-			<div class="nino-copyright">
-				Copyright &copy; 2019 <a target="_blank">The bom</a>. All Rights
-				Reserved. <br /> MoGo free PSD template by Laaqiq
-			</div>
-		</div>
-	</footer>
-	 -->
-	<!--/#footer-->
 	
+
+
+	<script>
+		
+	</script>
 
 
 

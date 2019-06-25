@@ -39,7 +39,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="homepage.html">THE BOM</a>
+						<a class="navbar-brand" href="/main">THE BOM</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,7 +47,6 @@
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
-								<li><a href="#nino-story">후원자 등록</a></li>
 								<li><a href="#nino-services">후원정보 확인</a></li>
 								<li><a href="#nino-ourTeam">사각지대 신고</a></li>
 								<li><a href="#nino-portfolio">일지 작성</a></li>
@@ -79,7 +78,7 @@
 
 			</section>
 		</div>
-
+		<div class="bar">
 		<form class="loginform">
 			<div class="select">
 			<label class="radio-inline">
@@ -107,7 +106,7 @@
 			</div>
 			<button type="submit" class="btn btn-default">Login</button>
 		</form>
-
+	</div>
 
 	<!-- </header> -->
 	<!--/#header-->

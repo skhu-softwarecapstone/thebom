@@ -19,7 +19,7 @@
 		<li><a href='/circle'>Circle Page</a></li>
 		<li><a href='/register'>Register Page</a></li>
 		<li><a href='/blind'>Blind Spot Page</a></li>
-		<li><a href='/dailylog'>dailylog Page</a></li>
+		<li><a href='/createdailylog'>createdailylog Page</a></li>
 		<li><a href='/mypage'>myPage</a></li>
 	</ul>
 </body>

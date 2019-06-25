@@ -53,15 +53,15 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="landing">THE BOM</a>
+						<a class="navbar-brand" href="/main">THE BOM</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="nino-menuItem pull-right">
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
-								<li><a href="introduce">더 봄 소개</a></li>
+								<li class="active"><a href="/main">홈<span class="sr-only">(current)</span></a></li>
+								<li><a href="/introduce">더 봄 소개</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">
