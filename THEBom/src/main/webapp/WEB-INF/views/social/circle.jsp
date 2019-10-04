@@ -1,0 +1,224 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The bom</title>
+
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/template.css" />
+</head>
+
+<body data-target="#nino-navbar" data-spy="scroll">
+    <!-- Header
+    ================================================== -->
+	<header id="nino-header" style="background-color:#fce38a" ;>
+            <div id="nino-headerInner">		
+                <nav id="nino-navbar" class="navbar navbar-default" role="navigation">
+                    <div class="container header">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="nino-menuItem pull-right">
+                            <div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
+                                <ul class="nav navbar-nav">
+									<li><a href="social_main.html">홈</a></li>
+                                    <li><a href="notice.html">공지사항</a></li>
+                                    <li class="active"><a href="circle.html">써클조회<span class="sr-only">(current)</span></a></li>
+                                    <li><a href="senior.html">노인조회</a></li>
+                                    <li><a href="sponsor.html">후원자조회</a></li>
+                                    <li><a href="sponsorview.html">후원매치현황</a></li>
+                                    <li><a href="mypage.html">마이페이지</a></li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+		</header><!--/#header-->
+		
+		
+	<!-- Start Project -->
+    <!-- Start Project -->
+    <section id="portfolio" class="section archive page">
+			<div class="container">
+				    <div class="row">
+						<h2 class="nino-sectionHeading">
+							<span class="nino-subHeading">Circle management </span>
+							써클관리
+						</h2>
+						<div style="float:right" class="search">
+							<div class="pull-right col-sm-12 col-xs-12" >
+								<form style="display: inline-block">
+									<select>
+										<option>이름</option>
+										<option>번호</option>
+									</select>
+									<div >
+										<form><input /></form>
+									</div>
+									<div style="display: inline-block;"><button class="search-button">검색</button></div>
+									<div>페이지 크기
+										<select>
+											<option>10</option>
+											<option>15</option>
+											<option>30</option>
+										</select>
+									</div>
+								</form>
+								<button class="search-button" data-toggle="modal" data-target="#myModal" style="float:right; margin-bottom:10px; margin-top:-10%;">
+										써클추가
+								</button>
+							</div>
+						</div>
+						            <!--모달창-->
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+														</button>
+														<h4 class="modal-title" id="myModalLabel">
+															써클추가
+														</h4>
+													</div>
+													<div class="modal-body">
+														내용.
+													</div>
+													<div class="modal-footer">
+														<button type="button" class=" search-button2" data-dismiss="modal">
+															닫기
+														</button>
+														<button type="button" class=" search-button" id="myButtons1">
+															저장
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--모달창 끝-->
+							
+                                <!-- Start table -->
+								<div class="sectionContent">
+									<div class="row nino-hoverEffect">
+										<!--써클 반복문돌리기-->
+										<div class="col-md-4 col-sm-4">
+											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+												<div class="panel panel-default">
+													<div class="panel-heading" role="tab" id="headingOne">
+														<h4 class="panel-title">
+															<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+																<i class="mdi mdi-chevron-up nino-icon arrow"></i>
+																<i class="mdi mdi-camera nino-icon"></i>
+																써클이름∨
+															</a>
+														</h4>
+													</div>
+													<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+														<div class="panel-body">
+															써클내용
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+												<div class="panel panel-default">
+													<div class="panel-heading" role="tab" id="headingTwo">
+														<h4 class="panel-title">
+															<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+															 aria-controls="collapseTwo">
+																<i class="mdi mdi-chevron-up nino-icon arrow"></i>
+																<i class="mdi mdi-owl nino-icon"></i>
+																써클이름∨
+															</a>
+														</h4>
+													</div>
+													<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+														<div class="panel-body">
+															써클내용</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+												<div class="panel panel-default">
+													<div class="panel-heading" role="tab" id="headingThree">
+														<h4 class="panel-title">
+															<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+															 aria-controls="collapseThree">
+																<i class="mdi mdi-chevron-up nino-icon arrow"></i>
+																<i class="mdi mdi-owl nino-icon"></i>
+																써클이름∨
+															</a>
+														</h4>
+													</div>
+													<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+														<div class="panel-body">
+															써클내용</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+												<div class="panel panel-default">
+													<div class="panel-heading" role="tab" id="headingFour">
+														<h4 class="panel-title">
+															<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+															 aria-controls="collapseFour">
+																<i class="mdi mdi-chevron-up nino-icon arrow"></i>
+																<i class="mdi mdi-owl nino-icon"></i>
+																써클이름∨
+															</a>
+														</h4>
+													</div>
+													<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+														<div class="panel-body">
+															써클내용</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--써클-->
+									</div>
+								</div>
+                        </div>
+                   
+            <!--/ End blog -->
+				<div class="row">					
+            <div class="col-md-12 col-sm-12 col-xs-12">
+						<!-- Start Pagination -->
+						<ul class="pagination" style="margin: 50px 0 0 0;">
+							<li class="prev"><a href="#"><span class="fa fa-angle-left"></span></a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li class="next"><a href="#"><span class="fa fa-angle-right"></span></a></li>
+						</ul>
+						<!--/ End Pagination -->
+					</div>
+				</div>
+            </div>
+		</section>
+		<!--/ End Project -->
+
+    
+    <!-- Footer
+    ================================================== -->
+    <footer id="footer">
+			
+	  </footer><!--/#footer-->
+
+	
+	<!-- javascript -->
+	
+	<script type="text/javascript" src="../js/jquery.min.js"></script>	
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		
+</body>
+</html>
