@@ -1,10 +1,15 @@
 package net.skhu.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
+import javax.servlet.http.HttpSession;
+
 import net.skhu.document.SocialWorker;
+import net.skhu.document.senior.Senior;
 import net.skhu.repository.SocialWorker.SocialWorkerRepository;
 import net.skhu.repository.SocialWorker.SocialWorkerRepositoryCustom;
 
@@ -15,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,48 +43,70 @@ public class MainController {
 	@GetMapping("/")
 	public ModelAndView LoginPage() {
 
-		ModelAndView response = new ModelAndView("/test");
+		ModelAndView response = new ModelAndView("/landing");
 
 		return response;
 	}
-	@GetMapping("landing")
+/*	@GetMapping("landing")
 	public String Landing() {
 		return "landing";
 	}
-	@GetMapping("main")
+	@GetMapping("login")
 	public String Main() {
-		return "guest/main";
+		return "login";
 	}
-	@GetMapping("introduce")
-	public String Introduce() {
-		return "guest/introduce";
+	
+	@PostMapping("login")
+	public String Login(@RequestParam(value="usernumber") String usernumber,
+			@RequestParam(value="pass") String pass,
+			HttpSession session) throws Exception{
+
+		Map<String, Object> loginMap = new HashMap<String, Object>();
+		loginMap.put("usernumber", usernumber);
+		loginMap.put("pass", pass);
+
+		
+		Senior senior=signService.seniorLogin(loginMap);
+		Sponsor sponsor=signService.sponsorLogin(loginMap);
+		SocialWorker social=signService.socialLogin(loginMap);
+
+
+		if(admin != null) {
+			session.setAttribute("loginUser", admin); //세션에 로그인 정보 넣어두기.
+			return "redirect:admin";
+		}else if(student != null) {
+			session.setAttribute("loginUser", student); //loginUser에 알맞은 객체 넣기.
+			return "redirect:student";
+		}else {
+			return "redirect:/";
+		}
 	}
-	@GetMapping("register")
-	public String Register() {
-		return "guest/register";
-	}
+	*/
+	
 	@GetMapping("sponsor")
 	public String Sponsor(Model model) {
 		
 		List<Sponsor> sponsors=this.sponsorRepository.findAll();
 		model.addAttribute("sponsors", sponsors);
-		return "admin/sponsor";
+		return "social/sponsor";
 	}
 	
 	@GetMapping("sponsorview")
 	public String SponsorView(Model model) {
 		
 		model.addAttribute("sponsor", sponsorRepository.findBySpNo(1));
-		return "admin/sponsorview";
+		return "social/sponsorview";
 	}
 	
 	@GetMapping("sponsorview1")
 	public String SponsorView1(@RequestParam("id") String id,Model model) {
 		
 		model.addAttribute("sponsor", sponsorRepository.findById(id));
-		return "admin/sponsorview";
+		return "social/sponsorview";
 	}
 	//sponsor
+	
+/*	
 	@GetMapping("blind")
 	public String Blind() {
 		return "sponsor/blind";
@@ -89,16 +117,13 @@ public class MainController {
 		return "sponsor/dailylog";
 	}
 	
-	
+	*/
 	@GetMapping("circle")
 	public String SponsorView1() {
-		return "admin/circle";
+		return "social/circle";
 	}
-	//common
-	@GetMapping("mypage")
-	public String Mypage() {
-		return "common/mypage";
-	}
+	
+	
 
 	//사회복지사 테스트 데이터 삽입
 	@ResponseBody
@@ -144,6 +169,8 @@ public class MainController {
 
 		return html;
 	}
+	
+	
 	//이름에 chu 가 포함된 이름 모두 찾기
 	@ResponseBody
 	@RequestMapping("/showNameLikechu")
