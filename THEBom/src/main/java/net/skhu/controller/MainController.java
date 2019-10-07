@@ -41,6 +41,18 @@ public class MainController {
 
 		return response;
 	}
+	
+
+	@GetMapping("senior")
+	public String senior() {
+		return "senior/senior_main";
+	}
+	@GetMapping("diary")
+	public String diary() {
+		return "senior/diary";
+	}
+
+
 	@GetMapping("landing")
 	public String Landing() {
 		return "landing";
