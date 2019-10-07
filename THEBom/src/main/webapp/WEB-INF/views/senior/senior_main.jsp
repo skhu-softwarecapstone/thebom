@@ -8,8 +8,8 @@
 
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="css/template.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
 </head>
 <body data-target="#nino-navbar" data-spy="scroll">
 
@@ -36,8 +36,8 @@
 					<div class="nino-menuItem pull-right">
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="senior_main.html">홈<span class="sr-only">(current)</span></a></li>
-                                <li><a href="diary.html">일지작성</a></li>
+								<li class="active"><a href="seniorMain">홈<span class="sr-only">(current)</span></a></li>
+                                <li><a href="diary">일지작성</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">
@@ -120,7 +120,8 @@
     </section><!--/#nino-whatWeDo-->
 	<!-- javascript -->
 
-	<script type="text/javascript" src="../js/jquery.min.js"></script>	
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>	
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/common.js"></script>
 </body>
 </html>

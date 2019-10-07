@@ -7,8 +7,8 @@
 	
 	
 	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/template.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -24,8 +24,8 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="sponsor_main.html">홈</a></li>
                                     <li class="active"><a href="spon.html">후원하기<span class="sr-only">(current)</span></a></li>
-                                    <li><a href="notice.html">공지사항</a></li>
-                                    <li><a href="mypage.html">마이페이지</a></li>
+                                    <li><a href="sponNotice">공지사항</a></li>
+                                    <li><a href="sponMypage">마이페이지</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                            

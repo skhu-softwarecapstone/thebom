@@ -47,6 +47,22 @@ public class MainController {
 
 		return response;
 	}
+	
+	@GetMapping("intro")
+	public String intro() {
+		return "intro";
+	}
+	
+	//senior page
+	@GetMapping("seniorMain")
+	public String seniorMain() {
+		return "senior/senior_main";
+	}
+	@GetMapping("diary")
+	public String diary() {
+		return "senior/diary";
+	}
+	
 /*	@GetMapping("landing")
 	public String Landing() {
 		return "landing";
@@ -82,6 +98,26 @@ public class MainController {
 		}
 	}
 	*/
+	//social
+	@GetMapping("social")
+	public String social() {
+		return "social/social_main";
+	}
+	
+	@GetMapping("notice")
+	public String notice() {
+		return "social/notice";
+	}
+	
+	@GetMapping("senior")
+	public String senior() {
+		return "social/senior";
+	}
+	
+	@GetMapping("noticeDetail")
+	public String noticeDetail() {
+		return "social/notice_detail";
+	}
 	
 	@GetMapping("sponsor")
 	public String Sponsor(Model model) {
@@ -95,7 +131,7 @@ public class MainController {
 	public String SponsorView(Model model) {
 		
 		model.addAttribute("sponsor", sponsorRepository.findBySpNo(1));
-		return "social/sponsorview";
+		return "social/sponsor_view";
 	}
 	
 	@GetMapping("sponsorview1")
@@ -104,8 +140,7 @@ public class MainController {
 		model.addAttribute("sponsor", sponsorRepository.findById(id));
 		return "social/sponsorview";
 	}
-	//sponsor
-	
+
 /*	
 	@GetMapping("blind")
 	public String Blind() {
@@ -118,9 +153,23 @@ public class MainController {
 	}
 	
 	*/
-	@GetMapping("circle")
-	public String SponsorView1() {
-		return "social/circle";
+	
+	//sponsor
+	@GetMapping("sponMain")
+	public String sponMain() {
+		return "sponsor/sponsor_main";
+	}
+	@GetMapping("spon")
+	public String spon() {
+		return "sponsor/spon";
+	}
+	@GetMapping("sponMypage")
+	public String sponMypage() {
+		return "sponsor/mypage";
+	}
+	@GetMapping("sponNotice")
+	public String sponNotice() {
+		return "sponsor/notice";
 	}
 	
 	

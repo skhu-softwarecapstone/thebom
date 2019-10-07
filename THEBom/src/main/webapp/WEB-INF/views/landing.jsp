@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,8 +8,8 @@
 	
 	
 	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/template.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -16,7 +17,7 @@
 	<!-- Header
     ================================================== -->
 	<header id="nino-header">
-		<div id="nino-headerInner" style="background-image:url(images/main.jpg);height: 600px;">		
+		<div id="nino-headerInner" style="background-image:url(<%=request.getContextPath() %>/res/images/main.jpg);height: 600px;">		
 
 			<nav id="nino-navbar" class="navbar navbar-default" role="navigation">
 				<div class="container">
@@ -29,15 +30,15 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="homepage.html">the bom</a>
+						<a class="navbar-brand" href="login.jsp">the bom</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="nino-menuItem pull-right">
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-                                    <li class="active"><a href="landing.html">홈<span class="sr-only">(current)</span></a></li>
-                                    <li><a href="login.html">로그인</a></li>
+                                    <li class="active"><a href="login.jsp">홈<span class="sr-only">(current)</span></a></li>
+                                    <li><a href="intro">로그인</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">
@@ -113,7 +114,8 @@
 	<a href="#" id="nino-scrollToTop">Go to Top</a>
 	
 	<!-- javascript -->
-	<script type="text/javascript" src="js/jquery.min.js"></script>	
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>	
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/common.js"></script>
 </body>
 </html>

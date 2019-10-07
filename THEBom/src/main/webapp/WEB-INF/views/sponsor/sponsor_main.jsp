@@ -7,8 +7,8 @@
 	
 	
 	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/template.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -36,10 +36,10 @@
 					<div class="nino-menuItem pull-right">
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
-								<li><a href="spon.html">후원하기</a></li>
-								<li><a href="notice.html">공지사항</a></li>
-								<li><a href="mypage.html">마이페이지</a></li>
+								<li class="active"><a href="sponMain">홈<span class="sr-only">(current)</span></a></li>
+								<li><a href="spon">후원하기</a></li>
+								<li><a href="sponNotice">공지사항</a></li>
+								<li><a href="sponMypage">마이페이지</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">
