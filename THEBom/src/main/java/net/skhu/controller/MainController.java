@@ -103,6 +103,10 @@ public class MainController {
 	public String social() {
 		return "social/social_main";
 	}
+	@GetMapping("circle")
+	public String circle() {
+		return "social/circle";
+	}
 	
 	@GetMapping("notice")
 	public String notice() {
@@ -112,6 +116,11 @@ public class MainController {
 	@GetMapping("senior")
 	public String senior() {
 		return "social/senior";
+	}
+	
+	@GetMapping("socialMypage")
+	public String socialMypage() {
+		return "social/mypage";
 	}
 	
 	@GetMapping("noticeDetail")
@@ -159,6 +168,10 @@ public class MainController {
 	public String sponMain() {
 		return "sponsor/sponsor_main";
 	}
+	@GetMapping("sponinfo")
+	public String sponinfo() {
+		return "sponsor/sponinfo";
+	}
 	@GetMapping("spon")
 	public String spon() {
 		return "sponsor/spon";
@@ -171,6 +184,12 @@ public class MainController {
 	public String sponNotice() {
 		return "sponsor/notice";
 	}
+	@GetMapping("sponNoticeDetail")
+	public String sponNoticeDetail() {
+		return "sponsor/notice_detail";
+	}
+	
+	
 	
 	
 

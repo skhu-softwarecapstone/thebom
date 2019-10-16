@@ -24,10 +24,10 @@
 						<div class="collapse navbar-collapse pull-left"
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="sponsor_main.html">홈</a></li>
-								<li><a href="spon.html">후원하기</a></li>
-								<li><a href="notice.html">공지사항</a></li>
-								<li class="active"><a href="mypage.html">마이페이지<span
+								<li><a href="sponsor_main">홈</a></li>
+								<li><a href="spon">후원하기</a></li>
+								<li><a href="sponNotice">공지사항</a></li>
+								<li class="active"><a href="sponMypage">마이페이지<span
 										class="sr-only">(current)</span></a></li>
 							</ul>
 						</div>
@@ -64,9 +64,9 @@
 								</a>
 								<div class="text">
 									<h4>
-										<a href="question_answer.html">제목</a>
+										<a href="question_answer ">부천시 복지관</a>
 									</h4>
-									<p>글글글</p>
+									<p>후원자 신청</p>
 								</div>
 							</div>
 							<!--/ End Portfolio -->
@@ -82,10 +82,9 @@
 								</a>
 								<div class="text">
 									<h4>
-										<a href="portfolio-single.html">Portfolio 2</a>
+										<a href="portfolio-single "></a>
 									</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Nullam interdum.</p>
+									<p></p>
 								</div>
 							</div>
 							<!--/ End Portfolio -->
@@ -101,10 +100,9 @@
 								</a>
 								<div class="text">
 									<h4>
-										<a href="portfolio-single.html">Portfolio 3</a>
+										<a href="portfolio-single "></a>
 									</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Nullam interdum.</p>
+									<p></p>
 								</div>
 							</div>
 							<!--/ End Portfolio -->
@@ -120,10 +118,9 @@
 								</a>
 								<div class="text">
 									<h4>
-										<a href="portfolio-single.html">Portfolio 4</a>
+										<a href="portfolio-single "></a>
 									</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Nullam interdum.</p>
+									<p></p>
 								</div>
 							</div>
 							<!--/ End Portfolio -->
@@ -139,10 +136,9 @@
 								</a>
 								<div class="text">
 									<h4>
-										<a href="portfolio-single.html">Portfolio 5</a>
+										<a href="portfolio-single "></a>
 									</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Nullam interdum.</p>
+									<p></p>
 								</div>
 							</div>
 							<!--/ End Portfolio -->
@@ -158,10 +154,9 @@
 								</a>
 								<div class="text">
 									<h4>
-										<a href="portfolio-single.html">Portfolio 6</a>
+										<a href="portfolio-single "></a>
 									</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Nullam interdum.</p>
+									<p></p>
 								</div>
 							</div>
 							<!--/ End Portfolio -->

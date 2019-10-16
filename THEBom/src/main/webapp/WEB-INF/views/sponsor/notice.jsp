@@ -8,8 +8,10 @@
 
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/res/css/template.css" />
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -24,11 +26,11 @@
 						<div class="collapse navbar-collapse pull-left"
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="sponsor_main.html">홈</a></li>
-								<li><a href="spon.html">후원하기</a></li>
-								<li class="active"><a href="notice.html">공지사항<span
+								<li><a href="sponsor_main ">홈</a></li>
+								<li><a href="spon ">후원하기</a></li>
+								<li class="active"><a href="notice ">공지사항<span
 										class="sr-only">(current)</span></a></li>
-								<li><a href="mypage.html">마이페이지</a></li>
+								<li><a href="mypage ">마이페이지</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -63,60 +65,60 @@
 							</thead>
 							<tbody>
 								<c:forEach var="student" items="${ students }">
-									<!-- <tr data-url="notice_detail.html">-->
-									<tr onclick="location.href='notice_detail.html'">
-										<td>${ student.id }</td>
-										<td>${ student.studentNumber }</td>
-										<td>${ student.name }</td>
+									<!-- <tr data-url="notice_detail ">-->
+									<tr onclick="location.href='sponNoticeDetail '">
+										<td>1</td>
+										<td>문의드립니다 </td>
+										<td> 추은정</td>
 									</tr>
 								</c:forEach>
 								<c:forEach var="student" items="${ students }">
-									<tr data-url="edit?id=${ student.id }">
-										<td>${ student.id }</td>
-										<td>${ student.studentNumber }</td>
-										<td>${ student.name }</td>
+									<tr data-url="edit?id=1">
+										<td>2</td>
+										<td>문의요~~ </td>
+										<td>한지민 </td>
 									</tr>
 								</c:forEach>
 								<c:forEach var="student" items="${ students }">
-									<tr data-url="edit?id=${ student.id }">
-										<td>${ student.id }</td>
-										<td>${ student.studentNumber }</td>
-										<td>${ student.name }</td>
+									<tr data-url="edit?id= ">
+										<td>2</td>
+										<td> </td>
+										<td> </td>
 									</tr>
 								</c:forEach>
 								<c:forEach var="student" items="${ students }">
-									<tr data-url="edit?id=${ student.id }">
-										<td>${ student.id }</td>
-										<td>${ student.studentNumber }</td>
-										<td>${ student.name }</td>
+									<tr data-url="edit?id= ">
+										<td> 3</td>
+										<td> </td>
+										<td> </td>
 									</tr>
 								</c:forEach>
 								<c:forEach var="student" items="${ students }">
-									<tr data-url="edit?id=${ student.id }">
-										<td>${ student.id }</td>
-										<td>${ student.studentNumber }</td>
-										<td>${ student.name }</td>
+									<tr data-url="edit?id= ">
+										<td> 4</td>
+										<td> </td>
+										<td> </td>
 									</tr>
 								</c:forEach>
 								<c:forEach var="student" items="${ students }">
-									<tr data-url="edit?id=${ student.id }">
-										<td>${ student.id }</td>
-										<td>${ student.studentNumber }</td>
-										<td>${ student.name }</td>
+									<tr data-url="edit?id= ">
+										<td> 5</td>
+										<td> </td>
+										<td> </td>
 									</tr>
 								</c:forEach>
 								<c:forEach var="student" items="${ students }">
-									<tr data-url="edit?id=${ student.id }">
-										<td>${ student.id }</td>
-										<td>${ student.studentNumber }</td>
-										<td>${ student.name }</td>
+									<tr data-url="edit?id= ">
+										<td> 6</td>
+										<td> </td>
+										<td> </td>
 									</tr>
 								</c:forEach>
 								<c:forEach var="student" items="${ students }">
-									<tr data-url="edit?id=${ student.id }">
-										<td>${ student.id }</td>
-										<td>${ student.studentNumber }</td>
-										<td>${ student.name }</td>
+									<tr data-url="edit?id= ">
+										<td> 7</td>
+										<td> </td>
+										<td> </td>
 									</tr>
 								</c:forEach>
 

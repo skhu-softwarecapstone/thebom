@@ -29,20 +29,20 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="homepage.html">the bom</a>
+						<a class="navbar-brand" href="homepage ">the bom</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="nino-menuItem pull-right">
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#nino-header">홈<span class="sr-only">(current)</span></a></li>
-                                <li><a href="notice.html">공지사항</a></li>
-                                <li><a href="circle.html">써클조회</a></li>
-                                <li><a href="senior.html">노인조회</a></li>
-                                <li><a href="sponsor.html">후원자조회</a></li>
-                                <li><a href="sponsorview.html">후원매치현황</a></li>
-                                <li><a href="mypage.html">마이페이지</a></li>
+								<li class="active"><a href="social">홈<span class="sr-only">(current)</span></a></li>
+                                <li><a href="notice">공지사항</a></li>
+                                <li><a href="circle">써클조회</a></li>
+                                <li><a href="senior ">노인조회</a></li>
+                                <li><a href="sponsor ">후원자조회</a></li>
+                                <li><a href="sponsorview ">후원매치현황</a></li>
+                                <li><a href="socialMypage ">마이페이지</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">

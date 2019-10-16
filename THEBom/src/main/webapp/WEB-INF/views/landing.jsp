@@ -57,28 +57,28 @@
 							<span class="nino-subHeading">the bom</span>
 							<p style="font-size:85px">독거노인 <br>이중케어 시스템</p>
 						</h2>
-						<a href="login.html" class="nino-btn">Learn more</a>
+						<a href="login " class="nino-btn">Learn more</a>
 					</div>
 					<div class="item">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">the bom</span>
 							후원자 페이지
 						</h2>
-						<a href="login.html" class="nino-btn">바로가기</a>
+						<a href="login " class="nino-btn">바로가기</a>
 					</div>
 					<div class="item">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">the bom</span>
 							독거노인 페이지
 						</h2>
-						<a href="login.html" class="nino-btn">바로가기</a>
+						<a href="login " class="nino-btn">바로가기</a>
 					</div>
 					<div class="item">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">the bom</span>
 							사회복지사 페이지
 						</h2>
-						<a href="login.html" class="nino-btn">바로가기</a>
+						<a href="login " class="nino-btn">바로가기</a>
 					</div>
 				</div>
 			</section>

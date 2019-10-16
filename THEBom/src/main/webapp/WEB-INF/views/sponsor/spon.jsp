@@ -52,8 +52,8 @@
 								</div>
 							</a>
 							<div class="text">
-								<h4><a data-target="#layerpop_sm1" data-toggle="modal">제목</a></h4>
-								<p>글글글</p>
+								<h4><a data-target="#layerpop_sm1" data-toggle="modal">후원자 모집</a></h4>
+								<p>연락주세요</p>
 							</div>
 						</div>
 
@@ -133,10 +133,7 @@
 									<i class="fa fa-search"></i>
 								</div>
 							</a>
-							<div class="text">
-								<h4><a data-target="#layerpop_sm1" data-toggle="modal">Portfolio 4</a></h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum.</p>
-							</div>
+						
 						</div>
 						<!--/ End Portfolio -->
 					</div>
@@ -148,10 +145,7 @@
 									<i class="fa fa-search"></i>
 								</div>
 							</a>
-							<div class="text">
-								<h4><a data-target="#layerpop_sm1" data-toggle="modal">Portfolio 5</a></h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum.</p>
-							</div>
+							
 						</div>
 						<!--/ End Portfolio -->
 					</div>
@@ -163,10 +157,7 @@
 									<i class="fa fa-search"></i>
 								</div>
 							</a>
-							<div class="text">
-								<h4><a data-target="#layerpop_sm1" data-toggle="modal">Portfolio 6</a></h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum.</p>
-							</div>
+							
 						</div>
 						<!--/ End Portfolio -->
 					</div>

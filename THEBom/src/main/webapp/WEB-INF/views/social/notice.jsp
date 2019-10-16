@@ -25,7 +25,7 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="social_main.html">홈</a></li>
                                     <li class="active"><a href="notice.html">공지사항<span class="sr-only">(current)</span></a></li>
-                                    <li><a href="circle.html">써클조회</a></li>
+                                    <li><a href="circle">써클조회</a></li>
                                     <li><a href="senior.html">노인조회</a></li>
                                     <li><a href="sponsor.html">후원자조회</a></li>
                                     <li><a href="sponsorview.html">후원매치현황</a></li>
