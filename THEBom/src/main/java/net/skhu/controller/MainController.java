@@ -43,7 +43,7 @@ public class MainController {
 	@GetMapping("/")
 	public ModelAndView LoginPage() {
 
-		ModelAndView response = new ModelAndView("/landing");
+		ModelAndView response = new ModelAndView("/guest/landing");
 
 		return response;
 	}
@@ -53,15 +53,12 @@ public class MainController {
 		return "intro";
 	}
 	
-	//senior page
-	@GetMapping("seniorMain")
-	public String seniorMain() {
-		return "senior/senior_main";
+	@GetMapping("login")
+	public String login() {
+		return "guest/login";
 	}
-	@GetMapping("diary")
-	public String diary() {
-		return "senior/diary";
-	}
+	
+
 	
 /*	@GetMapping("landing")
 	public String Landing() {
@@ -98,96 +95,6 @@ public class MainController {
 		}
 	}
 	*/
-	//social
-	@GetMapping("social")
-	public String social() {
-		return "social/social_main";
-	}
-	@GetMapping("circle")
-	public String circle() {
-		return "social/circle";
-	}
-	
-	@GetMapping("notice")
-	public String notice() {
-		return "social/notice";
-	}
-	
-	@GetMapping("senior")
-	public String senior() {
-		return "social/senior";
-	}
-	
-	@GetMapping("socialMypage")
-	public String socialMypage() {
-		return "social/mypage";
-	}
-	
-	@GetMapping("noticeDetail")
-	public String noticeDetail() {
-		return "social/notice_detail";
-	}
-	
-	@GetMapping("sponsor")
-	public String Sponsor(Model model) {
-		
-		List<Sponsor> sponsors=this.sponsorRepository.findAll();
-		model.addAttribute("sponsors", sponsors);
-		return "social/sponsor";
-	}
-	
-	@GetMapping("sponsorview")
-	public String SponsorView(Model model) {
-		
-		model.addAttribute("sponsor", sponsorRepository.findBySpNo(1));
-		return "social/sponsor_view";
-	}
-	
-	@GetMapping("sponsorview1")
-	public String SponsorView1(@RequestParam("id") String id,Model model) {
-		
-		model.addAttribute("sponsor", sponsorRepository.findById(id));
-		return "social/sponsorview";
-	}
-
-/*	
-	@GetMapping("blind")
-	public String Blind() {
-		return "sponsor/blind";
-	}
-	
-	@GetMapping("dailylog")
-	public String Dailylog() {
-		return "sponsor/dailylog";
-	}
-	
-	*/
-	
-	//sponsor
-	@GetMapping("sponMain")
-	public String sponMain() {
-		return "sponsor/sponsor_main";
-	}
-	@GetMapping("sponinfo")
-	public String sponinfo() {
-		return "sponsor/sponinfo";
-	}
-	@GetMapping("spon")
-	public String spon() {
-		return "sponsor/spon";
-	}
-	@GetMapping("sponMypage")
-	public String sponMypage() {
-		return "sponsor/mypage";
-	}
-	@GetMapping("sponNotice")
-	public String sponNotice() {
-		return "sponsor/notice";
-	}
-	@GetMapping("sponNoticeDetail")
-	public String sponNoticeDetail() {
-		return "sponsor/notice_detail";
-	}
 	
 	
 	

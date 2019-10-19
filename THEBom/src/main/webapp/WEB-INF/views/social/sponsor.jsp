@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- tag library -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,19 +75,33 @@
                 <div class="skill-main">
                     <table class="table table-bordered">
                         <thead style="color:black">
-                            <tr>
-                                <th>id</th>
-                                <th>이메일</th>
-                                <th>이름</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                <tr data-url="student_details?id=${ student.id }">
-                                    <td>${ student.id }</td>
-                                    <td>${ student.studentId }</td>
-                                    
-                                </tr>
-                        </tbody>
+						<tr>
+							
+							<th>spNo</th>
+							<th>name</th>
+							<th>gender</th>
+							<th>point</th>
+							<th>phone</th>
+							<th>visits</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="sponsor" items="${ sponsors }">
+							<tr data-url="sponsorview?id=${ sponsor.id }">
+								
+								<td>${ sponsor.spNo }</td>
+								<td>${ sponsor.name }</td>
+								<td><c:choose>
+										<c:when test="${ sponsor.gender==true }">남</c:when>
+										<c:otherwise>여</c:otherwise>
+									</c:choose></td>
+								<td>${ sponsor.point}</td>
+								<td>${ sponsor.phone}</td>
+								<td>${ sponsor.visits}</td>
+
+							</tr>
+						</c:forEach>
+					</tbody>
                     </table>
                 </div>
             </p>

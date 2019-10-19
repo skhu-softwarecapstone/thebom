@@ -38,7 +38,7 @@
 						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
                                     <li class="active"><a href="login.jsp">홈<span class="sr-only">(current)</span></a></li>
-                                    <li><a href="intro">로그인</a></li>
+                                    <li><a href="login">로그인</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">

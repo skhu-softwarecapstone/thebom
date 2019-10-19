@@ -38,6 +38,8 @@
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="sponMain">홈<span class="sr-only">(current)</span></a></li>
 								<li><a href="spon">후원하기</a></li>
+								<li><a href="register">후원자 등록하기</a></li>
+								<li><a href="manage">진행중인 후원 관리</a></li>
 								<li><a href="sponNotice">공지사항</a></li>
 								<li><a href="sponMypage">마이페이지</a></li>
 							</ul>
