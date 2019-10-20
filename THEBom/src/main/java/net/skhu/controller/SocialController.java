@@ -1,6 +1,8 @@
 package net.skhu.controller;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,9 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import net.skhu.document.Blind;
+import net.skhu.document.Dailylog;
+import net.skhu.document.SocialWorker;
 import net.skhu.document.senior.Senior;
 import net.skhu.document.sponsor.Sponsor;
+import net.skhu.repository.BlindRepository;
+import net.skhu.repository.DailylogRepository;
 import net.skhu.repository.SeniorRepository;
 import net.skhu.repository.SponsorRepository;
 
@@ -21,6 +30,10 @@ public class SocialController {
 	private SponsorRepository sponsorRepository;
 	@Autowired
 	private SeniorRepository seniorRepository;
+	@Autowired
+	private BlindRepository blindRepository;
+	@Autowired
+	private DailylogRepository dailylogRepository;
 	//social
 		@GetMapping("social")
 		public String social() {
@@ -51,8 +64,8 @@ public class SocialController {
 //			return "social/senior_detail";
 //		}
 
-		@RequestMapping("senior/{seNo}")
-		public String seniorDetail(@PathVariable("seNo") int seNo,Model model) {
+		@GetMapping("seniorDetail")
+		public String seniorDetail(@RequestParam("seNo") int seNo,Model model) {
 			model.addAttribute("senior", seniorRepository.findBySeNo(seNo));
 			return "social/senior_detail";
 		}
@@ -88,17 +101,39 @@ public class SocialController {
 			model.addAttribute("sponsor", sponsorRepository.findById(id));
 			return "social/sponsorview";
 		}
+/*
+		//사각지대 신고데이터 삽입
+*/
+		@ResponseBody
+		@RequestMapping("/insertBlind")
+		public String insertBlind(@RequestParam("name") String name,@RequestParam("content") String content,@RequestParam("pNo") int pNo) {
+			Blind blind= new Blind();
+			int bNo = (int) (this.blindRepository.count() + 1);
+			blind.setBNo(bNo);
+			blind.setName(name);
+			blind.setUserId("jimin123"); //로그인값으로 수정
+			blind.setContent(content);
+			blind.setPNo(pNo); //선택한 기관값
+			this.blindRepository.insert(blind);
 
-	/*	
-		@GetMapping("blind")
-		public String Blind() {
-			return "sponsor/blind";
+			return "";
 		}
 		
-		@GetMapping("dailylog")
-		public String Dailylog() {
-			return "sponsor/dailylog";
+		/*
+		//사각지대 신고데이터 삽입
+*/
+		@ResponseBody
+		@RequestMapping("/insertLog")
+		public String insertLog(@RequestParam("seniorName") String seniorName,@RequestParam("date") Date date,@RequestParam("logContent") String logContent) {
+			Dailylog dailylog= new Dailylog();
+			int dNo = (int) (this.dailylogRepository.count() + 1);
+			dailylog.setDNo(dNo);
+			dailylog.setDate(date);
+			dailylog.setUserId("jimin123"); //로그인값으로 수정
+			dailylog.setContent(logContent);
+			dailylog.setSeniorName(seniorName); //선택한 기관값
+			this.dailylogRepository.insert(dailylog);
+
+			return "";
 		}
-		
-		*/
 }

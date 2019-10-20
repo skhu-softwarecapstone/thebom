@@ -43,7 +43,7 @@ public class MainController {
 	@GetMapping("/")
 	public ModelAndView LoginPage() {
 
-		ModelAndView response = new ModelAndView("/guest/landing");
+		ModelAndView response = new ModelAndView("/landing");
 
 		return response;
 	}
@@ -55,7 +55,7 @@ public class MainController {
 	
 	@GetMapping("login")
 	public String login() {
-		return "guest/login";
+		return "login";
 	}
 	
 
@@ -120,11 +120,6 @@ public class MainController {
 		return "Inserted: " + socialWorker;
 	}
 	
-	@ResponseBody
-	@RequestMapping("/insertBlind")
-	public void insertBlind() {
-		
-	}
 
 
 

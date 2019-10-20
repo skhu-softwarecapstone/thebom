@@ -16,6 +16,14 @@
 	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/res/css/template.css" />
+
+	<!-- javascript -->
+	<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/common.js"></script>
+
+	
+	
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -98,7 +106,7 @@
 						<tbody>
 						
 							<c:forEach var="senior" items="${ seniors }">
-								<tr data-url="senior?seNo=${ senior.seNo }">
+								<tr data-url="seniorDetail?seNo=${ senior.seNo }">
 									<td>${ senior.seNo }</td>
 									<td>${ senior.name }</td>
 									<td>${ senior.address.city }</td>
@@ -161,10 +169,6 @@
 	<!--/#footer-->
 
 
-	<!-- javascript -->
-
-	<script type="text/javascript" src=".<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
 
 
 </body>
