@@ -55,7 +55,7 @@
 
 	<!-- Start Project -->
 	<section id="portfolio" class="section archive page">
-		<div class="container">
+		<div id="app" class="container">
 			<div class="row">
 				<h3 style="color: gray">
 					후원게시판
@@ -113,17 +113,17 @@
 														<tr>
 															<td><label>시작 가능 날짜</label></td>
 															<td><input type="date" class="form-control"
-																name="visitDate" /></td>
+																v-model="startDate"  name="startDate" /></td>
 														</tr>
 														<tr>
 															<td><label>방문 선호 요일</label></td>
 															<td><input type="text" class="form-control"
-																name="visitWeek" /></td>
+																v-model="day" name="day" /></td>
 														</tr>
 														<tr>
 															<td><label>방문 선호 시간</label></td>
 															<td><input type="text" class="form-control"
-																name="visitTime" maxlength="50" /></td>
+																v-model="time" name="time" maxlength="50" /></td>
 														</tr>
 													</tbody>
 												</table>
@@ -192,38 +192,25 @@
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		var blindApp = new Vue({
-			el : '#manageApp',
+		var sponApp = new Vue({
+			el : '#app',
 			data : {
-				name : '',
-				content : '',
-				pNo : 0,
-				seniorName : '',
-				date : 2019 - 01 - 01,
-				logContent : ''
+				day:'',
+				time:'',
+				startDate:2019-09-01
+				
 			},
 			methods : {
-				insertBlind : function() {
-					let url = '/insertBlind';
+				insertSpon : function() {
+					let url = '/insertSpon';
 					axios.get(url, {
 						params : {
-							name : this.name,
-							content : this.content,
-							pNo : this.pNo
+							day : this.day,
+							content : this.time,
+							pNo : this.startDate
 						}
 					});
-					$('#blind').modal('hide');
-				},
-				insertLog : function() {
-					let url = '/insertLog';
-					axios.get(url, {
-						params : {
-							seniorName : this.seniorName,
-							date : this.date,
-							logContent : this.logContent
-						}
-					});
-					$('#dailylog').modal('hide');
+					$('#apply').modal('hide');
 				}
 
 			}

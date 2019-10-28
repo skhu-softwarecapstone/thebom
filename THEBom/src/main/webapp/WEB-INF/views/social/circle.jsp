@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<!-- tag library -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +72,8 @@
 										</select>
 									</div>
 								</form>
-								<button class="search-button" data-toggle="modal" data-target="#myModal" style="float:right; margin-bottom:10px; margin-top:-10%;">
+								<button class="search-button" style="float:right; margin-bottom:10px; margin-top:-10%;"
+								onclick="location.href='addCircle'">
 										써클추가
 								</button>
 							</div>
@@ -105,6 +110,8 @@
 									<div class="row nino-hoverEffect">
 										<!--써클 반복문돌리기-->
 										<div class="col-md-4 col-sm-4">
+										<c:forEach var="circle" items="${ circles }">
+
 											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 												<div class="panel panel-default">
 													<div class="panel-heading" role="tab" id="headingOne">
@@ -112,78 +119,23 @@
 															<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 																<i class="mdi mdi-chevron-up nino-icon arrow"></i>
 																<i class="mdi mdi-camera nino-icon"></i>
-																써클이름∨
+																${ circle.CNo }
 															</a>
 														</h4>
 													</div>
 													<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 														<div class="panel-body">
-															써클내용
+															${ circle.introduce }
 														</div>
 													</div>
 												</div>
 											</div>
+											
+										</c:forEach>
 										</div>
-										<div class="col-md-4 col-sm-4">
-											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-												<div class="panel panel-default">
-													<div class="panel-heading" role="tab" id="headingTwo">
-														<h4 class="panel-title">
-															<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
-															 aria-controls="collapseTwo">
-																<i class="mdi mdi-chevron-up nino-icon arrow"></i>
-																<i class="mdi mdi-owl nino-icon"></i>
-																써클이름∨
-															</a>
-														</h4>
-													</div>
-													<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-														<div class="panel-body">
-															써클내용</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-4">
-											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-												<div class="panel panel-default">
-													<div class="panel-heading" role="tab" id="headingThree">
-														<h4 class="panel-title">
-															<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
-															 aria-controls="collapseThree">
-																<i class="mdi mdi-chevron-up nino-icon arrow"></i>
-																<i class="mdi mdi-owl nino-icon"></i>
-																써클이름∨
-															</a>
-														</h4>
-													</div>
-													<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-														<div class="panel-body">
-															써클내용</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-4">
-											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-												<div class="panel panel-default">
-													<div class="panel-heading" role="tab" id="headingFour">
-														<h4 class="panel-title">
-															<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
-															 aria-controls="collapseFour">
-																<i class="mdi mdi-chevron-up nino-icon arrow"></i>
-																<i class="mdi mdi-owl nino-icon"></i>
-																써클이름∨
-															</a>
-														</h4>
-													</div>
-													<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-														<div class="panel-body">
-															써클내용</div>
-													</div>
-												</div>
-											</div>
-										</div>
+										
+										
+										
 										<!--써클-->
 									</div>
 								</div>
@@ -218,8 +170,8 @@
 	
 	<!-- javascript -->
 	
-	<script type="text/javascript" src="../js/jquery.min.js"></script>	
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>	
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
 		
 </body>
 </html>

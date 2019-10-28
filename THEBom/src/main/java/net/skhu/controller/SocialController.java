@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.skhu.document.Blind;
+import net.skhu.document.Circle;
 import net.skhu.document.Dailylog;
 import net.skhu.document.SocialWorker;
 import net.skhu.document.senior.Senior;
 import net.skhu.document.sponsor.Sponsor;
 import net.skhu.repository.BlindRepository;
+import net.skhu.repository.CircleRepository;
 import net.skhu.repository.DailylogRepository;
 import net.skhu.repository.SeniorRepository;
 import net.skhu.repository.SponsorRepository;
@@ -31,16 +33,22 @@ public class SocialController {
 	@Autowired
 	private SeniorRepository seniorRepository;
 	@Autowired
-	private BlindRepository blindRepository;
-	@Autowired
-	private DailylogRepository dailylogRepository;
+	private CircleRepository circleRepository;
+
 	//social
 		@GetMapping("social")
 		public String social() {
 			return "social/social_main";
 		}
+		@GetMapping("addCircle")
+		public String addCircle(Model model) {
+			
+			return "social/addCircle";
+		}
 		@GetMapping("circle")
-		public String circle() {
+		public String circle(Model model) {
+			List<Circle> circles=this.circleRepository.findAll();
+			model.addAttribute("circles", circles);
 			return "social/circle";
 		}
 		
@@ -101,39 +109,5 @@ public class SocialController {
 			model.addAttribute("sponsor", sponsorRepository.findById(id));
 			return "social/sponsorview";
 		}
-/*
-		//사각지대 신고데이터 삽입
-*/
-		@ResponseBody
-		@RequestMapping("/insertBlind")
-		public String insertBlind(@RequestParam("name") String name,@RequestParam("content") String content,@RequestParam("pNo") int pNo) {
-			Blind blind= new Blind();
-			int bNo = (int) (this.blindRepository.count() + 1);
-			blind.setBNo(bNo);
-			blind.setName(name);
-			blind.setUserId("jimin123"); //로그인값으로 수정
-			blind.setContent(content);
-			blind.setPNo(pNo); //선택한 기관값
-			this.blindRepository.insert(blind);
 
-			return "";
-		}
-		
-		/*
-		//사각지대 신고데이터 삽입
-*/
-		@ResponseBody
-		@RequestMapping("/insertLog")
-		public String insertLog(@RequestParam("seniorName") String seniorName,@RequestParam("date") Date date,@RequestParam("logContent") String logContent) {
-			Dailylog dailylog= new Dailylog();
-			int dNo = (int) (this.dailylogRepository.count() + 1);
-			dailylog.setDNo(dNo);
-			dailylog.setDate(date);
-			dailylog.setUserId("jimin123"); //로그인값으로 수정
-			dailylog.setContent(logContent);
-			dailylog.setSeniorName(seniorName); //선택한 기관값
-			this.dailylogRepository.insert(dailylog);
-
-			return "";
-		}
 }
