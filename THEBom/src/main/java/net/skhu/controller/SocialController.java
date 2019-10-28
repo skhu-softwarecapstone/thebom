@@ -52,9 +52,9 @@ public class SocialController {
 			return "social/circle";
 		}
 		
-		@GetMapping("notice")
+		@GetMapping("social/notice")
 		public String notice() {
-			return "social/notice";
+			return "notice";
 		}
 		
 		@GetMapping("senior")
@@ -82,6 +82,7 @@ public class SocialController {
 		public String socialMypage() {
 			return "social/mypage";
 		}
+		
 		
 		@GetMapping("noticeDetail")
 		public String noticeDetail(@RequestParam("id") String id,Model model)  {
