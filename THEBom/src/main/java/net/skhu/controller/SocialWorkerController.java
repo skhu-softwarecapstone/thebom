@@ -46,8 +46,8 @@ public class SocialWorkerController {
 	@Autowired
 	private CustomUserDetailsService userService;
 
-
-	@RequestMapping(value = "/social/social_main", method = RequestMethod.GET)
+//admin version main
+	@RequestMapping(value = "/sw/sw_main", method = RequestMethod.GET)
 	public ModelAndView dashboard() {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -55,16 +55,26 @@ public class SocialWorkerController {
 		modelAndView.addObject("currentUser", user);
 		modelAndView.addObject("fullName", "Welcome " + user.getFullname());
 		modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
-		modelAndView.setViewName("social/social_main");
+		modelAndView.setViewName("admin/sw/sw_main");
 		return modelAndView;
 	}
 
-	@GetMapping("/social/notice")
+	//공지사항 페이지
+	@GetMapping("/sw/notice")
 	public String notice() {
-		return "social/notice";
+		return "admin/sw/notice";
 	}
-
-
+	//공지사항 세부페이지
+	@GetMapping("/sw/notice_detail")
+	public String noticeDetail(@RequestParam("id") String id,Model model)  {
+		return "admin/sw/notice_detail";
+	}
+	//공지사항 작성
+	@GetMapping("/sw/notice_write")
+	public String noticeWrite(@RequestParam("id") String id,Model model)  {
+		return "admin/sw/notice_write";
+	}
+	
 	@GetMapping("social")
 	public String social() {
 		return "social/social_main";
@@ -108,11 +118,7 @@ public class SocialWorkerController {
 		return "social/mypage";
 	}
 
-	@GetMapping("noticeDetail")
-	public String noticeDetail(@RequestParam("id") String id,Model model)  {
-		return "social/notice_detail";
-	}
-
+	
 	@GetMapping("sponsor")
 	public String Sponsor(Model model) {
 

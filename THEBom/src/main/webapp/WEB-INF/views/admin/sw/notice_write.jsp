@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
 </head>
-
 <body data-target="#nino-navbar" data-spy="scroll">
     <!-- Header
     ================================================== -->
@@ -23,14 +22,13 @@
                         <div class="nino-menuItem pull-right">
                             <div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="social">홈<span class="sr-only">(current)</span></a></li>
-                                <li><a href="notice">공지사항</a></li>
+                                    <li><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
+                                <li class="active"><a href="notice">공지사항</a></li>
                                 <li><a href="circle">써클조회</a></li>
-                                <li><a href="senior ">노인조회</a></li>
-                                <li><a href="sponsor ">후원자조회</a></li>
-                                <li><a href="sponsorview ">후원매치현황</a></li>
-                                <li><a href="socialMypage ">마이페이지</a></li>
-                                </ul>
+                                <li><a href="senior">노인조회</a></li>
+                                <li><a href="sponsor">후원자조회</a></li>
+                                <li><a href="sponsorview">후원매치현황</a></li>
+                                <li><a href="socialMypage">마이페이지</a></li>
                             </div><!-- /.navbar-collapse -->
                         </div>
                     </div><!-- /.container-fluid -->
@@ -59,9 +57,8 @@
                                 <td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>
                             </tr>
                         </tbody>
-                    </table>
-                    <a href="notice.html" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3">목록으로</a>	
-                    <input type="submit" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;" value="수정하기" />
+                    </table>	
+                    <input type="submit" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3" value="글등록" />
                 </form>
             </div>
         </div>
