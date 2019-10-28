@@ -46,7 +46,7 @@ public class AdminController {
 	@Autowired
 	private CustomUserDetailsService userService;
 
-//admin version 메인페이지-접속한 유저정보랑 공지사항 객체목록 5개 담을것 
+	//admin version 메인페이지-접속한 유저정보랑 공지사항 객체목록 5개 담을것 
 	@RequestMapping(value = "/sw/sw_main", method = RequestMethod.GET)
 	public ModelAndView dashboard() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -62,9 +62,9 @@ public class AdminController {
 	//공지사항 페이지
 	@GetMapping("/sw/notice")
 	public String notice(Model model) {
-		
+
 		//model.addAttribute("notices", qnaService.getAllArticles());
-		
+
 		return "admin/sw/notice";
 	}
 	//공지사항 세부페이지
@@ -77,7 +77,8 @@ public class AdminController {
 	public String noticeWrite(@RequestParam("id") String id,Model model)  {
 		return "admin/sw/notice_write";
 	}
-	
+
+
 	//관리하는 독거노인 목록 조회
 	@GetMapping("/sw/seniorList")
 	public String senior(Model model) {
@@ -102,14 +103,14 @@ public class AdminController {
 		model.addAttribute("circles", circles);
 		return "admin/sw/circle";
 	}
-	
+
 	//독거노인 그룹 추가
 	@GetMapping("/sw/circle_add")
 	public String circleAdd(Model model) {
 
 		return "admin/sw/circle_add";
 	}
-	
+
 	//후원자 관리-자신의 지역에 거주하는 방문후원자|방문후원지원자 목록 조회(포인트 순으로 나열)
 	@GetMapping("/sw/sponsor")
 	public String Sponsor(Model model) {
@@ -118,7 +119,7 @@ public class AdminController {
 		model.addAttribute("sponsors", sponsors);
 		return "admin/sw/sponsor";
 	}
-	
+
 	//후원자 세부페이지
 	@GetMapping("/sw/sponsor_detail")
 	public String SponsorDetail(Model model) {
@@ -126,7 +127,7 @@ public class AdminController {
 		model.addAttribute("sponsor", sponsorRepository.findBySpNo(1));
 		return "admin/sw/sponsor_detail";
 	}
-	
+
 	//후원자 세부페이지2
 	@GetMapping("/sw/sponsor_detail1")
 	public String SponsorDetail1(@RequestParam("id") String id,Model model) {
@@ -134,7 +135,7 @@ public class AdminController {
 		model.addAttribute("sponsor", sponsorRepository.findById(id));
 		return "admin/sw/sponsor_detail1";
 	}
-	
+
 
 
 	//개인정보 확인 수정 페이지-내가 후원하는 단체 목록이 아니라 사회복지사 소속 변경용
@@ -143,7 +144,7 @@ public class AdminController {
 		return "admin/sw/mypage";
 	}
 
-	
-	
+
+
 
 }
