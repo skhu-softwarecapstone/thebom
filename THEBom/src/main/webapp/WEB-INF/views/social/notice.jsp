@@ -41,118 +41,110 @@
 		</header><!--/#header-->
 		
 		
-	<!-- Start Project -->
-    <!-- Start Project -->
-    <section id="portfolio" class="section archive page">
-			<div class="container">
-				    <div class="row">
-						<h3 style="color:gray">후원게시판</h1>
-                        <h6 style="color:gray">후원할 수 있는 단체의 목록입니다.</h4>
-                            <div class="pull-right mb5">
-                                    <a href="write_notice.html" class="btn btn-info search-button">
-                                      <span class="glyphicon glyphicon-user"></span> 공지사항 등록</a>
-                            </div>
-                                <!-- Start table -->
-                                <div class="notice_container"> 
-                                    <table class="table table-bordered mt5 table-hover">
-                                      <thead style="color:black">
-                                        <tr>
-                                          <th>번호</th>
-                                          <th>제목</th>
-                                          <th>글쓴이</th>
-                                          <th>답변 유무</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <c:forEach var="student" items="${ students }">
-                                          <tr onclick="location.href='notice_detail.html'"">
-                                            <td>${ student.id }</td>
-                                            <td>${ student.studentNumber }</td>
-                                            <td>${ student.name }</td>
-                                            <td>${ student.departmentName }</td>
-                                          </tr>
-                                        </c:forEach>
-                                        <c:forEach var="student" items="${ students }">
-                                                <tr data-url="edit?id=${ student.id }">
-                                                  <td>${ student.id }</td>
-                                                  <td>${ student.studentNumber }</td>
-                                                  <td>${ student.name }</td>
-                                                  <td>${ student.departmentName }</td>
-                                                </tr>
-                                              </c:forEach>
-                                              <c:forEach var="student" items="${ students }">
-                                                    <tr data-url="edit?id=${ student.id }">
-                                                      <td>${ student.id }</td>
-                                                      <td>${ student.studentNumber }</td>
-                                                      <td>${ student.name }</td>
-                                                      <td>${ student.departmentName }</td>
-                                                    </tr>
-                                                  </c:forEach>
-                                                  <c:forEach var="student" items="${ students }">
-                                                        <tr data-url="edit?id=${ student.id }">
-                                                          <td>${ student.id }</td>
-                                                          <td>${ student.studentNumber }</td>
-                                                          <td>${ student.name }</td>
-                                                          <td>${ student.departmentName }</td>
-                                                        </tr>
-                                                      </c:forEach>
-                                                      <c:forEach var="student" items="${ students }">
-                                                            <tr data-url="edit?id=${ student.id }">
-                                                              <td>${ student.id }</td>
-                                                              <td>${ student.studentNumber }</td>
-                                                              <td>${ student.name }</td>
-                                                              <td>${ student.departmentName }</td>
-                                                            </tr>
-                                                          </c:forEach>
-                                                          <c:forEach var="student" items="${ students }">
-                                                                <tr data-url="edit?id=${ student.id }">
-                                                                  <td>${ student.id }</td>
-                                                                  <td>${ student.studentNumber }</td>
-                                                                  <td>${ student.name }</td>
-                                                                  <td>${ student.departmentName }</td>
-                                                                </tr>
-                                                              </c:forEach>
-                                                              <c:forEach var="student" items="${ students }">
-                                                                    <tr data-url="edit?id=${ student.id }">
-                                                                      <td>${ student.id }</td>
-                                                                      <td>${ student.studentNumber }</td>
-                                                                      <td>${ student.name }</td>
-                                                                      <td>${ student.departmentName }</td>
-                                                                    </tr>
-                                                                  </c:forEach>
-                                                                  <c:forEach var="student" items="${ students }">
-                                                                        <tr data-url="edit?id=${ student.id }">
-                                                                          <td>${ student.id }</td>
-                                                                          <td>${ student.studentNumber }</td>
-                                                                          <td>${ student.name }</td>
-                                                                          <td>${ student.departmentName }</td>
-                                                                        </tr>
-                                                                      </c:forEach>
+		<!-- Start Project -->
+	<section id="portfolio" class="section archive page">
+		<div class="container">
+			<div class="row">
+				<h1 style="color: gray">
+					공지사항
+				</h1>
+				
+					<!-- Start table -->
+					<div class="notice_container">
+						<table class="table table-bordered mt5 table-hover">
+							<thead style="color: black">
+								<tr>
+									<th>번호</th>
+									<th>제목</th>
+									<th>글쓴이</th>
+									<th>작성날짜</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="student" items="${ students }">
+									<!-- <tr data-url="notice_detail ">-->
+									<tr onclick="location.href='sponNoticeDetail '">
+										<td>1</td>
+										<td>문의드립니다 </td>
+										<td> 추은정</td>
+									</tr>
+								</c:forEach>
+								<c:forEach var="student" items="${ students }">
+									<tr data-url="edit?id=1">
+										<td>2</td>
+										<td>문의요~~ </td>
+										<td>한지민 </td>
+									</tr>
+								</c:forEach>
+								<c:forEach var="student" items="${ students }">
+									<tr data-url="edit?id= ">
+										<td>2</td>
+										<td> </td>
+										<td> </td>
+									</tr>
+								</c:forEach>
+								<c:forEach var="student" items="${ students }">
+									<tr data-url="edit?id= ">
+										<td> 3</td>
+										<td> </td>
+										<td> </td>
+									</tr>
+								</c:forEach>
+								<c:forEach var="student" items="${ students }">
+									<tr data-url="edit?id= ">
+										<td> 4</td>
+										<td> </td>
+										<td> </td>
+									</tr>
+								</c:forEach>
+								<c:forEach var="student" items="${ students }">
+									<tr data-url="edit?id= ">
+										<td> 5</td>
+										<td> </td>
+										<td> </td>
+									</tr>
+								</c:forEach>
+								<c:forEach var="student" items="${ students }">
+									<tr data-url="edit?id= ">
+										<td> 6</td>
+										<td> </td>
+										<td> </td>
+									</tr>
+								</c:forEach>
+								<c:forEach var="student" items="${ students }">
+									<tr data-url="edit?id= ">
+										<td> 7</td>
+										<td> </td>
+										<td> </td>
+									</tr>
+								</c:forEach>
 
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                <!-- End table -->
-                        </div>
-                   
-            <!--/ End blog -->
-				<div class="row">					
-            <div class="col-md-12 col-sm-12 col-xs-12">
-						<!-- Start Pagination -->
-						<ul class="pagination" style="margin: 50px 0 0 0;">
-							<li class="prev"><a href="#"><span class="fa fa-angle-left"></span></a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li class="next"><a href="#"><span class="fa fa-angle-right"></span></a></li>
-						</ul>
-						<!--/ End Pagination -->
+							</tbody>
+						</table>
 					</div>
+					<!-- End table -->
+			</div>
+
+			<!--/ End blog -->
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<!-- Start Pagination -->
+					<ul class="pagination" style="margin: 50px 0 0 0;">
+						<li class="prev"><a href="#"><span
+								class="fa fa-angle-left"></span></a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li class="next"><a href="#"><span
+								class="fa fa-angle-right"></span></a></li>
+					</ul>
+					<!--/ End Pagination -->
 				</div>
-            </div>
-		</section>
-		<!--/ End Project -->
+			</div>
+		</div>
+	</section>
+	<!--/ End Project -->
 
     
     <!-- Footer

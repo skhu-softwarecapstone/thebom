@@ -81,7 +81,14 @@ public class SocialWorkerController {
 		return "social/circle";
 	}
 
+	@GetMapping("notice")
+	public String Notice(Model model) {
 
+		List<Sponsor> sponsors=this.sponsorRepository.findAll();
+		model.addAttribute("sponsors", sponsors);
+		return "social/sponsor";
+	}
+	
 	@GetMapping("senior")
 	public String senior(Model model) {
 		List<Senior> seniors=this.seniorRepository.findAll();
