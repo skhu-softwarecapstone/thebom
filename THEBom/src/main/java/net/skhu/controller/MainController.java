@@ -39,26 +39,20 @@ public class MainController {
 	private SocialWorkerRepositoryCustom socialWorkerRepositoryCustom;
 	@Autowired
 	private SponsorRepository sponsorRepository;
-
+/*
 	@GetMapping("/")
 	public ModelAndView LoginPage() {
 
-		ModelAndView response = new ModelAndView("/guest/landing");
+		ModelAndView response = new ModelAndView("/login");
 
 		return response;
 	}
-	
+	*/
 	@GetMapping("intro")
 	public String intro() {
 		return "intro";
 	}
 	
-	@GetMapping("login")
-	public String login() {
-		return "guest/login";
-	}
-	
-
 	
 /*	@GetMapping("landing")
 	public String Landing() {
