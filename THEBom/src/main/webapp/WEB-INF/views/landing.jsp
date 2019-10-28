@@ -1,14 +1,15 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>The bom</title>
+	
+	
 	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>res/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>res/css/template.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">

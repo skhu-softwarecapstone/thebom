@@ -55,23 +55,8 @@ public class LoginController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/social/social_main", method = RequestMethod.GET)
-    public ModelAndView dashboard() {
-        ModelAndView modelAndView = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-        modelAndView.addObject("currentUser", user);
-        modelAndView.addObject("fullName", "Welcome " + user.getFullname());
-        modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
-        modelAndView.setViewName("social/social_main");
-        return modelAndView;
-    }
+  
     
-    @RequestMapping(value = {"/","/landing"}, method = RequestMethod.GET)
-    public ModelAndView home() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("landing");
-        return modelAndView;
-    }
+   
 
 }

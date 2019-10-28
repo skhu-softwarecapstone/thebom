@@ -36,8 +36,7 @@ public class Sponsor {
 	@Field(value="visits")
 	private String visits;
 
-	@Field(value="report")
-	private Report report;
+	
 	
 	@Field(value="address")
 	private Address address;

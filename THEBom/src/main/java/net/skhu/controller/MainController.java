@@ -17,10 +17,11 @@ import net.skhu.repository.SponsorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-//지금은 test용이지만 포괄적으로 사용되는 중요기능 명령내리는 곳으로 사용합시당>0<
-
+//공통적으로 사용하는 페이지 목록
 @Controller
 public class MainController {
 
@@ -33,7 +34,15 @@ public class MainController {
 	@Autowired
 	private SponsorRepository sponsorRepository;
 
-	
+
+    //사이트 접속시 맨 처음 뜨는 랜딩화면
+	@RequestMapping(value = {"/","/landing"}, method = RequestMethod.GET)
+	public ModelAndView home() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("landing");
+		return modelAndView;
+	}
+
 
 	//사회복지사 테스트 데이터 삽입
 	@ResponseBody
@@ -54,7 +63,7 @@ public class MainController {
 
 		return "Inserted: " + socialWorker;
 	}
-	
+
 
 
 
@@ -74,8 +83,8 @@ public class MainController {
 
 		return html;
 	}
-	
-	
+
+
 	//이름에 chu 가 포함된 이름 모두 찾기
 	@ResponseBody
 	@RequestMapping("/showNameLikechu")
