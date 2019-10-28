@@ -36,7 +36,7 @@ import net.skhu.service.CustomUserDetailsService;
 
 
 @Controller
-public class SocialWorkerController {
+public class AdminController {
 	@Autowired
 	private SponsorRepository sponsorRepository;
 	@Autowired
@@ -46,7 +46,7 @@ public class SocialWorkerController {
 	@Autowired
 	private CustomUserDetailsService userService;
 
-//admin version main
+//admin version 메인페이지-접속한 유저정보랑 공지사항 객체목록 5개 담을것 
 	@RequestMapping(value = "/sw/sw_main", method = RequestMethod.GET)
 	public ModelAndView dashboard() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -61,7 +61,10 @@ public class SocialWorkerController {
 
 	//공지사항 페이지
 	@GetMapping("/sw/notice")
-	public String notice() {
+	public String notice(Model model) {
+		
+		//model.addAttribute("notices", qnaService.getAllArticles());
+		
 		return "admin/sw/notice";
 	}
 	//공지사항 세부페이지
@@ -75,70 +78,72 @@ public class SocialWorkerController {
 		return "admin/sw/notice_write";
 	}
 	
-	@GetMapping("social")
-	public String social() {
-		return "social/social_main";
-	}
-	@GetMapping("addCircle")
-	public String addCircle(Model model) {
-
-		return "social/addCircle";
-	}
-	@GetMapping("circle")
-	public String circle(Model model) {
-		List<Circle> circles=this.circleRepository.findAll();
-		model.addAttribute("circles", circles);
-		return "social/circle";
-	}
-
-
-	@GetMapping("senior")
+	//관리하는 독거노인 목록 조회
+	@GetMapping("/sw/seniorList")
 	public String senior(Model model) {
 		List<Senior> seniors=this.seniorRepository.findAll();
 		model.addAttribute("seniors", seniors);
 		//			Senior senior=this.seniorRepository.findBySeNo(1);
 		//			model.addAttribute("senior", senior);
-		return "social/senior";
+		return "admin/sw/seniorList";
 	}
 
-	//		@GetMapping("seniorDetail")
-	//		public String seniorDetail(@RequestParam("seNo") int seNo,Model model) {
-	//			model.addAttribute("senior", seniorRepository.findBySeNo(seNo));
-	//			return "social/senior_detail";
-	//		}
-
-	@GetMapping("seniorDetail")
+	//해당 독거노인 세부페이지
+	@GetMapping("/sw/seniorList_detail")
 	public String seniorDetail(@RequestParam("seNo") int seNo,Model model) {
 		model.addAttribute("senior", seniorRepository.findBySeNo(seNo));
-		return "social/senior_detail";
+		return "admin/sw/seniorList";
 	}
 
-	@GetMapping("socialMypage")
-	public String socialMypage() {
-		return "social/mypage";
+	//독거노인 그룹 관리
+	@GetMapping("/sw/circle")
+	public String circle(Model model) {
+		List<Circle> circles=this.circleRepository.findAll();
+		model.addAttribute("circles", circles);
+		return "admin/sw/circle";
 	}
-
 	
-	@GetMapping("sponsor")
+	//독거노인 그룹 추가
+	@GetMapping("/sw/circle_add")
+	public String circleAdd(Model model) {
+
+		return "admin/sw/circle_add";
+	}
+	
+	//후원자 관리-자신의 지역에 거주하는 방문후원자|방문후원지원자 목록 조회(포인트 순으로 나열)
+	@GetMapping("/sw/sponsor")
 	public String Sponsor(Model model) {
 
 		List<Sponsor> sponsors=this.sponsorRepository.findAll();
 		model.addAttribute("sponsors", sponsors);
-		return "social/sponsor";
+		return "admin/sw/sponsor";
 	}
-
-	@GetMapping("sponsorview")
-	public String SponsorView(Model model) {
+	
+	//후원자 세부페이지
+	@GetMapping("/sw/sponsor_detail")
+	public String SponsorDetail(Model model) {
 
 		model.addAttribute("sponsor", sponsorRepository.findBySpNo(1));
-		return "social/sponsor_view";
+		return "admin/sw/sponsor_detail";
 	}
-
-	@GetMapping("sponsorview1")
-	public String SponsorView1(@RequestParam("id") String id,Model model) {
+	
+	//후원자 세부페이지2
+	@GetMapping("/sw/sponsor_detail1")
+	public String SponsorDetail1(@RequestParam("id") String id,Model model) {
 
 		model.addAttribute("sponsor", sponsorRepository.findById(id));
-		return "social/sponsorview";
+		return "admin/sw/sponsor_detail1";
 	}
+	
+
+
+	//개인정보 확인 수정 페이지-내가 후원하는 단체 목록이 아니라 사회복지사 소속 변경용
+	@GetMapping("/sw/mypage")
+	public String Mypage() {
+		return "admin/sw/mypage";
+	}
+
+	
+	
 
 }
