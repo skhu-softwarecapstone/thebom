@@ -44,7 +44,7 @@
     				        </div>
     				        <div class="signup-cont cont">
                 <form action="#" method="post" enctype="multipart/form-data">
-						                    <input type="email" name="email" id="name" class="inpt" required="required" placeholder="Your name">
+						                    <input type="name" name="name" id="name" class="inpt" required="required" placeholder="Your name">
 						                    <label for="name">Your name</label>
                     <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email">
 						                    <label for="email">Your email</label>
