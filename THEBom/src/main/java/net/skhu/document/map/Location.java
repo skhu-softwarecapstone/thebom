@@ -7,8 +7,16 @@ import lombok.Data;
 @Data
 public class Location {
 	@Field(value="0")
-	private double x;
+	private double lat;
 	@Field(value="1")
-	private double y;
+	private double lng;
+	
+	public Location(double lat, double lng) {
+		super();
+		this.lat = lat;
+		this.lng = lng;
+	}
+	
+	
 
 }

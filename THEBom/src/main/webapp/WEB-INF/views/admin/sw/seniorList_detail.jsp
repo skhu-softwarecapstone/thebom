@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<!-- tag library -->
+<!-- tag library -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -35,7 +35,7 @@
 								<li><a href="circle">써클조회</a></li>
 								<li class="active"><a href="seniorList">노인조회</a></li>
 								<li><a href="sponsor">후원자조회</a></li>
-								<li><a href="sponsorview">후원매치현황</a></li>
+								<li><a href="sponsor_detail">후원매치현황</a></li>
 								<li><a href="mypage">마이페이지</a></li>
 							</ul>
 						</div>
@@ -56,97 +56,60 @@
 				<h2 class="nino-sectionHeading">
 					<span class="nino-subHeading">THE BOM</span> 관할 노인조회
 				</h2>
-				<div style="float: right" class="search">
-					<div class=" col-sm-12 col-xs-12">
-						<form style="display: inline-block">
-							<select>
-								<option>이름</option>
-								<option>번호</option>
-							</select>
 
-							<div>
-								<form>
-									<input />
-								</form>
+				<!-- Start blog -->
+				<section id="blog" class="single section page">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-sm-12 col-xs-12"
+								style="margin-left: 20%;">
+								<!-- Single blog -->
+								<div class="single-blog">
+
+									<div class="blog-content">
+										<h3>어르신 세부사항</h3>
+										<hr />
+
+										<div id="info">
+											<span>성함: </span> <span>${ senior.name }</span> <br> 
+											<span>거주지역:</span>
+											<span>${ senior.address.address1 }${ senior.address.address_detail }(우편번호:${ senior.address.zipcode })</span> <br>
+											<span>거주지역 좌표:</span>
+											<span>lat:${ senior.address.location.lat }/lng:${ senior.address.location.lng }</span> <br>
+											 <span>연세:</span>
+											<span>${ senior.age}</span> <br> 
+											 <span>연락처:</span>
+											<span>${ senior.phone}</span> <br> 
+											<span>장애등급:</span> <span><c:choose>
+													<c:when test="${ senior.disabilityGrade==NULL}">X</c:when>
+													<c:otherwise>${ senior.disabilityGrade } </c:otherwise>
+												</c:choose></span><br> 
+												<%-- <span>담당복지사:</span> <span>${socialWorker.fullname }</span> --%>
+
+										</div>
+										<hr />
+										<div id="body">어르신 특이사항: ${ senior.uniqueness }</div>
+										<hr />
+
+									</div>
+								</div>
+								<!--/ End Single blog -->
+
 							</div>
 
-							<div style="display: inline-block">
-								<button class="search-button">검색</button>
-							</div>
-							<div>
-								페이지 크기 <select>
-									<option>10</option>
-									<option>15</option>
-									<option>30</option>
-								</select>
-							</div>
-						</form>
+						</div>
 					</div>
-				</div>
-				<p class="nino-sectionDesc">
-				<div class="skill-main">
-					<table class="table table-bordered">
-						<thead style="color: black">
-							<tr>
-								<th>id</th>
-								<th>이름</th>
-								<th>지역</th>
-								<th>나이</th>
-								<th>장애등급</th>
-							</tr>
-						</thead>
-						<tbody>
-						
-							
-								<tr>
-									<td>${ senior.seNo }</td>
-									<td>${ senior.name }</td>
-									<td>${ senior.address.city }</td>
-									<td>${ senior.age}</td>
-									<td><c:choose>
-											<c:when test="${ senior.disabilityGrade==null }">없음</c:when>
-											<c:otherwise>${ senior.disabilityGrade } </c:otherwise>
-										</c:choose>
-									</td>
-								</tr>
-							
-						
-							<!--
-								<tr data-url="senior_detail?id=${ senior.id }">
-									<td>${ senior.seNo }</td>
-									<td>${ senior.name }</td>
-									<td>${ senior.address.city }</td>
-									<td>${ senior.age}</td>
-									<td><c:choose>
-											<c:when test="${ senior.disabilityGrade==null }">없음</c:when>
-											<c:otherwise>${ senior.disabilityGrade } </c:otherwise>
-										</c:choose>
-									</td>
-								</tr>
-							-->
-						</tbody>
-					</table>
-				</div>
-				</p>
-			</div>
-			<div class="row">
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<!-- Start Pagination -->
-					<ul class="pagination">
-						<li class="prev"><a href="#"><span
-								class="fa fa-angle-left"></span></a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li class="next"><a href="#"><span
-								class="fa fa-angle-right"></span></a></li>
-					</ul>
-					<!--/ End Pagination -->
-				</div>
-			</div>
-		</div>
 
+				</section>
+
+				<div class="list">
+					<button type="button" class="button primary"
+						style="background-color: #16A085"
+						onclick="location.href='seniorList' ">
+						<i class="fa fa-send"></i>목록으로
+					</button>
+				</div>
+			</div>
 	</section>
 	<!--/ End Project -->
 	</section>
@@ -162,8 +125,10 @@
 
 	<!-- javascript -->
 
-	<script type="text/javascript" src=".<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src=".<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
 
 
 </body>

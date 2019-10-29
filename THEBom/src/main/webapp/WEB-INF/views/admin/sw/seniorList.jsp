@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<!-- tag library -->
+<!-- tag library -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -17,13 +17,16 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/res/css/template.css" />
 
-	<!-- javascript -->
-	<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/res/js/common.js"></script>
+<!-- javascript -->
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/common.js"></script>
 
-	
-	
+
+
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -43,7 +46,7 @@
 								<li><a href="circle">써클조회</a></li>
 								<li class="active"><a href="seniorList">노인조회</a></li>
 								<li><a href="sponsor">후원자조회</a></li>
-								<li><a href="sponsorview">후원매치현황</a></li>
+								<li><a href="sponsor_detail">후원매치현황</a></li>
 								<li><a href="mypage">마이페이지</a></li>
 							</ul>
 						</div>
@@ -64,6 +67,8 @@
 				<h2 class="nino-sectionHeading">
 					<span class="nino-subHeading">THE BOM</span> 관할 노인조회
 				</h2>
+
+				<!-- 독거노인 조건 검색바 -->
 				<div style="float: right" class="search">
 					<div class=" col-sm-12 col-xs-12">
 						<form style="display: inline-block">
@@ -91,6 +96,12 @@
 						</form>
 					</div>
 				</div>
+				<!-- 독거노인 조건 검색바 끝 -->
+				<!-- 독거노인 추가 버튼 -->
+				<div class="col-sm-12 col-xs-12" id="write">
+					<a href="seniorList_insert" style="margin-bottom: 30px;">어르신 추가</a>
+				</div>
+				<!-- 독거노인 추가 버튼 끝-->
 				<p class="nino-sectionDesc">
 				<div class="skill-main">
 					<table class="table table-bordered table-hover">
@@ -98,41 +109,33 @@
 							<tr>
 								<th>id</th>
 								<th>이름</th>
-								<th>지역</th>
+								<th>거주지역</th>
 								<th>나이</th>
+								<th>성별</th>
 								<th>장애등급</th>
+
 							</tr>
 						</thead>
 						<tbody>
-						
+
 							<c:forEach var="senior" items="${ seniors }">
-								<tr data-url="seniorDetail?seNo=${ senior.seNo }">
+								<tr data-url="seniorList_detail?seNo=${ senior.seNo }">
 									<td>${ senior.seNo }</td>
 									<td>${ senior.name }</td>
-									<td>${ senior.address.city }</td>
-									<td>${ senior.age}</td>
-									<td>
-										<c:choose>
-											<c:when test="${ senior.disabilityGrade==null }">없음</c:when>
-											<c:otherwise>${ senior.disabilityGrade } </c:otherwise>
-										</c:choose>
-									</td>
-								</tr>
-							</c:forEach>
-						
-							<!--
-								<tr data-url="senior_detail?id=${ senior.id }">
-									<td>${ senior.seNo }</td>
-									<td>${ senior.name }</td>
-									<td>${ senior.address.city }</td>
+									<td>${ senior.address.address1 }</td>
 									<td>${ senior.age}</td>
 									<td><c:choose>
-											<c:when test="${ senior.disabilityGrade==null }">없음</c:when>
+											<c:when test="${ senior.gender==true}">男</c:when>
+											<c:otherwise>女</c:otherwise>
+										</c:choose></td>
+									<td><c:choose>
+											<c:when test="${ senior.disabilityGrade==NULL}">X</c:when>
 											<c:otherwise>${ senior.disabilityGrade } </c:otherwise>
-										</c:choose>
-									</td>
+										</c:choose></td>
+
 								</tr>
-							-->
+							</c:forEach>
+
 						</tbody>
 					</table>
 				</div>

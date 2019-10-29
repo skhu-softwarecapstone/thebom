@@ -36,7 +36,7 @@ public class Senior {
 	@Field(value="phone")
 	private String phone;
 
-	@Field(value="disability_grade")
+	@Field(value="disability")
 	private String disabilityGrade;
 
 	@Field(value="group_info")
@@ -44,4 +44,8 @@ public class Senior {
 	
 	@Field(value="address")
 	private Address address;
+	
+	@Field(value="uniqueness")
+	private String uniqueness;
+	
 }

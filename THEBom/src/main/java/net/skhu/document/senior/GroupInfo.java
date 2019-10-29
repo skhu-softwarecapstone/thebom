@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class GroupInfo {
 	
-	String socialWorkerId;
+	String social_worker_id;
 	String neighborhood;
 	int participants;
 
