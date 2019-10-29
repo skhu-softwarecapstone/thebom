@@ -77,6 +77,8 @@ public class AdminController {
 	private CustomUserDetailsService userService;
 	@Autowired
 	private KakaoAPI kakaoAPI;
+	@Autowired
+	private BlindRepository blindRepository;
 
 	//admin version 메인페이지-접속한 유저정보랑 공지사항 객체목록 5개 담을것 
 	@RequestMapping(value = "/sw/sw_main", method = RequestMethod.GET)
@@ -102,7 +104,8 @@ public class AdminController {
 	}
 	//공지사항 세부페이지
 	@GetMapping("/sw/notice_detail")
-	public String noticeDetail(@RequestParam("id") String id,Model model)  {
+	public String noticeDetail(@RequestParam("no") int no,Model model)  {
+		model.addAttribute("notice", noticeRepository.findByNo(no));
 		return "admin/sw/notice_detail";
 	}
 	//공지사항 작성
@@ -110,8 +113,9 @@ public class AdminController {
 	public String noticeWrite()  {
 		return "admin/sw/notice_write";
 	}
-
 	//공지사항 데이터 삽입
+
+
 	@PostMapping("/sw/notice_write")
 	public String noticeWrite(@ModelAttribute("part")Notice part) {
 		Notice notice=new Notice();
@@ -127,11 +131,84 @@ public class AdminController {
 	}
 
 	@GetMapping("/sw/blind")
-	public String blind() {
+	public String blind(Model model) {
+		List<Blind> blinds=this.blindRepository.findAll();
+		model.addAttribute("blinds", blinds);
 		return "admin/sw/blind";
 	}
 
+	@GetMapping("/sw/blindDetail")
+	public String blindDetail(@RequestParam("bNo") int bNo,Model model) {
+		Blind blind=this.blindRepository.findByBNo(bNo);
+		model.addAttribute("part", blind);
+		return "admin/sw/blind_detail";
+	}
+	
 
+
+	@GetMapping("/sw/blindAccept")
+	public String blindAccept(@RequestParam("bNo") int bNo,Model model) {
+		Blind blind=this.blindRepository.findByBNo(bNo);
+		this.blindRepository.delete(blind);
+		blind.setProcessState(1);
+		this.blindRepository.save(blind);
+		return "redirect:/sw/blind";
+	}
+	@GetMapping("/sw/blindComplete")
+	public String blindComplete(@RequestParam("bNo") int bNo,Model model) {
+		Blind blind=this.blindRepository.findByBNo(bNo);;
+		this.blindRepository.delete(blind);
+		blind.setProcessState(2);
+		this.blindRepository.save(blind);
+		return "redirect:/sw/blind";
+	}
+
+	//유저 사각지대 신고 user/sp폴더로 옮겨야함
+	@GetMapping("/sw/insertBlind")
+	public String insertBlind() {
+		return "admin/sw/insertBlind";
+	}
+
+	//유저 사각지대 신고 user/sp폴더로 옮겨야함
+	@PostMapping("/sw/insertBlind")
+	public String insertBlind(@ModelAttribute("part")Blind part) {
+		Blind blind=new Blind();
+		int bno= (int) (this.blindRepository.count() + 1);
+		blind.setBNo(bno);
+		blind.setName(part.getName());
+		blind.setContent(part.getContent());
+		blind.setDate(new Date());
+		blind.setUserId("admin"); //로그인한 아이디 넣기
+		blind.setProcessState(0);
+		this.blindRepository.insert(blind);
+
+		return "redirect:/sw/blindPage";
+	}
+
+	//유저 사각지대 신고 user/sp폴더로 옮겨야함
+	@GetMapping("/sw/blindPage")
+	public String blindPage(Model model) {
+		List<Blind> blinds=this.blindRepository.findByUserId("admin"); //로그인 아이디로 변경해야함
+		model.addAttribute("blinds", blinds);
+		return "admin/sw/blindPage";
+	}
+
+	//유저 사각지대 신고 user/sp폴더로 옮겨야함
+	@GetMapping("/sw/blindPagedt")
+	public String blindPagedt(@RequestParam("bNo") int bNo,Model model) {
+		Blind blind=this.blindRepository.findByBNo(bNo);
+		model.addAttribute("part", blind);
+		return "admin/sw/blindPagedt";
+	}
+	@PostMapping("/sw/blindPagedt")
+	public String blindPagedt(@ModelAttribute("part")Blind part) {
+		Blind blind=this.blindRepository.findByBNo(part.getBNo());	
+		this.blindRepository.delete(blind);
+		blind.setName(part.getName());
+		blind.setContent(part.getContent());
+		this.blindRepository.save(blind);
+		return "redirect:/sw/blindPage";
+	}
 	//관리하는 독거노인 목록 조회
 	@GetMapping("/sw/seniorList")
 	public String senior(Model model) {
@@ -145,12 +222,12 @@ public class AdminController {
 	@GetMapping("/sw/seniorList_detail")
 	public String seniorDetail(@RequestParam("seNo") int seNo,Model model) {
 		Senior senior =this.seniorRepository.findBySeNo(seNo);
-//		User socialWorker =this.userRepository.findById(senior.getGroupInfo().getSocial_worker_id()).get();
+		//		User socialWorker =this.userRepository.findById(senior.getGroupInfo().getSocial_worker_id()).get();
 
 		model.addAttribute("senior", senior);
 		System.out.print(senior.getAddress().getLocation());
 		model.addAttribute("location",senior.getAddress().getLocation());
-//		model.addAttribute("socialWorker", socialWorker);
+		//		model.addAttribute("socialWorker", socialWorker);
 		return "admin/sw/seniorList_detail";
 	}
 	//독거노인목록에 독거노인 데이터 추가페이지
@@ -162,12 +239,12 @@ public class AdminController {
 	@Transactional
 	@PostMapping("/sw/seniorList_insert")
 	public String seniorInsert(SeniorModel seniorModel, Model model) throws UnsupportedEncodingException {
-		
+
 		int maxSeNo=seniorRepository.findTopByOrderBySeNoDesc().getSeNo();
-		
-				
+
+
 		Senior senior=new Senior();
-		
+
 		senior.setSeNo(maxSeNo+1);
 		senior.setName(seniorModel.getName());
 		senior.setAge(seniorModel.getAge());
@@ -175,17 +252,17 @@ public class AdminController {
 		senior.setPoint(0);
 		senior.setPhone(seniorModel.getPhone());
 		senior.setDisabilityGrade(seniorModel.getDisabilityGrade());
-		
+
 		Address address=new Address();
-		
+
 		address.setAddress1(seniorModel.getAddress1());
 		address.setAddress_detail(seniorModel.getAddress_detail());
 		address.setZipcode(seniorModel.getZipcode());
-		
+
 		HashMap<String, Object> coordinates=kakaoAPI.getCoords(seniorModel.getAddress1());
-		
+
 		Location location=new Location((Double)coordinates.get("x"),(Double)coordinates.get("y"));
-		
+
 		address.setLocation(location);
 		senior.setAddress(address);
 		senior.setUniqueness(seniorModel.getUniqueness());
@@ -234,7 +311,11 @@ public class AdminController {
 		return "admin/sw/sponsor_detail1";
 	}
 
-
+	//매칭 관리
+	@GetMapping("/sw/match")
+	public String match(Model model) {
+		return "admin/sw/match";
+	}
 
 	//개인정보 확인 수정 페이지-내가 후원하는 단체 목록이 아니라 사회복지사 소속 변경용
 	@GetMapping("/sw/mypage")
@@ -285,6 +366,9 @@ public class AdminController {
 		return null;
 
 	}
+
+
+
 
 
 

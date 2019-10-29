@@ -14,6 +14,8 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
+
+	
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -58,21 +60,21 @@
                                     <table class="table table-bordered mt5 table-hover">
                                       <thead style="color:black">
                                         <tr>
-                                          <th>제목</th>
-                                          <th>내용</th>
-                                          <th>작성날짜</th>
+                                          <th>신고대상</th>
+                                          <th>신고내용</th>
+                                          <th>신고날짜</th>
                                           <th>작성자</th>
                                           <th>처리상태</th>
                                         </tr>
                                       </thead>
                                       <tbody>
-                                        <c:forEach var="notice" items="${ notices }">
-                                          <tr onclick="location.href='blind_detail'">
-                                            <td>${ notice.title }</td>
-                                            <td>${ notice.content}</td>
-                                            <td>${ notice.createdDate.toString() }</td>
-                                            <td>${ notice.userId }</td>
-                                            <td></td>
+                                        <c:forEach var="blind" items="${ blinds }">
+                                          <tr data-url="blindDetail?bNo=${blind.BNo}">
+                                            <td>${ blind.name }</td>
+                                            <td>${ blind.content}</td>  
+                                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${blind.date}" /></td>
+                                            <td>${ blind.userId}</td> 
+                                            <td>${ blind.processState==0?"접수대기":blind.processState==1?"접수완료":"처리완료"}</td>
                                           </tr>
                                         </c:forEach>
                                        
@@ -113,6 +115,7 @@
 
 	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>	
 	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/common.js"></script>	
 	
 		
 </body>

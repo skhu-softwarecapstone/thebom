@@ -67,8 +67,10 @@
                                 <td><textarea class="form-control" placeholder="글 내용" name="content" maxlength="2048" style="height: 350px;"></textarea></td>
                             </tr>
                         </tbody>
-                    </table>	
-                    <input type="submit" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3" value="글등록" />
+                    </table>
+                    <a href="notice" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3">목록으로</a>	
+                    <input type="submit" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;" value="글등록" />
+                   
                 </form:form>
             </div>
         </div>
