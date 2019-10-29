@@ -30,13 +30,13 @@
 						<div class="collapse navbar-collapse pull-left"
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="social">홈<span class="sr-only">(current)</span></a></li>
+								<li><a href="sW_main">홈<span class="sr-only">(current)</span></a></li>
 								<li><a href="notice">공지사항</a></li>
 								<li><a href="circle">써클조회</a></li>
-								<li class="active"><a href="senior">노인조회</a></li>
+								<li class="active"><a href="seniorList">노인조회</a></li>
 								<li><a href="sponsor">후원자조회</a></li>
 								<li><a href="sponsorview">후원매치현황</a></li>
-								<li><a href="socialMypage">마이페이지</a></li>
+								<li><a href="mypage">마이페이지</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->

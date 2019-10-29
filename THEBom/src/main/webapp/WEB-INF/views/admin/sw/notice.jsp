@@ -30,11 +30,15 @@
                                 <li><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
                                 <li class="active"><a href="notice">공지사항</a></li>
                                 <li><a href="circle">써클조회</a></li>
-                                <li><a href="senior ">노인조회</a></li>
+                                <li><a href="seniorList">독거노인조회</a></li>
                                 <li><a href="sponsor ">후원자조회</a></li>
                                 <li><a href="sponsorview ">후원매치현황</a></li>
+<<<<<<< HEAD
                                 <li><a href="blind">사각지대 관리</a></li>
                                 <li><a href="socialMypage ">마이페이지</a></li>
+=======
+                                <li><a href="mypage">마이페이지</a></li>
+>>>>>>> branch 'yoobin' of https://github.com/skhu-softwarecapstone/thebom.git
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                            
