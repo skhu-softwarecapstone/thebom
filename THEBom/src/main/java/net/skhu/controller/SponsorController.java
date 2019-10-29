@@ -84,7 +84,6 @@ public class SponsorController {
 			blind.setName(name);
 			blind.setUserId("jimin123"); //로그인값으로 수정
 			blind.setContent(content);
-			blind.setPNo(pNo); //선택한 기관값
 			this.blindRepository.insert(blind);
 
 			return "";

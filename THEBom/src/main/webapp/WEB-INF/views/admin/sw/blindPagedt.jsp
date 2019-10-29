@@ -13,7 +13,6 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
-		
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -49,53 +48,31 @@
 
 	<!-- Start Project -->
 	<section id="portfolio" class="section archive page">
-		<div  class="container">
+		<div class="container">
 			<div class="row">    
-                
+                <form:form method="post" modelAttribute="part" style="margin:63px">
                     <table class="table table-striped"
                         style="text-align: center; border: 1px solid #dddddd">
                         <thead>
                             <tr>
                                 <th colspan="2"
                                     style="background-color: #eeeeee; text-align: center;">
-                                    	사각지대 관리</th>
+                                    	사각지대 신고하기</th>
                             </tr>
                         </thead>
                         <tbody>
-                         
-                        	<tr>
-                            	<td>신고날짜</td>
-                                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${part.date}" /></td>
-                            </tr>
-                
                             <tr>
-                            	<td>신고자 아이디</td>
-                                <td>${part.userId}</td>
-                            </tr>
-                            
-                            <tr>
-                            	<td>처리상태</td>
-                            	<td>${part.processState==0?"접수대기":part.processState==1?"접수완료":"처리완료"}</td>
-                            </tr>
-                            
-                            <tr>
-                            	<td>신고대상자</td>
-                                <td>${part.name}</td>
+                                <td><form:input path="name" class="form-control" placeholder="신고 대상 이름" name="name"  maxlength="50"/></td>
                             </tr>
                             <tr>
-                            	<td>신고내용</td>
-                                <td>${part.content}</td>
+                                <td><form:textarea path="content" class="form-control" placeholder="신고 내용(구체적인 위치,특이사항  등 기재 ) 필요시  사회복지사의 연락이 갈 수 있습니다." name="content" maxlength="2048" style="height: 350px;"/></td>
                             </tr>
-                            
                         </tbody>
                     </table>
-                    <a href="blind" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3">목록으로</a>
-                     <a href="blindComplete?bNo=${ part.BNo }" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;">처리완료</a>
-                    <a href="blindAccept?bNo=${ part.BNo }"	 class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;">접수</a>
+                    <a href="blindPage" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3">목록으로</a>	
+                    <input type="submit" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;" value="수정" />
                    
-                    
-                    
-               		
+                </form:form>
             </div>
 			
 			

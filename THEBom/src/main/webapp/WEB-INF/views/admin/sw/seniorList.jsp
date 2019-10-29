@@ -96,7 +96,7 @@
 					<table class="table table-bordered table-hover">
 						<thead style="color: black">
 							<tr>
-								<th>id</th>
+								<th>번호</th>
 								<th>이름</th>
 								<th>지역</th>
 								<th>나이</th>
