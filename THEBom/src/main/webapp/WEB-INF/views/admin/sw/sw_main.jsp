@@ -111,8 +111,7 @@
 							<div class="info">
 								<ul class="info-list">
 									<c:forEach var="notice" items="${ notices }">
-										<li><i class="fa fa-check"></i>${ notice.title } <fmt:formatDate
-												pattern="yyyy-MM-dd HH:mm:ss" value="${ notice.createdAt }" /></li>
+										<li><i class="fa fa-check"></i>${ notice.title } </li>
 									</c:forEach>
 								</ul>
 							</div>
