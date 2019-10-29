@@ -44,7 +44,6 @@
 						<div class="collapse navbar-collapse pull-left"
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-<<<<<<< HEAD
 								<li class="active"><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
                                 <li><a href="notice">공지사항</a></li>
                                 <li><a href="circle">써클조회</a></li>
@@ -52,17 +51,7 @@
                                 <li><a href="sponsor">후원자조회</a></li>
                                 <li><a href="sponsorview">후원매치현황</a></li>
                                 <li><a href="blind">사각지대 관리</a></li>
-                                <li><a href="socialMypage">마이페이지</a></li>
-=======
-								<li class="active"><a href="sw_main">홈<span
-										class="sr-only">(current)</span></a></li>
-								<li><a href="notice">공지사항</a></li>
-								<li><a href="circle">써클조회</a></li>
-								<li><a href="seniorList">독거노인조회</a></li>
-								<li><a href="sponsor">후원자조회</a></li>
-								<li><a href="sponsorview">후원매치현황</a></li>
-								<li><a href="mypage">마이페이지</a></li>
->>>>>>> branch 'yoobin' of https://github.com/skhu-softwarecapstone/thebom.git
+                                <li><a href="socialMypage">마이페이지</a></li>				
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -90,6 +79,7 @@
 						</div>
 
 					</div>
+			   </div>
 			</section>
 		</div>
 	</header>
@@ -117,7 +107,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center">
-<<<<<<< HEAD
+
 								<!-- Info Main -->
 									<div class="section-title left">
 										<h2 class="nino-sectionHeading">공지사항</h2>
@@ -129,25 +119,14 @@
 											<li>${ notice.title }</li>
 										</c:forEach>
 										</ul>
-									 
+									 <!--<fmt:formatDate
+												pattern="yyyy-MM-dd HH:mm:ss" value="${ notice.createdAt }" />-->
 										
 									</div>
 								<!--/ End Info Main -->
-=======
-							<!-- Info Main -->
-							<div class="section-title left">
-								<h2 class="nino-sectionHeading">공지사항</h2>
-							</div>
-							<div class="info">
-								<ul class="info-list">
-									<c:forEach var="notice" items="${ notices }">
-										<li><i class="fa fa-check"></i>${ notice.title } <fmt:formatDate
-												pattern="yyyy-MM-dd HH:mm:ss" value="${ notice.createdAt }" /></li>
-									</c:forEach>
-								</ul>
-							</div>
-							<!--/ End Info Main -->
->>>>>>> branch 'yoobin' of https://github.com/skhu-softwarecapstone/thebom.git
+
+
+
 						</div>
 					</div>
 					<div class="col-md-6">

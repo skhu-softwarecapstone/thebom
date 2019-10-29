@@ -33,12 +33,9 @@
                                 <li><a href="seniorList">독거노인조회</a></li>
                                 <li><a href="sponsor ">후원자조회</a></li>
                                 <li><a href="sponsorview ">후원매치현황</a></li>
-<<<<<<< HEAD
                                 <li><a href="blind">사각지대 관리</a></li>
                                 <li><a href="socialMypage ">마이페이지</a></li>
-=======
                                 <li><a href="mypage">마이페이지</a></li>
->>>>>>> branch 'yoobin' of https://github.com/skhu-softwarecapstone/thebom.git
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                            
@@ -74,7 +71,7 @@
                                       </thead>
                                       <tbody>
                                         <c:forEach var="notice" items="${ notices }">
-                                          <tr onclick="location.href='notice_detail'">
+                                          <tr data-url="notice_detail?id=${notice.id}">
                                             <td>${ notice.title }</td>
                                             <td>${ notice.content}</td>
                                             <td>${ notice.createdDate.toString() }</td>
@@ -119,7 +116,7 @@
 
 	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>	
 	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
-	
+		<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/common.js"></script>
 		
 </body>
 </html>
