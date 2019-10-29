@@ -10,7 +10,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,13 +22,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import net.skhu.document.Blind;
 import net.skhu.document.Circle;
+import net.skhu.document.Dailylog;
 import net.skhu.document.SocialWorker;
 import net.skhu.document.User;
 import net.skhu.document.senior.Senior;
 import net.skhu.document.sponsor.Sponsor;
-
+import net.skhu.document.Notice;
 import net.skhu.repository.BlindRepository;
 import net.skhu.repository.CircleRepository;
+import net.skhu.repository.NoticeRepository;
 import net.skhu.repository.SeniorRepository;
 import net.skhu.repository.SponsorRepository;
 import net.skhu.service.CustomUserDetailsService;
@@ -40,6 +44,8 @@ public class SocialWorkerController {
 	@Autowired
 	private SponsorRepository sponsorRepository;
 	@Autowired
+	private NoticeRepository noticeRepository;
+	@Autowired
 	private SeniorRepository seniorRepository;
 	@Autowired
 	private CircleRepository circleRepository;
@@ -48,7 +54,7 @@ public class SocialWorkerController {
 
 //admin version main
 	@RequestMapping(value = "/sw/sw_main", method = RequestMethod.GET)
-	public ModelAndView dashboard() {
+	public ModelAndView dashboard(Model model) {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
@@ -56,12 +62,16 @@ public class SocialWorkerController {
 		modelAndView.addObject("fullName", "Welcome " + user.getFullname());
 		modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
 		modelAndView.setViewName("admin/sw/sw_main");
+		List<Notice> notices=this.noticeRepository.findAll();
+		model.addAttribute("notices", notices);
 		return modelAndView;
 	}
 
 	//공지사항 페이지
 	@GetMapping("/sw/notice")
-	public String notice() {
+	public String notice(Model model) {
+		List<Notice> notices=this.noticeRepository.findAll();
+		model.addAttribute("notices", notices);
 		return "admin/sw/notice";
 	}
 	//공지사항 세부페이지
@@ -71,8 +81,29 @@ public class SocialWorkerController {
 	}
 	//공지사항 작성
 	@GetMapping("/sw/notice_write")
-	public String noticeWrite(@RequestParam("id") String id,Model model)  {
+	public String noticeWrite()  {
 		return "admin/sw/notice_write";
+	}
+	//공지사항 데이터 삽입
+	
+	
+	@PostMapping("/sw/notice_write")
+	public String noticeWrite(@ModelAttribute("part")Notice part) {
+		Notice notice=new Notice();
+		int no = (int) (this.noticeRepository.count() + 1);
+		notice.setNo(no);
+		notice.setTitle(part.getTitle());
+		notice.setContent(part.getContent()); 
+		notice.setUserId("jimin"); //로그인한 아이디 넣기
+		notice.setCreatedDate(new Date()); 
+		this.noticeRepository.insert(notice);
+
+		return "redirect:/sw/notice";
+	}
+	
+	@GetMapping("/sw/blind")
+	public String blind() {
+		return "admin/sw/blind";
 	}
 	
 	@GetMapping("social")

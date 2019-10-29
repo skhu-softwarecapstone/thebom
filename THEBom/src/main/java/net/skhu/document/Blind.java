@@ -21,5 +21,7 @@ public class Blind {
 	private String userId;
 	@Field(value="pNo")
 	private int pNo;
+	@Field(value="processState")
+	private int processState;
 
 }

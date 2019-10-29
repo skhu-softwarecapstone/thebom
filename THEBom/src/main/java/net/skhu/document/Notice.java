@@ -1,5 +1,8 @@
 package net.skhu.document;
 
+import java.util.Date;
+
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -12,9 +15,12 @@ public class Notice {
 	@Field(value="no")
 	private int no;
 	@Field(value="title")
-	private String title;
+	public String title;
 	@Field(value="content")
 	private String content;
 	@Field(value="userId")
-	private int userId;
+	private String userId;
+	@CreatedDate
+	@Field(value="date")
+	private Date createdDate;
 }

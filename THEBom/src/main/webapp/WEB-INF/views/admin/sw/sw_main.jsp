@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		<!-- tag library -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +46,7 @@
                                 <li><a href="senior">노인조회</a></li>
                                 <li><a href="sponsor">후원자조회</a></li>
                                 <li><a href="sponsorview">후원매치현황</a></li>
+                                <li><a href="blind">사각지대 관리</a></li>
                                 <li><a href="socialMypage">마이페이지</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
@@ -95,12 +100,14 @@
 										<h2 class="nino-sectionHeading">공지사항</h2>
 									</div>
 									<div class="info">
+									 
 										<ul class="info-list">
-											<li>후원자 모집하기</li>
-											<li>한지민 바보래요</li>
-											<li>지망 == 한지민 망했다</li>
-											<li>한지망과 함께하는 더봄의 미래는...??</li>
+										<c:forEach var="notice" items="${ notices }">
+											<li>${ notice.title }</li>
+										</c:forEach>
 										</ul>
+									 
+										
 									</div>
 								<!--/ End Info Main -->
 						</div>
@@ -127,8 +134,9 @@
     </section><!--/#nino-whatWeDo-->
 	<!-- javascript -->
 	
-	<script type="text/javascript" src="../js/jquery.min.js"></script>	
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>	
+<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
+	
 		
 </body>
 </html>

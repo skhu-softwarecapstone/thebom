@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<!-- tag library -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +33,7 @@
                                 <li><a href="senior ">노인조회</a></li>
                                 <li><a href="sponsor ">후원자조회</a></li>
                                 <li><a href="sponsorview ">후원매치현황</a></li>
+                                <li><a href="blind">사각지대 관리</a></li>
                                 <li><a href="socialMypage ">마이페이지</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
@@ -65,10 +70,10 @@
                                       </thead>
                                       <tbody>
                                         <c:forEach var="notice" items="${ notices }">
-                                          <tr onclick="location.href='notice_detail'"">
+                                          <tr onclick="location.href='notice_detail'">
                                             <td>${ notice.title }</td>
                                             <td>${ notice.content}</td>
-                                            <td>${ notice.date_created }</td>
+                                            <td>${ notice.createdDate.toString() }</td>
                                             <td>${ notice.userId }</td>
                                           </tr>
                                         </c:forEach>
@@ -108,8 +113,8 @@
 	
 	<!-- javascript -->
 
-	<script type="text/javascript" src="../js/jquery.min.js"></script>	
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>	
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
 	
 		
 </body>
