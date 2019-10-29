@@ -71,16 +71,17 @@
                                       </thead>
                                       <tbody>
                                         <c:forEach var="notice" items="${ notices }">
-                                          <tr data-url="notice_detail?id=${notice.id}">
+                                          <tr data-url="notice_detail?no=${notice.no}">
                                             <td>${ notice.title }</td>
-                                            <td>${ notice.content}</td>
-                                            <td>${ notice.createdDate.toString() }</td>
+                                            <td>${ notice.content}</td>  
+                                            <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${ notice.createdDate}" /></td>
                                             <td>${ notice.userId }</td>
                                           </tr>
                                         </c:forEach>
                                        
                                       </tbody>
                                     </table>
+                                    
                                   </div>
                                 <!-- End table -->
                         </div>

@@ -76,7 +76,8 @@ public class AdminController {
 		}
 		//공지사항 세부페이지
 		@GetMapping("/sw/notice_detail")
-		public String noticeDetail(@RequestParam("id") String id,Model model)  {
+		public String noticeDetail(@RequestParam("no") int no,Model model)  {
+			model.addAttribute("notice", noticeRepository.findByNo(no));
 			return "admin/sw/notice_detail";
 		}
 		//공지사항 작성

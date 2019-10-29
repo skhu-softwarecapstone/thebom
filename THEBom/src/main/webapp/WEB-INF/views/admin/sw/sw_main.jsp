@@ -79,6 +79,7 @@
 						</div>
 
 					</div>
+				</div>
 			</section>
 		</div>
 	</header>
@@ -127,8 +128,8 @@
 							</div>
 							<div class="info">
 								<ul class="info-list">
-									<li>${loginUser.name}</li>
-									<li>복지사등급</li>
+									<li>${currentUser.fullname}</li>
+									<li>${currentUser.email}</li>
 									<li>소속</li>
 								</ul>
 							</div>
@@ -148,13 +149,5 @@
 	<script type="text/javascript"
 		src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
 
-
-
-
-	<script type="text/javascript" src="../js/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-
-
 </body>
->>>>>>> branch 'yoobin' of https://github.com/skhu-softwarecapstone/thebom.git
 </html>
