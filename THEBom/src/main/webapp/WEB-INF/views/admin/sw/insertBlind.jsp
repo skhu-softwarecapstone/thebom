@@ -31,7 +31,7 @@
 								<li><a href="dailylog">방문 기록</a></li>
 								<li class="active"><a href="blind">사각지대 신고</a></li>
 								<li><a href="spon">직접 후원하기</a></li>
-								<li><a href="mypage">마이페이지</a></li>
+								<li><a href="userMypage">마이페이지</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->

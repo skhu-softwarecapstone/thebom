@@ -32,7 +32,8 @@
                                 <li class="active"><a href="circle">써클조회</a></li>
                                 <li><a href="seniorList ">노인조회</a></li>
                                 <li><a href="sponsor ">후원자조회</a></li>
-                                <li><a href="sponsorview ">후원매치현황</a></li>
+                                <li><a href="match">후원매치현황</a></li>
+                                <li><a href="blind">사각지대 관리</a></li>
                                 <li><a href="mypage">마이페이지</a></li>
                                 
                                 </ul>
