@@ -34,7 +34,6 @@
                                 <li><a href="sponsor ">후원자조회</a></li>
                                 <li><a href="sponsorview ">후원매치현황</a></li>
                                 <li><a href="blind">사각지대 관리</a></li>
-                                <li><a href="socialMypage ">마이페이지</a></li>
                                 <li><a href="mypage">마이페이지</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->

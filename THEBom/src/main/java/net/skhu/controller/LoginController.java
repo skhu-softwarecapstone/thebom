@@ -2,7 +2,12 @@ package net.skhu.controller;
 
 import net.skhu.document.User;
 import net.skhu.service.CustomUserDetailsService;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,9 +25,10 @@ public class LoginController {
     private CustomUserDetailsService userService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login() {
+    public ModelAndView login(HttpSession httpsession, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");
+      
         return modelAndView;
     }
 
@@ -56,8 +62,8 @@ public class LoginController {
         return modelAndView;
     }
 
-  
-    
+
+
    
 
 }

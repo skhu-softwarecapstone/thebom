@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!-- tag library -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{default}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>The bom</title>
@@ -13,9 +18,9 @@
 
 <!-- css -->
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
+	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/res/css/template.css" />
+	href="<%=request.getContextPath()%>/res/css/template.css" />
 </head>
 <body data-target="#nino-navbar" data-spy="scroll">
 
@@ -44,14 +49,16 @@
 						<div class="collapse navbar-collapse pull-left"
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="sw_main">홈<span	class="sr-only">(current)</span></a></li>
+								<li class="active"><a href="sw_main">홈<span
+										class="sr-only">(current)</span></a></li>
 								<li><a href="notice">공지사항</a></li>
 								<li><a href="circle">써클조회</a></li>
 								<li><a href="seniorList">독거노인조회</a></li>
 								<li><a href="sponsor">후원자조회</a></li>
 								<li><a href="sponsorview">후원매치현황</a></li>
 								<li><a href="mypage">마이페이지</a></li>
-
+								<li><a href="<c:url value='/logout'/>">Logout</a></li>
+								<li>${user.fullname }</li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -112,7 +119,7 @@
 							<div class="info">
 								<ul class="info-list">
 									<c:forEach var="notice" items="${ notices }">
-										<li><i class="fa fa-check"></i>${ notice.title } </li>
+										<li><i class="fa fa-check"></i>${ notice.title }</li>
 									</c:forEach>
 								</ul>
 							</div>
@@ -145,9 +152,9 @@
 
 
 	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>
+		src="<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
 	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
+		src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
 
 </body>
 </html>
