@@ -242,6 +242,8 @@ public class AdminController {
 	//매칭 관리
 	@GetMapping("/sw/match")
 	public String match(Model model) {
+		List<Senior> seniors=this.seniorRepository.findByMatch(0);
+		model.addAttribute("seniors", seniors);
 		return "admin/sw/match";
 	}
 
