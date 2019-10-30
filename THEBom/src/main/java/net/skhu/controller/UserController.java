@@ -80,6 +80,17 @@ public class UserController {
 		model.addAttribute("part", blind);
 		return "user/sp/blind_detail";
 	}
+	
+	@PostMapping("/sp/blind_detail")
+	public String blindDetail(@ModelAttribute("part")Blind part) {
+		Blind blind=this.blindRepository.findByBNo(part.getBNo());	
+		this.blindRepository.delete(blind);
+		blind.setName(part.getName());
+		blind.setContent(part.getContent());
+		this.blindRepository.save(blind);
+		return "redirect:/sp/blind";
+	}
+	
 	//유저 사각지대 신고 user/sp폴더로 옮겨야함
 	@GetMapping("/sp/blind_insert")
 	public String blindInsert() {

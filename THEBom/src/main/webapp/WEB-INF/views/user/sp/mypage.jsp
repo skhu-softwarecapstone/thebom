@@ -11,8 +11,10 @@
 
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/res/css/template.css" />
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -51,137 +53,23 @@
 	<section id="portfolio" class="section archive page">
 		<div class="container">
 			<div class="row">
-				<h3 style="color: gray">
-					마이페이지
-					</h1>
-					<h6 style="color: gray">
-						회원님이 후원하고 계신 기업 목록입니다.
-						</h4>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/6.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/6.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="question_answer ">부천시 복지관</a>
-									</h4>
-									<p>후원자 신청</p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
+				<h3 style="color: gray">마이페이지</h3>
+				<div style="margin-top: 80px" class="single-blog">
+
+					<div class="blog-content">
+						<h3>내 정보</h3>
+						<hr />
+
+						<div id="info">
+							<span>이름: </span> <span>${ user.fullname }</span> <br> <span>이메일:</span>
+							<span>${ user.email }</span> <br>
 						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/2.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/2.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="portfolio-single "></a>
-									</h4>
-									<p></p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/3.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/3.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="portfolio-single "></a>
-									</h4>
-									<p></p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/4.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/4.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="portfolio-single "></a>
-									</h4>
-									<p></p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/5.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/5.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="portfolio-single "></a>
-									</h4>
-									<p></p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/6.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/6.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="portfolio-single "></a>
-									</h4>
-									<p></p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<!-- Start Pagination -->
-					<ul class="pagination">
-						<li class="prev"><a href="#"><span
-								class="fa fa-angle-left"></span></a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li class="next"><a href="#"><span
-								class="fa fa-angle-right"></span></a></li>
-					</ul>
-					<!--/ End Pagination -->
+
+
+					</div>
 				</div>
 			</div>
+			
 		</div>
 
 	</section>
