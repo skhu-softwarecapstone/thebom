@@ -66,35 +66,37 @@ public class UserController {
 
 	//유저 사각지대 신고 user/sp폴더로 옮겨야함
 	@GetMapping("/sp/blind")
-	public String blindPage(Model model) {
-		List<Blind> blinds=this.blindRepository.findByUserId("admin"); //로그인 아이디로 변경해야함
+	public String blind(Model model,HttpSession session) {
+		User user=(User) session.getAttribute("user");
+		List<Blind> blinds=this.blindRepository.findByUserId(user.getEmail()); //로그인 아이디로 변경해야함
 		model.addAttribute("blinds", blinds);
 		return "user/sp/blind";
 	}
 
 	//유저 사각지대 신고 user/sp폴더로 옮겨야함
 	@GetMapping("/sp/blind_detail")
-	public String blindPagedt(@RequestParam("bNo") int bNo,Model model) {
+	public String blindDetail(@RequestParam("bNo") int bNo,Model model) {
 		Blind blind=this.blindRepository.findByBNo(bNo);
 		model.addAttribute("part", blind);
 		return "user/sp/blind_detail";
 	}
 	//유저 사각지대 신고 user/sp폴더로 옮겨야함
 	@GetMapping("/sp/blind_insert")
-	public String insertBlind() {
+	public String blindInsert() {
 		return "user/sp/blind_insert";
 	}
 
 	//유저 사각지대 신고 user/sp폴더로 옮겨야함
 	@PostMapping("/sp/blind_insert")
-	public String insertBlind(@ModelAttribute("part")Blind part) {
+	public String blindInsert(@ModelAttribute("part")Blind part,HttpSession session) {
+		User user=(User) session.getAttribute("user");
 		Blind blind=new Blind();
 		int bno= (int) (this.blindRepository.count() + 1);
 		blind.setBNo(bno);
 		blind.setName(part.getName());
 		blind.setContent(part.getContent());
 		blind.setDate(new Date());
-		blind.setUserId("admin"); //로그인한 아이디 넣기
+		blind.setUserId(user.getEmail()); //로그인한 아이디 넣기
 		blind.setProcessState(0);
 		this.blindRepository.insert(blind);
 
@@ -107,31 +109,14 @@ public class UserController {
 		return "user/sp/dailylog";
 	}
 	
-	@GetMapping("/sp/manage")
-	public String manage(Model model) {
-		List<Place> places=this.placeRepository.findAll();
-		model.addAttribute("places", places);
-		return "user/sp/manage";
-	}
+
 
 	@GetMapping("/sp/mypage")
 	public String sponMypage() {
 		return "user/sp/mypage";
 	}
 	
-	@GetMapping("/sp/notice")
-	public String sponNotice() {
-		return "user/sp/notice";
-	}
-	@GetMapping("/sp/notice_detail")
-	public String sponNoticeDetail() {
-		return "user/sp/notice_detail";
-	}
 
-	@GetMapping("/sp/register")
-	public String register() {
-		return "user/sp/register";
-	}
 	
 	@GetMapping("/sp/donate")
 	public String spon(Model model) {
@@ -141,22 +126,6 @@ public class UserController {
 	}
 	
 	
-	/*
-		//사각지대 신고데이터 삽입
-	 */
-	@ResponseBody
-	@RequestMapping("/insertBlind")
-	public String insertBlind(@RequestParam("name") String name,@RequestParam("content") String content,@RequestParam("pNo") int pNo) {
-		Blind blind= new Blind();
-		int bNo = (int) (this.blindRepository.count() + 1);
-		blind.setBNo(bNo);
-		blind.setName(name);
-		blind.setUserId("jimin123"); //로그인값으로 수정
-		blind.setContent(content);
-		this.blindRepository.insert(blind);
-
-		return "";
-	}
 
 	/*
 		//사각지대 신고데이터 삽입

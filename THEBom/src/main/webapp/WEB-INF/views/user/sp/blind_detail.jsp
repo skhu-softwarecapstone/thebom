@@ -69,7 +69,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a href="blindPage" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3">목록으로</a>	
+                    <a href="blind" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3">목록으로</a>	
                     <input type="submit" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;" value="수정" />
                    
                 </form:form>

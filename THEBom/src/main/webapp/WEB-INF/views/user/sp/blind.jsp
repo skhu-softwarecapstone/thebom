@@ -53,116 +53,39 @@
 				<h3 style="color: gray">
 					사각지대 신고하기
 				</h3>
-					
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/6.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/6.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="blind_detail">부천시 복지관</a>
-									</h4>
-									<p>후원자 신청</p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/2.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/2.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="portfolio-single "></a>
-									</h4>
-									<p></p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/3.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/3.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="portfolio-single "></a>
-									</h4>
-									<p></p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/4.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/4.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="portfolio-single "></a>
-									</h4>
-									<p></p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/5.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/5.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="portfolio-single "></a>
-									</h4>
-									<p></p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<!-- Single Portfolio -->
-							<div class="portfolio-single">
-								<a href="images/portfolio/6.jpg" class="zoom">
-									<div class="portfolio-head">
-										<img src="images/portfolio/6.jpg" alt="" /> <i
-											class="fa fa-search"></i>
-									</div>
-								</a>
-								<div class="text">
-									<h4>
-										<a href="portfolio-single "></a>
-									</h4>
-									<p></p>
-								</div>
-							</div>
-							<!--/ End Portfolio -->
-						</div>
+					<div class="pull-right mb5">
+                                    <a href="blind_insert" class="btn btn-info search-button">
+                                      <span class="glyphicon glyphicon-user"></span> 사각지대 신고</a>
+                            </div>
+                                <!-- Start table -->
+                                <div class="notice_container"> 
+                                    <table class="table table-bordered mt5 table-hover">
+                                      <thead style="color:black">
+                                        <tr>
+                                          <th>신고대상</th>
+                                          <th>신고내용</th>
+                                          <th>신고날짜</th>
+                                          <th>처리상태</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <c:forEach var="blind" items="${ blinds }">
+                                          <tr data-url="blind_detail?bNo=${blind.BNo}">
+                                            <td>${ blind.name }</td>
+                                            <td>${ blind.content}</td>  
+                                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${blind.date}" /></td>
+                                            <td>${blind.processState==0?"접수대기":blind.processState==1?"접수완료":"처리완료"}</td>
+                                          </tr>
+                                        </c:forEach>
+                                       
+                                      </tbody>
+                                    </table>
+                                    
+                                  </div>
+                                <!-- End table -->
+						
 			</div>
+			
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<!-- Start Pagination -->
@@ -199,6 +122,8 @@
 		src="<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
+			<script type="text/javascript"
+		src="<%=request.getContextPath()%>/res/js/common.js"></script>
 
 
 </body>
