@@ -43,7 +43,8 @@
 								<li><a href="circle">써클조회</a></li>
 								<li><a href="seniorList">노인조회</a></li>
 								<li><a href="sponsor">후원자조회</a></li>
-								<li class="active"><a href="sponsorview">후원매치현황</a></li>
+								<li class="active"><a href="match">후원매치현황</a></li>
+								<li><a href="blind">사각지대 관리</a></li>
 								<li><a href="mypage">마이페이지</a></li>
 							</ul>
 						</div>
@@ -64,33 +65,7 @@
 				<h2 class="nino-sectionHeading">
 					<span class="nino-subHeading">THE BOM</span> 독거노인-후원자 매칭 관리
 				</h2>
-				<div style="float: right" class="search">
-					<div class=" col-sm-12 col-xs-12">
-						<form style="display: inline-block">
-							<select>
-								<option>이름</option>
-								<option>번호</option>
-							</select>
 
-							<div>
-								<form>
-									<input />
-								</form>
-							</div>
-
-							<div style="display: inline-block">
-								<button class="search-button">검색</button>
-							</div>
-							<div>
-								페이지 크기 <select>
-									<option>10</option>
-									<option>15</option>
-									<option>30</option>
-								</select>
-							</div>
-						</form>
-					</div>
-				</div>
 				<p class="nino-sectionDesc">
 				<div class="skill-main">
 					<table class="table table-bordered table-hover">
@@ -98,25 +73,28 @@
 							<tr>
 								<th>번호</th>
 								<th>이름</th>
-								<th>지역</th>
+								<th>거주지역</th>
 								<th>나이</th>
+								<th>성별</th>
 								<th>장애등급</th>
 							</tr>
 						</thead>
 						<tbody>
 						
 							<c:forEach var="senior" items="${ seniors }">
-								<tr data-url="seniorDetail?seNo=${ senior.seNo }">
+								<tr data-url="matchDetail?seNo=${ senior.seNo }">
 									<td>${ senior.seNo }</td>
 									<td>${ senior.name }</td>
-									<td>${ senior.address.city }</td>
+									<td>${ senior.address.address1 }</td>
 									<td>${ senior.age}</td>
-									<td>
-										<c:choose>
-											<c:when test="${ senior.disabilityGrade==null }">없음</c:when>
+									<td><c:choose>
+											<c:when test="${ senior.gender==true}">남</c:when>
+											<c:otherwise>여</c:otherwise>
+										</c:choose></td>
+									<td><c:choose>
+											<c:when test="${ senior.disabilityGrade==NULL}">해당없음</c:when>
 											<c:otherwise>${ senior.disabilityGrade } </c:otherwise>
-										</c:choose>
-									</td>
+										</c:choose></td>
 								</tr>
 							</c:forEach>
 						

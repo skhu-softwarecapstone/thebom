@@ -315,8 +315,16 @@ public class AdminController {
 	@GetMapping("/sw/match")
 	public String match(Model model) {
 		List<Senior> seniors=this.seniorRepository.findByMatch(0);
+		//List<Senior> seniors=this.seniorRepository.findAll();
 		model.addAttribute("seniors", seniors);
 		return "admin/sw/match";
+	}
+	
+	@GetMapping("/sw/matchDetail")
+	public String matchDetail(@RequestParam("seNo") int seNo,Model model) {
+		//List<Sponsor> sponsors=this.sponsorRepository.findBy
+		model.addAttribute("senior", this.seniorRepository.findBySeNo(seNo));
+		return "admin/sw/match_detail";
 	}
 
 	//개인정보 확인 수정 페이지-내가 후원하는 단체 목록이 아니라 사회복지사 소속 변경용

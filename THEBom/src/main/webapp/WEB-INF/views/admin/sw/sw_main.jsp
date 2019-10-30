@@ -48,11 +48,13 @@
 										class="sr-only">(current)</span></a></li>
 								<li><a href="notice">공지사항</a></li>
 								<li><a href="circle">써클조회</a></li>
-								<li><a href="seniorList">독거노인조회</a></li>
+								<li><a href="seniorList">노인조회</a></li>
 								<li><a href="sponsor">후원자조회</a></li>
-								<li><a href="sponsorview">후원매치현황</a></li>
+								<li><a href="match">후원매치현황</a></li>
+								<li><a href="blind">사각지대 관리</a></li>
 								<li><a href="mypage">마이페이지</a></li>
 								<li>${loginUser.name}</li>
+								
 								<c:if test="${loginUser != NULL }">
 									<li><a href="/logout"><button class="btn btn-default">로그아웃</button></a>
 									</li>
