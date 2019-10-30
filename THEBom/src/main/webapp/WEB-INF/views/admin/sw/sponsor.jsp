@@ -27,7 +27,7 @@
                                         <li ><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
                                 <li><a href="notice">공지사항</a></li>
                                 <li><a href="circle">써클조회</a></li>
-                                <li><a href="senior">노인조회</a></li>
+                                <li><a href="seniorList">노인조회</a></li>
                                 <li class="active"><a href="sponsor">후원자조회</a></li>
                                 <li><a href="match">후원매치현황</a></li>
                                 <li><a href="blind">사각지대 관리</a></li>

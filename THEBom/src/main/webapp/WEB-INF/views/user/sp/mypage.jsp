@@ -27,10 +27,10 @@
 						<div class="collapse navbar-collapse pull-left"
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="sponMain">홈<span class="sr-only">(current)</span></a></li>
+								<li><a href="sp_main">홈<span class="sr-only">(current)</span></a></li>
 								<li><a href="dailylog">방문 기록</a></li>
 								<li><a href="blind">사각지대 신고</a></li>
-								<li><a href="spon">직접 후원하기</a></li>
+								<li><a href="donate">직접 후원하기</a></li>
 								<li class="active"><a href="mypage">마이페이지</a></li>
 							</ul>
 							</ul>

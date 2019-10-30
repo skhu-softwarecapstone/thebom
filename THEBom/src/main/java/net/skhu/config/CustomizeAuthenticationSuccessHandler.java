@@ -29,13 +29,13 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
         
         for (GrantedAuthority auth : authentication.getAuthorities()) {
             if ("USER".equals(auth.getAuthority())) {
-                response.sendRedirect("/senior/senior_main");
+                response.sendRedirect("/sp/sp_main");
             }
         }
         
         for (GrantedAuthority auth : authentication.getAuthorities()) {
             if ("SPONSOR".equals(auth.getAuthority())) {
-                response.sendRedirect("/sponsor/spon_main");
+                response.sendRedirect("/sp/sp_main");
             }
         }
     }

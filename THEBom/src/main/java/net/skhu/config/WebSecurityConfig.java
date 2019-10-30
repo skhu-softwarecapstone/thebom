@@ -46,10 +46,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/login").permitAll()
         .antMatchers("/signup").permitAll()
         .antMatchers("/sw/**").access("ADMIN") //ADMIN 권한을 소요한 사용자만 요청할 수 있음
-        .antMatchers("/sp/**").access("SPONSOR")
+        .antMatchers("/sp/**").access("USER")
         .antMatchers("/se/**").access("USER")
-        .antMatchers("/sw/**").hasAuthority("ADMIN").anyRequest()
+        .antMatchers("/sp/**").hasAuthority("USER").anyRequest()
         .authenticated().and().csrf().disable().formLogin().successHandler(customizeAuthenticationSuccessHandler)
+        
+        
         .loginPage("/login").failureUrl("/login?error=true")
         .usernameParameter("email")
         .passwordParameter("password")

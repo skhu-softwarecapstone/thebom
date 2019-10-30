@@ -27,11 +27,11 @@
 						<div class="collapse navbar-collapse pull-left"
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="sponMain">홈<span class="sr-only">(current)</span></a></li>
+								<li><a href="sp_main">홈<span class="sr-only">(current)</span></a></li>
 								<li><a href="dailylog">방문 기록</a></li>
 								<li class="active"><a href="blind">사각지대 신고</a></li>
-								<li><a href="spon">직접 후원하기</a></li>
-								<li><a href="userMypage">마이페이지</a></li>
+								<li><a href="donate">직접 후원하기</a></li>
+								<li><a href="mypage">마이페이지</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -62,20 +62,20 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><form:input path="name" class="form-control" placeholder="신고 대상 이름" name="name"  maxlength="50"/></td>
+                                <td><input class="form-control" placeholder="신고 대상 이름" name="name" maxlength="50"/></td>
                             </tr>
                             <tr>
-                                <td><form:textarea path="content" class="form-control" placeholder="신고 내용(구체적인 위치,특이사항  등 기재 ) 필요시  사회복지사의 연락이 갈 수 있습니다." name="content" maxlength="2048" style="height: 350px;"/></td>
+                                <td><textarea class="form-control" placeholder="신고 내용(구체적인 위치,특이사항  등 기재 ) 필요시  사회복지사의 연락이 갈 수 있습니다." name="content" maxlength="2048" style="height: 350px;"></textarea></td>
                             </tr>
                         </tbody>
                     </table>
-                    <a href="blindPage" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3">목록으로</a>	
-                    <input type="submit" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;" value="수정" />
+                    <a href="notice" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3">목록으로</a>	
+                    <input type="submit" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;" value="신고" />
                    
                 </form:form>
             </div>
 			
-			
+
 		</div>
 
 	</section>
