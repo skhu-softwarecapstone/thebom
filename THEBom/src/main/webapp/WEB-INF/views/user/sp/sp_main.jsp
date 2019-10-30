@@ -90,50 +90,7 @@
     ================================================== -->
 	<a href="#" id="nino-scrollToTop">Go to Top</a>
 	
-    <!-- What We Do
-    ================================================== -->
-    <section id="nino-whatWeDo">
-    	<div class="container">
-			<div class="sectionContent">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="text-center">
-								<!-- Info Main -->
-									<div class="section-title left">
-										<h2 class="nino-sectionHeading">공지사항</h2>
-									</div>
-									<div class="info">
-										<ul class="info-list">
-											<li>후원자 모집하기</li>
-											<li>한지민 바보래요</li>
-											<li>지망 == 한지민 망했다</li>
-											<li>한지망과 함께하는 더봄의 미래는...??</li>
-										</ul>
-									</div>
-								<!--/ End Info Main -->
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="text-center">
-								<!-- Info Main -->
-									<div class="section-title left">
-										<h2 class="nino-sectionHeading">후원하기</h2>
-									</div>
-									<div class="info">
-										<ul class="info-list">
-											<li>consectetuer adipiscing elit, sed diam nonummy.</li>
-											<li>has been the industry'sstandar.</li>
-											<li>has been the industry'sstandar.</li>
-											<li>Pellentesque habitant morbi tristique senectus.</li>
-										</ul>
-									</div>
-								<!--/ End Info Main -->
-						</div>
-					</div>
-				</div>
-			</div>
-    	</div>
-    </section><!--/#nino-whatWeDo-->
+    
 	<!-- javascript -->
 	
 	<script type="text/javascript"
