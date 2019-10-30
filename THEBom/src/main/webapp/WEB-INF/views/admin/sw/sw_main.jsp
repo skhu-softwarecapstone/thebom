@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!-- tag library -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{default}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>The bom</title>
@@ -53,12 +58,8 @@
 								<li><a href="match">후원매치현황</a></li>
 								<li><a href="blind">사각지대 관리</a></li>
 								<li><a href="mypage">마이페이지</a></li>
-								<li>${loginUser.name}</li>
-								
-								<c:if test="${loginUser != NULL }">
-									<li><a href="/logout"><button class="btn btn-default">로그아웃</button></a>
-									</li>
-								</c:if>
+								<li><a href="<c:url value='/logout'/>">Logout</a></li>
+								<li>${user.fullname }</li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->

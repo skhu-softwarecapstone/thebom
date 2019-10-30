@@ -30,9 +30,9 @@
                                 <li><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
                                 <li class="active"><a href="notice">공지사항</a></li>
                                 <li><a href="circle">써클조회</a></li>
-                                <li><a href="seniorList">노인조회</a></li>
+                                <li><a href="seniorList">독거노인조회</a></li>
                                 <li><a href="sponsor ">후원자조회</a></li>
-                                <li><a href="match">후원매치현황</a></li>
+                                <li><a href="sponsorview ">후원매치현황</a></li>
                                 <li><a href="blind">사각지대 관리</a></li>
                                 <li><a href="mypage">마이페이지</a></li>
                                 </ul>
@@ -51,8 +51,8 @@
     <section id="portfolio" class="section archive page">
 			<div class="container">
 				    <div class="row">
-						<h3 style="color:gray">공지사항 게시판</h3>
-                        <h6 style="color:gray">더불어돌봄 관리자 공지사항 게시판입니다</h6>
+						<h3 style="color:gray">공지사항 게시판</h1>
+                        <h6 style="color:gray">더불어돌봄 관리자 공지사항 게시판입니다</h4>
                             <div class="pull-right mb5">
                                     <a href="notice_write" class="btn btn-info search-button">
                                       <span class="glyphicon glyphicon-user"></span> 공지사항 등록</a>

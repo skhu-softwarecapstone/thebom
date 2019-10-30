@@ -2,10 +2,12 @@ package net.skhu.controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
@@ -82,14 +84,19 @@ public class AdminController {
 
 	//admin version 메인페이지-접속한 유저정보랑 공지사항 객체목록 5개 담을것 
 	@RequestMapping(value = "/sw/sw_main", method = RequestMethod.GET)
-	public ModelAndView dashboard(Model model) {
+	public ModelAndView dashboard(Model model, HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
+		
+		session.setAttribute("user", user); //세션에 로그인 정보 넣어두기.
+		
+		
 		modelAndView.addObject("currentUser", user);
 		modelAndView.addObject("fullName", "Welcome " + user.getFullname());
-		modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
+		//modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
 		modelAndView.setViewName("admin/sw/sw_main");
+		
 		List<Notice> notices=this.noticeRepository.findAll();
 		model.addAttribute("notices", notices);
 		return modelAndView;

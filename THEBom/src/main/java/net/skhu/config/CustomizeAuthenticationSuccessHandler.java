@@ -23,6 +23,7 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
             if ("ADMIN".equals(auth.getAuthority())) {
                 response.sendRedirect("/sw/sw_main");
             }
+           
         }
         
         
