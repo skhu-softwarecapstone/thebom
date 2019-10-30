@@ -1,13 +1,20 @@
 package net.skhu.controller;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,20 +27,35 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.code.geocoder.Geocoder;
+import com.google.code.geocoder.GeocoderRequestBuilder;
+import com.google.code.geocoder.model.GeocodeResponse;
+import com.google.code.geocoder.model.GeocoderRequest;
+import com.google.code.geocoder.model.GeocoderResult;
+import com.google.code.geocoder.model.GeocoderStatus;
+import com.google.code.geocoder.model.LatLng;
+
 import net.skhu.document.Blind;
 import net.skhu.document.Circle;
 import net.skhu.document.Notice;
 import net.skhu.document.SocialWorker;
 import net.skhu.document.User;
+import net.skhu.document.map.Address;
+import net.skhu.document.map.Location;
 import net.skhu.document.senior.Senior;
 import net.skhu.document.sponsor.Sponsor;
+
+import net.skhu.model.SeniorModel;
 
 import net.skhu.repository.BlindRepository;
 import net.skhu.repository.CircleRepository;
 import net.skhu.repository.NoticeRepository;
 import net.skhu.repository.SeniorRepository;
 import net.skhu.repository.SponsorRepository;
+import net.skhu.repository.UserRepository;
+
 import net.skhu.service.CustomUserDetailsService;
+import net.skhu.service.KakaoAPI;
 
 
 /*사회복지사가 다루는 페이지 목록*/
@@ -48,9 +70,13 @@ public class AdminController {
 	@Autowired
 	private SeniorRepository seniorRepository;
 	@Autowired
+	private UserRepository userRepository;
+	@Autowired
 	private CircleRepository circleRepository;
 	@Autowired
 	private CustomUserDetailsService userService;
+	@Autowired
+	private KakaoAPI kakaoAPI;
 	@Autowired
 	private BlindRepository blindRepository;
 
@@ -70,133 +96,179 @@ public class AdminController {
 	}
 
 	//공지사항 페이지
-		@GetMapping("/sw/notice")
-		public String notice(Model model) {
-			List<Notice> notices=this.noticeRepository.findAll();
-			model.addAttribute("notices", notices);
-			return "admin/sw/notice";
-		}
-		//공지사항 세부페이지
-		@GetMapping("/sw/notice_detail")
-		public String noticeDetail(@RequestParam("no") int no,Model model)  {
-			model.addAttribute("notice", noticeRepository.findByNo(no));
-			return "admin/sw/notice_detail";
-		}
-		//공지사항 작성
-		@GetMapping("/sw/notice_write")
-		public String noticeWrite()  {
-			return "admin/sw/notice_write";
-		}
-		//공지사항 데이터 삽입
-		
-		
-		@PostMapping("/sw/notice_write")
-		public String noticeWrite(@ModelAttribute("part")Notice part) {
-			Notice notice=new Notice();
-			int no = (int) (this.noticeRepository.count() + 1);
-			notice.setNo(no);
-			notice.setTitle(part.getTitle());
-			notice.setContent(part.getContent()); 
-			notice.setUserId("jimin"); //로그인한 아이디 넣기
-			notice.setCreatedDate(new Date()); 
-			this.noticeRepository.insert(notice);
+	@GetMapping("/sw/notice")
+	public String notice(Model model) {
+		List<Notice> notices=this.noticeRepository.findAll();
+		model.addAttribute("notices", notices);
+		return "admin/sw/notice";
+	}
+	//공지사항 세부페이지
+	@GetMapping("/sw/notice_detail")
+	public String noticeDetail(@RequestParam("no") int no,Model model)  {
+		model.addAttribute("notice", noticeRepository.findByNo(no));
+		return "admin/sw/notice_detail";
+	}
+	//공지사항 작성
+	@GetMapping("/sw/notice_write")
+	public String noticeWrite()  {
+		return "admin/sw/notice_write";
+	}
+	//공지사항 데이터 삽입
 
-			return "redirect:/sw/notice";
-		}
-		
-		@GetMapping("/sw/blind")
-		public String blind(Model model) {
-			List<Blind> blinds=this.blindRepository.findAll();
-			model.addAttribute("blinds", blinds);
-			return "admin/sw/blind";
-		}
-		
-		@GetMapping("/sw/blindDetail")
-		public String blindDetail(@RequestParam("bNo") int bNo,Model model) {
-			Blind blind=this.blindRepository.findByBNo(bNo);
-			model.addAttribute("part", blind);
-			return "admin/sw/blind_detail";
-		}
 
-		
-		@GetMapping("/sw/blindAccept")
-		public String blindAccept(@RequestParam("bNo") int bNo,Model model) {
-			Blind blind=this.blindRepository.findByBNo(bNo);
-			this.blindRepository.delete(blind);
-			blind.setProcessState(1);
-			this.blindRepository.save(blind);
-			return "redirect:/sw/blind";
-		}
-		@GetMapping("/sw/blindComplete")
-		public String blindComplete(@RequestParam("bNo") int bNo,Model model) {
-			Blind blind=this.blindRepository.findByBNo(bNo);;
-			this.blindRepository.delete(blind);
-			blind.setProcessState(2);
-			this.blindRepository.save(blind);
-			return "redirect:/sw/blind";
-		}
-		
-		//유저 사각지대 신고 user/sp폴더로 옮겨야함
-		@GetMapping("/sw/insertBlind")
-		public String insertBlind() {
-			return "admin/sw/insertBlind";
-		}
-		
-		//유저 사각지대 신고 user/sp폴더로 옮겨야함
-		@PostMapping("/sw/insertBlind")
-		public String insertBlind(@ModelAttribute("part")Blind part) {
-			Blind blind=new Blind();
-			int bno= (int) (this.blindRepository.count() + 1);
-			blind.setBNo(bno);
-			blind.setName(part.getName());
-			blind.setContent(part.getContent());
-			blind.setDate(new Date());
-			blind.setUserId("admin"); //로그인한 아이디 넣기
-			blind.setProcessState(0);
-			this.blindRepository.insert(blind);
+	@PostMapping("/sw/notice_write")
+	public String noticeWrite(@ModelAttribute("part")Notice part) {
+		Notice notice=new Notice();
+		int no = (int) (this.noticeRepository.count() + 1);
+		notice.setNo(no);
+		notice.setTitle(part.getTitle());
+		notice.setContent(part.getContent()); 
+		notice.setUserId("jimin"); //로그인한 아이디 넣기
+		notice.setCreatedDate(new Date()); 
+		this.noticeRepository.insert(notice);
 
-			return "redirect:/sw/blindPage";
-		}
-		
-		//유저 사각지대 신고 user/sp폴더로 옮겨야함
-		@GetMapping("/sw/blindPage")
-		public String blindPage(Model model) {
-			List<Blind> blinds=this.blindRepository.findByUserId("admin"); //로그인 아이디로 변경해야함
-			model.addAttribute("blinds", blinds);
-			return "admin/sw/blindPage";
-		}
-		
-		//유저 사각지대 신고 user/sp폴더로 옮겨야함
-		@GetMapping("/sw/blindPagedt")
-		public String blindPagedt(@RequestParam("bNo") int bNo,Model model) {
-			Blind blind=this.blindRepository.findByBNo(bNo);
-			model.addAttribute("part", blind);
-			return "admin/sw/blindPagedt";
-		}
-		@PostMapping("/sw/blindPagedt")
-		public String blindPagedt(@ModelAttribute("part")Blind part) {
-			Blind blind=this.blindRepository.findByBNo(part.getBNo());	
-			this.blindRepository.delete(blind);
-			blind.setName(part.getName());
-			blind.setContent(part.getContent());
-			this.blindRepository.save(blind);
-			return "redirect:/sw/blindPage";
-		}
+		return "redirect:/sw/notice";
+	}
+
+	@GetMapping("/sw/blind")
+	public String blind(Model model) {
+		List<Blind> blinds=this.blindRepository.findAll();
+		model.addAttribute("blinds", blinds);
+		return "admin/sw/blind";
+	}
+
+	@GetMapping("/sw/blindDetail")
+	public String blindDetail(@RequestParam("bNo") int bNo,Model model) {
+		Blind blind=this.blindRepository.findByBNo(bNo);
+		model.addAttribute("part", blind);
+		return "admin/sw/blind_detail";
+	}
+	
+
+
+	@GetMapping("/sw/blindAccept")
+	public String blindAccept(@RequestParam("bNo") int bNo,Model model) {
+		Blind blind=this.blindRepository.findByBNo(bNo);
+		this.blindRepository.delete(blind);
+		blind.setProcessState(1);
+		this.blindRepository.save(blind);
+		return "redirect:/sw/blind";
+	}
+	@GetMapping("/sw/blindComplete")
+	public String blindComplete(@RequestParam("bNo") int bNo,Model model) {
+		Blind blind=this.blindRepository.findByBNo(bNo);;
+		this.blindRepository.delete(blind);
+		blind.setProcessState(2);
+		this.blindRepository.save(blind);
+		return "redirect:/sw/blind";
+	}
+
+	//유저 사각지대 신고 user/sp폴더로 옮겨야함
+	@GetMapping("/sw/insertBlind")
+	public String insertBlind() {
+		return "admin/sw/insertBlind";
+	}
+
+	//유저 사각지대 신고 user/sp폴더로 옮겨야함
+	@PostMapping("/sw/insertBlind")
+	public String insertBlind(@ModelAttribute("part")Blind part) {
+		Blind blind=new Blind();
+		int bno= (int) (this.blindRepository.count() + 1);
+		blind.setBNo(bno);
+		blind.setName(part.getName());
+		blind.setContent(part.getContent());
+		blind.setDate(new Date());
+		blind.setUserId("admin"); //로그인한 아이디 넣기
+		blind.setProcessState(0);
+		this.blindRepository.insert(blind);
+
+		return "redirect:/sw/blindPage";
+	}
+
+	//유저 사각지대 신고 user/sp폴더로 옮겨야함
+	@GetMapping("/sw/blindPage")
+	public String blindPage(Model model) {
+		List<Blind> blinds=this.blindRepository.findByUserId("admin"); //로그인 아이디로 변경해야함
+		model.addAttribute("blinds", blinds);
+		return "admin/sw/blindPage";
+	}
+
+	//유저 사각지대 신고 user/sp폴더로 옮겨야함
+	@GetMapping("/sw/blindPagedt")
+	public String blindPagedt(@RequestParam("bNo") int bNo,Model model) {
+		Blind blind=this.blindRepository.findByBNo(bNo);
+		model.addAttribute("part", blind);
+		return "admin/sw/blindPagedt";
+	}
+	@PostMapping("/sw/blindPagedt")
+	public String blindPagedt(@ModelAttribute("part")Blind part) {
+		Blind blind=this.blindRepository.findByBNo(part.getBNo());	
+		this.blindRepository.delete(blind);
+		blind.setName(part.getName());
+		blind.setContent(part.getContent());
+		this.blindRepository.save(blind);
+		return "redirect:/sw/blindPage";
+	}
 	//관리하는 독거노인 목록 조회
 	@GetMapping("/sw/seniorList")
 	public String senior(Model model) {
 		List<Senior> seniors=this.seniorRepository.findAll();
+
 		model.addAttribute("seniors", seniors);
-		//			Senior senior=this.seniorRepository.findBySeNo(1);
-		//			model.addAttribute("senior", senior);
 		return "admin/sw/seniorList";
 	}
 
 	//해당 독거노인 세부페이지
 	@GetMapping("/sw/seniorList_detail")
 	public String seniorDetail(@RequestParam("seNo") int seNo,Model model) {
-		model.addAttribute("senior", seniorRepository.findBySeNo(seNo));
-		return "admin/sw/seniorList";
+		Senior senior =this.seniorRepository.findBySeNo(seNo);
+		//		User socialWorker =this.userRepository.findById(senior.getGroupInfo().getSocial_worker_id()).get();
+
+		model.addAttribute("senior", senior);
+		System.out.print(senior.getAddress().getLocation());
+		model.addAttribute("location",senior.getAddress().getLocation());
+		//		model.addAttribute("socialWorker", socialWorker);
+		return "admin/sw/seniorList_detail";
+	}
+	//독거노인목록에 독거노인 데이터 추가페이지
+	@GetMapping("/sw/seniorList_insert")
+	public String write(Model model) {
+		return "admin/sw/seniorList_insert";
+	}
+	//독거노인목록에 독거노인 데이터 추가버튼 클릭 후 디비에 저장
+	@Transactional
+	@PostMapping("/sw/seniorList_insert")
+	public String seniorInsert(SeniorModel seniorModel, Model model) throws UnsupportedEncodingException {
+
+		int maxSeNo=seniorRepository.findTopByOrderBySeNoDesc().getSeNo();
+
+
+		Senior senior=new Senior();
+
+		senior.setSeNo(maxSeNo+1);
+		senior.setName(seniorModel.getName());
+		senior.setAge(seniorModel.getAge());
+		senior.setGender(seniorModel.isGender());
+		senior.setPoint(0);
+		senior.setPhone(seniorModel.getPhone());
+		senior.setDisabilityGrade(seniorModel.getDisabilityGrade());
+
+		Address address=new Address();
+
+		address.setAddress1(seniorModel.getAddress1());
+		address.setAddress_detail(seniorModel.getAddress_detail());
+		address.setZipcode(seniorModel.getZipcode());
+
+		HashMap<String, Object> coordinates=kakaoAPI.getCoords(seniorModel.getAddress1());
+
+		Location location=new Location((Double)coordinates.get("x"),(Double)coordinates.get("y"));
+
+		address.setLocation(location);
+		senior.setAddress(address);
+		senior.setUniqueness(seniorModel.getUniqueness());
+		seniorRepository.insert(senior);
+
+		return "redirect:seniorList";
 	}
 
 	//독거노인 그룹 관리
@@ -225,7 +297,7 @@ public class AdminController {
 
 	//후원자 세부페이지
 	@GetMapping("/sw/sponsor_detail")
-	public String SponsorDetail(Model model) {
+	public String SponsorDetail(@RequestParam("id") int id,Model model) {
 
 		model.addAttribute("sponsor", sponsorRepository.findBySpNo(1));
 		return "admin/sw/sponsor_detail";
@@ -253,9 +325,52 @@ public class AdminController {
 		return "admin/sw/mypage";
 	}
 
+	public static String[] geoCoding(String location) {
 
-	
-	
+		if (location == null) return null;
+
+		Geocoder geocoder = new Geocoder();
+
+		// setAddress : 변환하려는 주소 (경기도 성남시 분당구 등)
+
+		// 받아온 주소 location을 한국어 인코딩하여 request 설정
+
+		GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(location).setLanguage("ko").getGeocoderRequest();
+
+		GeocodeResponse geocoderResponse;
+
+		try {
+
+			geocoderResponse = geocoder.geocode(geocoderRequest);
+
+			if (geocoderResponse.getStatus() == GeocoderStatus.OK & !geocoderResponse.getResults().isEmpty()) {
+
+
+				GeocoderResult geocoderResult=geocoderResponse.getResults().iterator().next();
+
+				LatLng latitudeLongitude = geocoderResult.getGeometry().getLocation();
+
+				String[] coords = new String[2];
+
+				coords[0] = latitudeLongitude.getLat().toString();
+				coords[1] = latitudeLongitude.getLng().toString();
+
+				return coords;
+
+			}
+
+		} catch (IOException ex) {
+
+			ex.printStackTrace();
+
+		}
+
+		return null;
+
+	}
+
+
+
 
 
 

@@ -50,5 +50,5 @@ public class Senior {
    
    @Field(value="match")
    private int match;
-   
+
 }

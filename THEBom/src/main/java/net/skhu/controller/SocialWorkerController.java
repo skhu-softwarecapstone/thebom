@@ -94,12 +94,7 @@ public class SocialWorkerController {
 	//			return "social/senior_detail";
 	//		}
 
-	@GetMapping("seniorDetail")
-	public String seniorDetail(@RequestParam("seNo") int seNo,Model model) {
-		model.addAttribute("senior", seniorRepository.findBySeNo(seNo));
-		return "social/senior_detail";
-	}
-
+	
 	@GetMapping("socialMypage")
 	public String socialMypage() {
 		return "social/mypage";
