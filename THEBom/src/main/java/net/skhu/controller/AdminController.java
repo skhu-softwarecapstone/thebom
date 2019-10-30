@@ -121,8 +121,6 @@ public class AdminController {
 		return "admin/sw/notice_write";
 	}
 	//공지사항 데이터 삽입
-
-
 	@PostMapping("/sw/notice_write")
 	public String noticeWrite(@ModelAttribute("part")Notice part,HttpSession session) {
 		User user=(User) session.getAttribute("user");
@@ -137,15 +135,15 @@ public class AdminController {
 
 		return "redirect:/sw/notice";
 	}
-
+	//사회복지사가 확인하는 사각지대 페이지
 	@GetMapping("/sw/blind")
 	public String blind(Model model) {
 		List<Blind> blinds=this.blindRepository.findAll();
 		model.addAttribute("blinds", blinds);
 		return "admin/sw/blind";
 	}
-
-	@GetMapping("/sw/blindDetail")
+	//사각지대 세부 페이지
+	@GetMapping("/sw/blind_detail")
 	public String blindDetail(@RequestParam("bNo") int bNo,Model model) {
 		Blind blind=this.blindRepository.findByBNo(bNo);
 		model.addAttribute("part", blind);
@@ -210,6 +208,7 @@ public class AdminController {
 		model.addAttribute("part", blind);
 		return "admin/sw/blindPagedt";
 	}
+
 	@PostMapping("/sw/blindPagedt")
 	public String blindPagedt(@ModelAttribute("part")Blind part) {
 		Blind blind=this.blindRepository.findByBNo(part.getBNo());	
@@ -342,54 +341,5 @@ public class AdminController {
 	public String Mypage() {
 		return "admin/sw/mypage";
 	}
-
-	public static String[] geoCoding(String location) {
-
-		if (location == null) return null;
-
-		Geocoder geocoder = new Geocoder();
-
-		// setAddress : 변환하려는 주소 (경기도 성남시 분당구 등)
-
-		// 받아온 주소 location을 한국어 인코딩하여 request 설정
-
-		GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(location).setLanguage("ko").getGeocoderRequest();
-
-		GeocodeResponse geocoderResponse;
-
-		try {
-
-			geocoderResponse = geocoder.geocode(geocoderRequest);
-
-			if (geocoderResponse.getStatus() == GeocoderStatus.OK & !geocoderResponse.getResults().isEmpty()) {
-
-
-				GeocoderResult geocoderResult=geocoderResponse.getResults().iterator().next();
-
-				LatLng latitudeLongitude = geocoderResult.getGeometry().getLocation();
-
-				String[] coords = new String[2];
-
-				coords[0] = latitudeLongitude.getLat().toString();
-				coords[1] = latitudeLongitude.getLng().toString();
-
-				return coords;
-
-			}
-
-		} catch (IOException ex) {
-
-			ex.printStackTrace();
-
-		}
-
-		return null;
-
-	}
-
-
-
-
-
 
 }

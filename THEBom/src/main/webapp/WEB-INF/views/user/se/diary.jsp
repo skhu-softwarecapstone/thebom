@@ -22,8 +22,8 @@
                         <div class="nino-menuItem pull-right">
                             <div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="sp_main">홈</a></li>
-                                    <li class="active"><a href="dailylog">일지작성<span class="sr-only">(current)</span></a></li>
+                                    <li><a href="seniorMain">홈</a></li>
+                                    <li class="active"><a href="diary">일지작성<span class="sr-only">(current)</span></a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                         </div>

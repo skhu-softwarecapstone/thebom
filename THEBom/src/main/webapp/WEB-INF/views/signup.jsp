@@ -19,23 +19,30 @@
 	<article style="margin: 10px 20px 10px 20px">
 		<h1>the bom</h1>
 
-		<form class="form-signin" action="/login" method="post">
-			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-			
-			<label for="inputEmail" class="sr-only">Email address</label> <input
+		<form class="form-signin" action="/signup" method="post">
+			<img class="mb-4"
+				src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg"
+				alt="" width="72" height="72" />
+			<h1 class="h3 mb-3 font-weight-normal">Signup Here</h1>
+
+			<label for="inputUsername" class="sr-only">email</label> <input
 				type="email" name="email" id="inputEmail" class="form-control"
-				placeholder="Email" required="" /> <label for="inputPassword"
+				placeholder="email" required="" /> <label for="inputPassword"
 				class="sr-only">Password</label> <input type="password"
 				name="password" id="inputPassword" class="form-control"
-				placeholder="Password" required="" />
+				placeholder="Password" required="" /> <label for="inputFullname"
+				class="sr-only">Full Name</label> <input type="text" name="fullname"
+				id="inputEmail" class="form-control" placeholder="Fullname"
+				required="" />
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-				in</button>
+				Up</button>
 		</form>
-		<form class="form-signin" action="/signup" method="get">
-			<button class="btn btn-md btn-success btn-block" type="Submit">Signup
-				Here</button>
+		<form class="form-signin" action="/login" method="get">
+			<button class="btn btn-md btn-success btn-block" type="Submit">Sign
+				In</button>
 		</form>
 		</div>
-		</div>
-	</article>
+		</body>
+</html>
+</article>
 </section>
