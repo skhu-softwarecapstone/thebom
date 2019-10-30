@@ -46,18 +46,28 @@
     <section id="portfolio" class="section archive page">
 			<div class="container">
 				<div class="row">
-						<h3 style="color:gray">마이페이지</h3>
-					<div class="col-md-4 col-sm-4 col-xs-12">
-						<!-- Single Portfolio -->
-						<div class="portfolio-single">
-							
-							<div class="text">
-								<h4><a href="">내 정보</a></h4>
-								<p></p>
+						<h3 style="color:gray;text-align:center">마이페이지</h3>
+					<div class="col-md-8 col-sm-12 col-xs-12"
+								style="margin-left: 20%;">
+								<!-- Single blog -->
+								<div style="margin-top:80px" class="single-blog">
+
+									<div class="blog-content">
+										<h3>내 정보</h3>
+										<hr />
+
+										<div id="info">
+											<span>이름: </span> <span>${ user.fullname }</span> <br> 
+											<span>이메일:</span>
+											<span>${ user.email }</span> <br>
+										</div>
+										
+
+									</div>
+								</div>
+								<!--/ End Single blog -->
+
 							</div>
-						</div>
-						<!--/ End Portfolio -->
-					</div>
 				</div>
 				
 			</div>

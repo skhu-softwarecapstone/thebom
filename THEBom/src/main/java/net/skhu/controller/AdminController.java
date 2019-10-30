@@ -124,13 +124,14 @@ public class AdminController {
 
 
 	@PostMapping("/sw/notice_write")
-	public String noticeWrite(@ModelAttribute("part")Notice part) {
+	public String noticeWrite(@ModelAttribute("part")Notice part,HttpSession session) {
+		User user=(User) session.getAttribute("user");
 		Notice notice=new Notice();
 		int no = (int) (this.noticeRepository.count() + 1);
 		notice.setNo(no);
 		notice.setTitle(part.getTitle());
 		notice.setContent(part.getContent()); 
-		notice.setUserId("jimin"); //로그인한 아이디 넣기
+		notice.setUserId(user.getEmail()); //로그인한 아이디 넣기
 		notice.setCreatedDate(new Date()); 
 		this.noticeRepository.insert(notice);
 
@@ -178,14 +179,15 @@ public class AdminController {
 
 	//유저 사각지대 신고 user/sp폴더로 옮겨야함
 	@PostMapping("/sw/insertBlind")
-	public String insertBlind(@ModelAttribute("part")Blind part) {
+	public String insertBlind(@ModelAttribute("part")Blind part,HttpSession session) {
+		User user=(User) session.getAttribute("user");
 		Blind blind=new Blind();
 		int bno= (int) (this.blindRepository.count() + 1);
 		blind.setBNo(bno);
 		blind.setName(part.getName());
 		blind.setContent(part.getContent());
 		blind.setDate(new Date());
-		blind.setUserId("admin"); //로그인한 아이디 넣기
+		blind.setUserId(user.getEmail()); //로그인한 아이디 넣기
 		blind.setProcessState(0);
 		this.blindRepository.insert(blind);
 
@@ -194,8 +196,9 @@ public class AdminController {
 
 	//유저 사각지대 신고 user/sp폴더로 옮겨야함
 	@GetMapping("/sw/blindPage")
-	public String blindPage(Model model) {
-		List<Blind> blinds=this.blindRepository.findByUserId("admin"); //로그인 아이디로 변경해야함
+	public String blindPage(Model model,HttpSession session) {
+		User user=(User) session.getAttribute("user");
+		List<Blind> blinds=this.blindRepository.findByUserId(user.getEmail()); 
 		model.addAttribute("blinds", blinds);
 		return "admin/sw/blindPage";
 	}
