@@ -91,7 +91,7 @@ public class AdminController {
 		
 		session.setAttribute("user", user); //세션에 로그인 정보 넣어두기.
 		
-		
+		System.out.println(user);
 		modelAndView.addObject("currentUser", user);
 		modelAndView.addObject("fullName", "Welcome " + user.getFullname());
 		//modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
@@ -250,8 +250,6 @@ public class AdminController {
 	public String seniorInsert(SeniorModel seniorModel, Model model) throws UnsupportedEncodingException {
 
 		int maxSeNo=seniorRepository.findTopByOrderBySeNoDesc().getSeNo();
-
-
 		Senior senior=new Senior();
 
 		senior.setSeNo(maxSeNo+1);
