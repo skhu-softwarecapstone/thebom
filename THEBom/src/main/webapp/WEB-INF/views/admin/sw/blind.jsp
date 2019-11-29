@@ -69,7 +69,7 @@
                                       </thead>
                                       <tbody>
                                         <c:forEach var="blind" items="${ blinds }">
-                                          <tr data-url="blindDetail?bNo=${blind.BNo}">
+                                          <tr data-url="blind_detail?bNo=${blind.BNo}">
                                             <td>${ blind.name }</td>
                                             <td>${ blind.content}</td>  
                                             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${blind.date}" /></td>
