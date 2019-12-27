@@ -10,10 +10,25 @@ public class Location {
 	private double lat;
 	@Field(value="1")
 	private double lng;
-	
-	public Location(double lat, double lng) {
-		super();
+
+	public Location(Double x, Double y) {
+		this.lat = x;
+		this.lng = y;
+	}
+
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
 		this.lat = lat;
+	}
+
+	public double getLng() {
+		return lng;
+	}
+
+	public void setLng(double lng) {
 		this.lng = lng;
 	}
 	
