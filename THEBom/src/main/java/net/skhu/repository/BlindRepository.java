@@ -15,4 +15,5 @@ public interface BlindRepository extends MongoRepository<Blind,String> {
 	Blind findByBNo(int bNo);
 	int countByUserId(String email);
 	List<Blind> findAllByUserIdOrderByDateDesc(String email, PageRequest pageRequest);
+	
 }

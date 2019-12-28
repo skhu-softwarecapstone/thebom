@@ -162,10 +162,16 @@ public class AdminController {
 	}
 	@GetMapping("/sw/blindComplete")
 	public String blindComplete(@RequestParam("bNo") int bNo,Model model) {
-		Blind blind=this.blindRepository.findByBNo(bNo);;
+		Blind blind=this.blindRepository.findByBNo(bNo);
 		this.blindRepository.delete(blind);
 		blind.setProcessState(2);
 		this.blindRepository.save(blind);
+		return "redirect:/sw/blind";
+	}
+	@GetMapping("/sw/blindDelete")
+	public String blindDelete(@RequestParam("bNo") int bNo,Model model) {
+		Blind blind=this.blindRepository.findByBNo(bNo);
+		this.blindRepository.delete(blind);
 		return "redirect:/sw/blind";
 	}
 
@@ -302,22 +308,19 @@ public class AdminController {
 		return "admin/sw/sponsor";
 	}
 
-	//후원자 세부페이지
-	@GetMapping("/sw/sponsor_detail")
-	public String SponsorDetail(@RequestParam("id") int id,Model model) {
+	
+	//해당 독거노인 세부페이지
+		@GetMapping("/sw/sponsor_detail")
+		public String SponsorDetail(@RequestParam("spNo") int spNo,Model model) {
+			Sponsor sponsor =this.sponsorRepository.findBySpNo(spNo);
+			//		User socialWorker =this.userRepository.findById(senior.getGroupInfo().getSocial_worker_id()).get();
 
-		model.addAttribute("sponsor", sponsorRepository.findBySpNo(1));
-		return "admin/sw/sponsor_detail";
-	}
-
-	//후원자 세부페이지2
-	@GetMapping("/sw/sponsor_detail1")
-	public String SponsorDetail1(@RequestParam("id") String id,Model model) {
-
-		model.addAttribute("sponsor", sponsorRepository.findById(id));
-		return "admin/sw/sponsor_detail1";
-	}
-
+			model.addAttribute("sponsor", sponsor);
+			System.out.print(sponsor.getAddress().getLocation());
+			model.addAttribute("location",sponsor.getAddress().getLocation());
+			//		model.addAttribute("socialWorker", socialWorker);
+			return "admin/sw/sponsor_detail";
+		}
 	//매칭 관리
 	@GetMapping("/sw/match")
 	public String match(Model model) {

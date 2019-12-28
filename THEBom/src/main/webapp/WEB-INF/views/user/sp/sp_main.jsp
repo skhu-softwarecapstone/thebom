@@ -47,6 +47,7 @@ System.out.println("sp_main.jsp");
 								<li><a href="blind">사각지대 신고</a></li>
 								<li><a href="donate">직접 후원하기</a></li>
 								<li><a href="mypage">마이페이지</a></li>
+								<li><a href="<c:url value='/'/>">Logout</a></li>								
 								<li><a href="" style="color:pink;">${user.fullname }</a></li>
 							</ul>
 							</ul>

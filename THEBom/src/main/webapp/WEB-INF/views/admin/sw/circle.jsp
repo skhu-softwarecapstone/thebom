@@ -19,7 +19,7 @@
 <body data-target="#nino-navbar" data-spy="scroll">
     <!-- Header
     ================================================== -->
-	<header id="nino-header" style="background-color:#fce38a" ;>
+	<header id="nino-header" style="background-color:#fce38a;" >
             <div id="nino-headerInner">		
                 <nav id="nino-navbar" class="navbar navbar-default" role="navigation">
                     <div class="container header">
@@ -49,7 +49,7 @@
     <!-- Start Project -->
     <section id="portfolio" class="section archive page">
 			<div class="container">
-				    <div class="row">
+				    <div class="row" style="height: 490px";>
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Circle management </span>
 							써클관리

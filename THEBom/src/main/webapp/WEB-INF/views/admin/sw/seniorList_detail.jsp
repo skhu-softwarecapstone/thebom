@@ -105,12 +105,11 @@
 				</section>
 
 				<div class="list">
-					<button type="button" class="button primary"
-						style="background-color: #16A085"
+					<button type="button" class="search-button"
 						onclick="location.href='seniorList' ">
-						<i class="fa fa-send"></i>목록으로
+						목록으로
 					</button>
-				</div>
+				</div>		
 			</div>
 	</section>
 	<!--/ End Project -->

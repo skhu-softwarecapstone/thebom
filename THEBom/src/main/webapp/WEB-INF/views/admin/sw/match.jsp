@@ -66,8 +66,11 @@
 				<h2 class="nino-sectionHeading">
 					<span class="nino-subHeading">THE BOM</span> 독거노인-후원자 매칭 관리
 				</h2>
-
+				
 				<p class="nino-sectionDesc">
+				노인을 클릭시, 후원하고 있는 후원자 정보가 보입니다.
+				</p>
+				
 				<div class="skill-main">
 					<table class="table table-bordered table-hover">
 						<thead style="color: black">

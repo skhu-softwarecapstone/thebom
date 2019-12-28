@@ -105,9 +105,9 @@
 				<a href="blindAccept?bNo=${ part.BNo }"
 					class="btn btn-primary pull-right"
 					style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;">접수</a>
-
-
-
+				<a href="blindDelete?bNo=${ part.BNo }"
+					class="btn btn-primary pull-right"
+					style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;">삭제</a>
 
 			</div>
 

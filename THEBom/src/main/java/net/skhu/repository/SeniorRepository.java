@@ -10,4 +10,5 @@ public interface SeniorRepository extends MongoRepository<Senior, String>{
 	Senior findBySeNo(int seNo);
 	List<Senior> findByMatch(int match);
 	Senior findTopByOrderBySeNoDesc();
+	
 }

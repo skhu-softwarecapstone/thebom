@@ -13,7 +13,18 @@
 
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
+	
+
+<!-- javascript -->
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/common.js"></script>
+	
+	
 </head>
 <body data-target="#nino-navbar" data-spy="scroll">
         <header id="nino-header" style="background-color:#fce38a" ;>
@@ -89,12 +100,11 @@
 					</thead>
 					<tbody>
 						<c:forEach var="sponsor" items="${ sponsors }">
-							<tr data-url="sponsorview?id=${ sponsor.id }">
-								
+							<tr data-url="sponsor_detail?spNo=${ sponsor.spNo }">
 								<td>${ sponsor.spNo }</td>
 								<td>${ sponsor.name }</td>
 								<td><c:choose>
-										<c:when test="${ sponsor.gender==true }">남</c:when>
+										<c:when test="${ sponsor.gender==true }">男</c:when>
 										<c:otherwise>여</c:otherwise>
 									</c:choose></td>
 								<td>${ sponsor.point}</td>
@@ -117,11 +127,6 @@
     <footer id="footer">
     </footer><!--/#footer-->
 
-	
-	<!-- javascript -->
-	
-	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>	
-	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
 	
 		
 </body>

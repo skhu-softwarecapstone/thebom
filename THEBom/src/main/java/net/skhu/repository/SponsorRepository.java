@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
+import net.skhu.document.senior.Senior;
 import net.skhu.document.sponsor.Sponsor;
 
 public interface SponsorRepository extends MongoRepository<Sponsor, String>{

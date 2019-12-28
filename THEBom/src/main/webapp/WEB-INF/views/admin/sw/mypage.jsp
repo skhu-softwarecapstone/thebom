@@ -44,7 +44,7 @@
 		
 		
 	<!-- Start Project -->
-    <section id="portfolio" class="section archive page">
+    <section id="portfolio" class="section archive page" >
 			<div class="container">
 				<div class="row">
 						<h3 style="color:gray;text-align:center">마이페이지</h3>

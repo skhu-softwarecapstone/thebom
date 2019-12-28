@@ -46,11 +46,10 @@
             </div>
 		</header><!--/#header-->
 		
-		
-	<!-- Start Project -->
+
     <!-- Start Project -->
-    <section id="portfolio" class="section archive page">
-			<div class="container">
+    <section id="portfolio" class="section archive page" style="min-height:100%; height: 666px;">
+			<div class="container" style="min-height:100%;">
 				    <div class="row">
 						<h3 style="color:gray">공지사항 게시판</h1>
                         <h6 style="color:gray">더불어돌봄 관리자 공지사항 게시판입니다</h4>
@@ -108,7 +107,7 @@
     
     <!-- Footer
     ================================================== -->
-    <footer id="footer">
+    <footer id="footer" style="height:100px;">
 			
 	  </footer><!--/#footer-->
 
