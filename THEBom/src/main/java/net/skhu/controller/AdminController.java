@@ -292,6 +292,14 @@ public class AdminController {
 		return "admin/sw/circle";
 	}
 
+	//독거노인 그룹 관리 상세 페이지
+	@GetMapping("/sw/circle_detail")
+	public String circleDetail(@RequestParam("cNo") int cNo,Model model) {
+		model.addAttribute("circle", circleRepository.findByCNo(cNo));
+		model.addAttribute("seniors", seniorRepository.findByMatch(cNo));
+		return "admin/sw/circle_detail";
+	}
+	
 	//독거노인 그룹 추가
 	@GetMapping("/sw/circle_add")
 	public String circleAdd(Model model) {

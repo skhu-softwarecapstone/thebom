@@ -59,10 +59,10 @@
 			<div class="row">
 				<h3 style="color: gray">
 					후원게시판
-					</h1>
+					</h3>
 					<h6 style="color: gray">
 						후원할 수 있는 단체의 목록입니다.
-						</h4>
+						</h6>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<!-- 후원 칸 반복문돌릴것. -->
 
