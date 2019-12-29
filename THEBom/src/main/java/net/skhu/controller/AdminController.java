@@ -58,7 +58,7 @@ import net.skhu.repository.UserRepository;
 
 import net.skhu.service.CustomUserDetailsService;
 import net.skhu.service.KakaoAPI;
-
+import net.skhu.model.Pagination;
 
 /*사회복지사가 다루는 페이지 목록*/
 
@@ -104,8 +104,8 @@ public class AdminController {
 
 	//공지사항 페이지
 	@GetMapping("/sw/notice")
-	public String notice(Model model) {
-		List<Notice> notices=this.noticeRepository.findAll();
+	public String notice(Pagination pagination,Model model) {
+		List<Notice> notices=this.noticeRepository.findAll(pagination);
 		model.addAttribute("notices", notices);
 		return "admin/sw/notice";
 	}
