@@ -22,10 +22,14 @@
                         <div class="nino-menuItem pull-right">
                             <div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="seniorMain">홈</a></li>
-                                    <li class="active"><a href="diary">일지작성<span class="sr-only">(current)</span></a></li>
-      								<li><a href="<c:url value='/'/>">Logout</a></li>                          	
-                                	<li><a href="" style="color:pink;">${user.fullname }</a></li>
+                                <li><a href="sp_main">홈<span
+										class="sr-only">(current)</span></a></li>
+								<li class="active"><a href="dailylog">방문 기록</a></li>
+								<li><a href="blind">사각지대 신고</a></li>
+								<li><a href="donate">직접 후원하기</a></li>
+								<li><a href="mypage">마이페이지</a></li>
+								<li><a href="<c:url value='/'/>">Logout</a></li>
+								<li><a href="" style="color: pink;">${user.fullname }</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                         </div>
@@ -35,9 +39,8 @@
         </header><!--/#header-->
         
         <div class="container">
-
             <div class="row">    
-                <form method="post" action="notice.html" style="margin:63px">
+                <form method="post" modelAttribute="part2" style="margin:63px">
                     <table class="table table-striped"
                         style="text-align: center; border: 1px solid #dddddd">
                         <thead>
@@ -48,26 +51,24 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"/></td>
-                                <td><input type="text" class="form-control" placeholder="날짜" name="bbsTitle" maxlength="50"/></td>
+                                <td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="50"/></td>
+                                <td><input type="text" class="form-control" placeholder="돌봄노인" name="seniorName" maxlength="50"/></td>
                             </tr>
                             <tr>
-                                <td colspan="2"><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>
+                                <td colspan="2"><textarea class="form-control" placeholder="글 내용" name="content" maxlength="2048" style="height: 350px;"></textarea></td>
                             </tr>
                         </tbody>
                     </table>	
-                    <input type="submit" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3" value="글등록" />
+                    <a href="dailylog" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3">목록으로</a>	
+                    <input type="submit" class="btn btn-primary pull-right"  style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;" value="등록" />
                 </form>
             </div>
         </div>
-    
-              
 
     <!-- Footer
     ================================================== -->
     <footer id="footer">
-			
-	  </footer><!--/#footer-->
+	</footer><!--/#footer-->
 
 	
 	<!-- javascript -->

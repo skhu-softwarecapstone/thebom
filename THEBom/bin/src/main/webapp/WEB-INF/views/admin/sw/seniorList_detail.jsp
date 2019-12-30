@@ -38,6 +38,7 @@
 								<li><a href="match">후원매치현황</a></li>
 								<li><a href="blind">사각지대 관리</a></li>
 								<li><a href="mypage">마이페이지</a></li>
+								<li><a href="" style="color:pink;">${user.fullname }</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -104,12 +105,11 @@
 				</section>
 
 				<div class="list">
-					<button type="button" class="button primary"
-						style="background-color: #16A085"
+					<button type="button" class="search-button"
 						onclick="location.href='seniorList' ">
-						<i class="fa fa-send"></i>목록으로
+						목록으로
 					</button>
-				</div>
+				</div>		
 			</div>
 	</section>
 	<!--/ End Project -->

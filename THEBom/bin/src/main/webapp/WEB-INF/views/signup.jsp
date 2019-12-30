@@ -20,25 +20,22 @@
 		<h1>the bom</h1>
 
 		<form class="form-signin" action="/signup" method="post">
-			<img class="mb-4"
-				src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg"
-				alt="" width="72" height="72" />
 			<h1 class="h3 mb-3 font-weight-normal">Signup Here</h1>
 
 			<label for="inputUsername" class="sr-only">email</label> <input
 				type="email" name="email" id="inputEmail" class="form-control"
-				placeholder="email" required="" /> <label for="inputPassword"
+				placeholder="email" required=""  style="margin:10px;" /> <label for="inputPassword"
 				class="sr-only">Password</label> <input type="password"
-				name="password" id="inputPassword" class="form-control"
-				placeholder="Password" required="" /> <label for="inputFullname"
-				class="sr-only">Full Name</label> <input type="text" name="fullname"
+				name="password" id="inputPassword" class="form-control" 
+				placeholder="Password" required=""  style="margin:10px;" /> <label for="inputFullname"
+				class="sr-only">Full Name</label> <input type="text" name="fullname" 
 				id="inputEmail" class="form-control" placeholder="Fullname"
-				required="" />
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+				required=""  style="margin:10px;" />
+			<button class="btn" style="background-color:transparent;" type="submit">Sign
 				Up</button>
 		</form>
 		<form class="form-signin" action="/login" method="get">
-			<button class="btn btn-md btn-success btn-block" type="Submit">Sign
+			<button class="btn" style="background-color:transparent;" type="Submit">Sign
 				In</button>
 		</form>
 		</div>

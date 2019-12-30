@@ -32,6 +32,7 @@
 								<li class="active"><a href="blind">사각지대 신고</a></li>
 								<li><a href="donate">직접 후원하기</a></li>
 								<li><a href="mypage">마이페이지</a></li>
+								<li><a href="" style="color:pink;">${user.fullname }</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -70,8 +71,7 @@
                                       </thead>
                                       <tbody>
                                         <c:forEach var="blind" items="${ blinds }">
-                                          <tr data-url="blind_detail?
-o=${blind.bNo}">
+                                          <tr data-url="blind_detail?bNo=${blind.BNo}">
                                             <td>${ blind.name }</td>
                                             <td>${ blind.content}</td>  
                                             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${blind.date}" /></td>

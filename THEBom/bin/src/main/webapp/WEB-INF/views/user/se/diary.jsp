@@ -24,6 +24,7 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="seniorMain">홈</a></li>
                                     <li class="active"><a href="diary">일지작성<span class="sr-only">(current)</span></a></li>
+                                	<li><a href="" style="color:pink;">${user.fullname }</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                         </div>

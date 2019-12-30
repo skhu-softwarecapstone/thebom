@@ -19,7 +19,7 @@
 <body data-target="#nino-navbar" data-spy="scroll">
     <!-- Header
     ================================================== -->
-	<header id="nino-header" style="background-color:#fce38a" ;>
+	<header id="nino-header" style="background-color:#fce38a;" >
             <div id="nino-headerInner">		
                 <nav id="nino-navbar" class="navbar navbar-default" role="navigation">
                     <div class="container header">
@@ -35,7 +35,7 @@
                                 <li><a href="match">후원매치현황</a></li>
                                 <li><a href="blind">사각지대 관리</a></li>
                                 <li><a href="mypage">마이페이지</a></li>
-                                
+                                <li><a href="" style="color:pink;">${user.fullname }</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                         </div>
@@ -49,7 +49,7 @@
     <!-- Start Project -->
     <section id="portfolio" class="section archive page">
 			<div class="container">
-				    <div class="row">
+				    <div class="row" style="height: 490px";>
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Circle management </span>
 							써클관리
@@ -78,6 +78,12 @@
 										써클추가
 								</button>
 							</div>
+							
+							
+							
+						
+							
+							
 						</div>
 						            <!--모달창-->
 									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -113,14 +119,14 @@
 										<div class="col-md-4 col-sm-4">
 										<c:forEach var="circle" items="${ circles }">
 
-											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+											<div data-url="circle_detail?cNo=${ circle.cNo }" class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 												<div class="panel panel-default">
 													<div class="panel-heading" role="tab" id="headingOne">
 														<h4 class="panel-title">
 															<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 																<i class="mdi mdi-chevron-up nino-icon arrow"></i>
 																<i class="mdi mdi-camera nino-icon"></i>
-																${ circle.CNo }
+																${ circle.cNo }
 															</a>
 														</h4>
 													</div>
@@ -173,6 +179,7 @@
 	
 	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>	
 	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/common.js"></script>
 		
 </body>
 </html>

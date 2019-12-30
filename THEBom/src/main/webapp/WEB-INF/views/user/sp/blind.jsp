@@ -11,8 +11,10 @@
 
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/res/css/template.css" />
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -32,7 +34,8 @@
 								<li class="active"><a href="blind">사각지대 신고</a></li>
 								<li><a href="donate">직접 후원하기</a></li>
 								<li><a href="mypage">마이페이지</a></li>
-								<li><a href="" style="color:pink;">${user.fullname }</a></li>
+								<li><a href="<c:url value='/'/>">Logout</a></li>
+								<li><a href="" style="color: pink;">${user.fullname }</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -51,42 +54,42 @@
 	<section id="portfolio" class="section archive page">
 		<div class="container">
 			<div class="row">
-				<h3 style="color: gray">
-					사각지대 신고하기
-				</h3>
-					<div class="pull-right mb5">
-                                    <a href="blind_insert" class="btn btn-info search-button">
-                                      <span class="glyphicon glyphicon-user"></span> 사각지대 신고</a>
-                            </div>
-                                <!-- Start table -->
-                                <div class="notice_container"> 
-                                    <table class="table table-bordered mt5 table-hover">
-                                      <thead style="color:black">
-                                        <tr>
-                                          <th>신고대상</th>
-                                          <th>신고내용</th>
-                                          <th>신고날짜</th>
-                                          <th>처리상태</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <c:forEach var="blind" items="${ blinds }">
-                                          <tr data-url="blind_detail?bNo=${blind.BNo}">
-                                            <td>${ blind.name }</td>
-                                            <td>${ blind.content}</td>  
-                                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${blind.date}" /></td>
-                                            <td>${blind.processState==0?"접수대기":blind.processState==1?"접수완료":"처리완료"}</td>
-                                          </tr>
-                                        </c:forEach>
-                                       
-                                      </tbody>
-                                    </table>
-                                    
-                                  </div>
-                                <!-- End table -->
-						
+				<h3 style="color: gray">사각지대 신고하기</h3>
+				<div class="pull-right mb5">
+					<a href="blind_insert" class="btn btn-info search-button"> <span
+						class="glyphicon glyphicon-user"></span> 사각지대 신고
+					</a>
+				</div>
+				<!-- Start table -->
+				<div class="notice_container">
+					<table class="table table-bordered mt5 table-hover">
+						<thead style="color: black">
+							<tr>
+								<th>신고대상</th>
+								<th>신고내용</th>
+								<th>신고날짜</th>
+								<th>처리상태</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="blind" items="${ blinds }">
+								<tr data-url="blind_detail?bNo=${blind.BNo}">
+									<td>${ blind.name }</td>
+									<td>${ blind.content}</td>
+									<td><fmt:formatDate pattern="yyyy-MM-dd"
+											value="${blind.date}" /></td>
+									<td value="${blind.processState}">${blind.processState==0?"접수대기":blind.processState==1?"접수완료":"처리완료"}</td>
+								</tr>
+							</c:forEach>
+
+						</tbody>
+					</table>
+
+				</div>
+				<!-- End table -->
+
 			</div>
-			
+
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<!-- Start Pagination -->
@@ -123,9 +126,16 @@
 		src="<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
-			<script type="text/javascript"
+	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/res/js/common.js"></script>
 
+	<script>
+		$(document).ready(function() {
+			$("td").filter("td[value='0']").css("color", "pink");
+			$("td").filter("td[value='1']").css("color", "#6799FF");
+			$("td").filter("td[value='2']").css("color", "#8EE088");
+		});
+	</script>
 
 </body>
 </html>

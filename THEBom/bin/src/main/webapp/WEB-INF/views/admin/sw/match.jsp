@@ -46,6 +46,7 @@
 								<li class="active"><a href="match">후원매치현황</a></li>
 								<li><a href="blind">사각지대 관리</a></li>
 								<li><a href="mypage">마이페이지</a></li>
+								<li><a href="" style="color:pink;">${user.fullname }</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -65,8 +66,11 @@
 				<h2 class="nino-sectionHeading">
 					<span class="nino-subHeading">THE BOM</span> 독거노인-후원자 매칭 관리
 				</h2>
-
+				
 				<p class="nino-sectionDesc">
+				노인을 클릭시, 후원하고 있는 후원자 정보가 보입니다.
+				</p>
+				
 				<div class="skill-main">
 					<table class="table table-bordered table-hover">
 						<thead style="color: black">

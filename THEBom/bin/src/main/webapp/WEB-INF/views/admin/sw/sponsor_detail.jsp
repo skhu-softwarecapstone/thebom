@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<!-- tag library -->
+<!-- tag library -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -12,120 +12,120 @@
 
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/res/css/template.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/res/css/template.css" />
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
-        <header id="nino-header" style="background-color:#fce38a" ;>
-                <div id="nino-headerInner">		
-                    <nav id="nino-navbar" class="navbar navbar-default" role="navigation">
-                        <div class="container header">
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="nino-menuItem pull-right">
-                                <div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
-                                <li><a href="notice">공지사항</a></li>
-                                <li><a href="circle">써클조회</a></li>
-                                <li><a href="senior ">노인조회</a></li>
-                                <li class="active"><a href="sponsor ">후원자조회</a></li>
-                                <li><a href="match">후원매치현황</a></li>
-                                <li><a href="blind">사각지대 관리</a></li>
-                                <li><a href="mypage">마이페이지</a></li>
-                                
-                                
-                                    </ul>
-                                </div><!-- /.navbar-collapse -->
-                               
-                                
-                            </div>
-                        </div><!-- /.container-fluid -->
-                    </nav>
-                </div>
-            </header><!--/#header-->
-    <section id="nino-whatWeDo">
-    	<div class="container">
-    		<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">THE BOM</span>
-				후원 매치
-            </h2>
-            <div style="float:right" class="search">
-                    <div class=" col-sm-12 col-xs-12" >
-                        <form style="display: inline-block">
-                            <select>
-                                <option>이름</option>
-                                <option>번호</option>
-                            </select>
-                            
-                            <div >
-                                <form><input /></form>
-                            </div>
-    
-                            <div style="display: inline-block"><button class="search-button">검색</button></div>
-                            <div>페이지 크기
-                                <select>
-                                    <option>10</option>
-                                    <option>15</option>
-                                    <option>30</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-			<p class="nino-sectionDesc">
-                <div class="skill-main">
-                    <div class="sectionContent">			
-                        <div class="fw" layout="row">
-                            <div class="col-md-4 col-sm-6 item seniorview">
-                                <div layout="row">
-                                    <div>
-                                        <h4 class="nino-serviceTitle">노인이름</h4>
-                                        <p>노인정보</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 item seniorview">
-                                <div layout="row">
-                                    <div>
-                                        <h4 class="nino-serviceTitle">노인이름</h4>
-                                        <p>노인정보</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 item seniorview">
-                                <div layout="row">
-                                    <div>
-                                        <h4 class="nino-serviceTitle">노인이름</h4>
-                                        <p>노인정보</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-                </div>
-            </p>
-			
-			</div>
-    	</div>
-    </section><!--/#nino-whatWeDo-->
-
-	
-
-	
-    
-    <!-- Footer
+	<!-- Header
     ================================================== -->
-    <footer id="footer">
-       
-    </footer><!--/#footer-->
+	<header id="nino-header" style="background-color: #fce38a";>
+		<div id="nino-headerInner">
+			<nav id="nino-navbar" class="navbar navbar-default" role="navigation">
+				<div class="container header">
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="nino-menuItem pull-right">
+						<div class="collapse navbar-collapse pull-left"
+							id="nino-navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><a href="sW_main">홈<span class="sr-only">(current)</span></a></li>
+								<li><a href="notice">공지사항</a></li>
+								<li><a href="circle">써클조회</a></li>
+								<li><a href="seniorList">노인조회</a></li>
+								<li class="active"><a href="sponsor">후원자조회</a></li>
+								<li><a href="match">후원매치현황</a></li>
+								<li><a href="blind">사각지대 관리</a></li>
+								<li><a href="mypage">마이페이지</a></li>
+								<li><a href="" style="color:pink;">${user.fullname }</a></li>
+							</ul>
+						</div>
+						<!-- /.navbar-collapse -->
 
-    
+
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+		</div>
+	</header>
+	<!--/#header-->
+	<!-- Start Project -->
+	<section id="portfolio" class="section archive page">
+		<div class="container">
+			<div class="row">
+				<h2 class="nino-sectionHeading">
+					<span class="nino-subHeading">THE BOM</span> 후원자 조회
+				</h2>
+
+				<!-- Start blog -->
+				<section id="blog" class="single section page">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-sm-12 col-xs-12"
+								style="margin-left: 20%;">
+								<!-- Single blog -->
+								<div class="single-blog">
+
+									<div class="blog-content">
+										<h3>후원자 세부사항</h3>
+										<hr />
+
+										<div id="info">
+											<span>성함: </span>
+												<span>${ sponsor.name }</span> <br> 
+											<span>연락처:</span>
+												<span>${ sponsor.phone}</span> <br>
+											<span>거주지역:</span>
+												<span>${ sponsor.address.address1 }${ sponsor.address.address_detail }(우편번호:${ senior.address.zipcode })</span> <br>
+											<span>거주지역 좌표:</span>
+												<span>lat:${ sponsor.address.location.lat }/lng:${ sponsor.address.location.lng }</span> <br>
+											<span>방문횟수:</span>
+												<span>${sponsor.visits }</span> <br>
+											<span>포인트:</span>
+												<span>${sponsor.point }</span>
+											
+										</div>
+										<hr />
+									</div>
+								</div>
+								<!--/ End Single blog -->
+
+							</div>
+
+						</div>
+					</div>
+
+				</section>
+
+				<div class="list">
+					<button type="button" class="search-button"
+						onclick="location.href='sponsor' ">
+						목록으로
+					</button>
+				</div>				
+			</div>
+	</section>
+	<!--/ End Project -->
+	</section>
+	<!--/#nino-whatWeDo-->
+
+
+
+	<!-- Footer
+    ================================================== -->
+	<footer id="footer"> </footer>
+	<!--/#footer-->
+
+
 	<!-- javascript -->
-	
-	<script type="text/javascript" src="../js/jquery.min.js"></script>	
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-	
-		
+
+	<script type="text/javascript"
+		src=".<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>

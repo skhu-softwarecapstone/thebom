@@ -32,11 +32,12 @@
                                 <li><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
                                 <li><a href="notice">공지사항</a></li>
                                 <li><a href="circle">써클조회</a></li>
-                                <li><a href="senior ">노인조회</a></li>
+                                <li><a href="seniorList ">노인조회</a></li>
                                 <li><a href="sponsor ">후원자조회</a></li>
                                 <li><a href="match">후원매치현황</a></li>
                                 <li class="active"><a href="blind">사각지대 관리</a></li>
                                 <li><a href="mypage ">마이페이지</a></li>
+                                <li><a href="" style="color:pink;">${user.fullname }</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                            
@@ -50,7 +51,7 @@
 		
 	<!-- Start Project -->
     <!-- Start Project -->
-    <section id="portfolio" class="section archive page">
+    <section id="portfolio" class="section archive page" style="min-height:100%;">
 			<div class="container">
 				    <div class="row">
 						<h3 style="color:gray">사각지대 관리하기</h3>
@@ -74,10 +75,9 @@
                                             <td>${ blind.content}</td>  
                                             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${blind.date}" /></td>
                                             <td>${ blind.userId}</td> 
-                                            <td>${ blind.processState==0?"접수대기":blind.processState==1?"접수완료":"처리완료"}</td>
+                                            <td value="${blind.processState}">${blind.processState==0?"접수대기":blind.processState==1?"접수완료":"처리완료"}</td>
                                           </tr>
                                         </c:forEach>
-                                       
                                       </tbody>
                                     </table>
                                   </div>
@@ -117,6 +117,13 @@
 	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath() %>/res/js/common.js"></script>	
 	
-		
+	<script>
+	$(document).ready(function() {
+		$("td").filter("td[value='0']").css("color","pink");
+		$("td").filter("td[value='1']").css("color","#6799FF");
+		$("td").filter("td[value='2']").css("color","#8EE088");
+	});
+	</script>
+	
 </body>
 </html>

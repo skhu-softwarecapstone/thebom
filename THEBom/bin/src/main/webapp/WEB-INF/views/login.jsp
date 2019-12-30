@@ -23,16 +23,16 @@
 			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 			
 			<label for="inputEmail" class="sr-only">Email address</label> <input
-				type="email" name="email" id="inputEmail" class="form-control"
+				type="email" name="email" id="inputEmail" style="margin:10px;" class="form-control"
 				placeholder="Email" required="" /> <label for="inputPassword"
 				class="sr-only">Password</label> <input type="password"
-				name="password" id="inputPassword" class="form-control"
+				name="password" id="inputPassword" style="margin:10px;" class="form-control"
 				placeholder="Password" required="" />
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+			<button class="btn" style="background-color:transparent;" type="submit">Sign
 				in</button>
 		</form>
 		<form class="form-signin" action="/signup" method="get">
-			<button class="btn btn-md btn-success btn-block" type="Submit">Signup
+			<button class="btn" style="background-color:transparent;" type="Submit">Signup
 				Here</button>
 		</form>
 		</div>

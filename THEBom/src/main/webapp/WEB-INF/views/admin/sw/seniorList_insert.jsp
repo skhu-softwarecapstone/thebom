@@ -30,15 +30,16 @@
 						<div class="collapse navbar-collapse pull-left"
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="sW_main">홈<span class="sr-only">(current)</span></a></li>
-								<li><a href="notice">공지사항</a></li>
-								<li><a href="circle">써클조회</a></li>
-								<li class="active"><a href="seniorList">노인조회</a></li>
-								<li><a href="sponsor">후원자조회</a></li>
-								<li><a href="match">후원매치현황</a></li>
-								<li><a href="blind">사각지대 관리</a></li>
-								<li><a href="mypage">마이페이지</a></li>
-								<li><a href="" style="color:pink;">${user.fullname }</a></li>
+								<li><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
+                                <li><a href="notice">공지사항</a></li>
+                                <li><a href="circle">써클조회</a></li>
+                                <li class="active"><a href="seniorList ">노인조회</a></li>
+                                <li><a href="sponsor ">후원자조회</a></li>
+                                <li><a href="match">후원매치현황</a></li>
+                                <li><a href="blind">사각지대 관리</a></li>
+                                <li><a href="mypage ">마이페이지</a></li>
+                                <li><a href="<c:url value='/'/>">Logout</a></li>
+                                <li><a href="" style="color:pink;">${user.fullname }</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->

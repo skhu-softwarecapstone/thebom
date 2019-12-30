@@ -36,6 +36,7 @@
                                 <li><a href="match">후원매치현황</a></li>
                                 <li><a href="blind">사각지대 관리</a></li>
                                  <li><a href="mypage">마이페이지</a></li>
+                                 <li><a href="" style="color:pink;">${user.fullname }</a></li>
                                 </ul>                               
 
                             </div><!-- /.navbar-collapse -->
