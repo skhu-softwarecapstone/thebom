@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,16 +125,9 @@
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<!-- Start Pagination -->
-					<ul class="pagination">
-						<li class="prev"><a href="#"><span
-								class="fa fa-angle-left"></span></a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li class="next"><a href="#"><span
-								class="fa fa-angle-right"></span></a></li>
-					</ul>
+					  <my:pagination pageSize="${ pagination.sz }" recordCount="${ pagination.recordCount }" 
+                 queryStringName="pg" />
+
 					<!--/ End Pagination -->
 				</div>
 			</div>

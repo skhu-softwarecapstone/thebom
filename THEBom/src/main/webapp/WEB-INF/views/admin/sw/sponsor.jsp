@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +13,11 @@
 
 
 <!-- css -->
+
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
+	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/res/css/template.css" />
+	href="<%=request.getContextPath()%>/res/css/template.css" />
 
 
 <!-- javascript -->
@@ -25,6 +27,34 @@
 	src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/res/js/common.js"></script>
+
+<style>
+#portfolio .pagination {
+	display: block;
+	padding-left: 0;
+	border-radius: 4px;
+	text-align: left;
+	margin: 100px 0 0;
+}
+
+#portfolio .pagination li {
+	display: inline-block;
+	border: none;
+}
+
+#portfolio .pagination li a {
+	color: gray;
+	background-color: white;
+	border: 1px solid #2ec06c;
+	padding: 10px 25px;
+	font-weight: 400;
+}
+
+#portfolio .pagination li:hover a, #portfolio .pagination li.active a {
+	border-color: transparent;
+	color: black;
+}
+</style>
 
 
 </head>
@@ -39,15 +69,15 @@
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
 								<li><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
-                                <li><a href="notice">공지사항</a></li>
-                                <li><a href="circle">써클조회</a></li>
-                                <li><a href="seniorList ">노인조회</a></li>
-                                <li class="active"><a href="sponsor ">후원자조회</a></li>
-                                <li><a href="match">후원매치현황</a></li>
-                                <li><a href="blind">사각지대 관리</a></li>
-                                <li><a href="mypage ">마이페이지</a></li>
-                                <li><a href="<c:url value='/'/>">Logout</a></li>
-                                <li><a href="" style="color:pink;">${user.fullname }</a></li>
+								<li><a href="notice">공지사항</a></li>
+								<li><a href="circle">써클조회</a></li>
+								<li><a href="seniorList ">노인조회</a></li>
+								<li class="active"><a href="sponsor ">후원자조회</a></li>
+								<li><a href="match">후원매치현황</a></li>
+								<li><a href="blind">사각지대 관리</a></li>
+								<li><a href="mypage ">마이페이지</a></li>
+								<li><a href="<c:url value='/'/>">Logout</a></li>
+								<li><a href="" style="color: pink;">${user.fullname }</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -127,7 +157,19 @@
 				</table>
 			</div>
 			</p>
-		</div>
+
+
+
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<!-- Start Pagination -->
+					<my:pagination pageSize="${ pagination.sz }"
+						recordCount="${ pagination.recordCount }" queryStringName="pg" />
+
+					<!--/ End Pagination -->
+				</div>
+
+			</div>
 		</div>
 	</section>
 	<!--/#nino-whatWeDo-->
@@ -141,5 +183,5 @@
 
 
 </body>
+
 </html>
->

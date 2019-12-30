@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +13,21 @@
 
 
 <!-- css -->
+
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/res/css/bootstrap.min.css" />
+	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/res/css/template.css" />
+	href="<%=request.getContextPath()%>/res/css/template.css" />
+
+<!-- javascript -->
+
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/res/js/common.js"></script>
+
 </head>
 
 <body data-target="#nino-navbar" data-spy="scroll">
@@ -31,19 +43,18 @@
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
 								<li><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
-                                <li class="active"><a href="notice">공지사항</a></li>
-                                <li><a href="circle">써클조회</a></li>
-                                <li><a href="seniorList ">노인조회</a></li>
-                                <li><a href="sponsor ">후원자조회</a></li>
-                                <li><a href="match">후원매치현황</a></li>
-                                <li><a href="blind">사각지대 관리</a></li>
-                                <li><a href="mypage ">마이페이지</a></li>
-                                <li><a href="<c:url value='/'/>">Logout</a></li>
-                                <li><a href="" style="color:pink;">${user.fullname }</a></li>
+								<li class="active"><a href="notice">공지사항</a></li>
+								<li><a href="circle">써클조회</a></li>
+								<li><a href="seniorList ">노인조회</a></li>
+								<li><a href="sponsor ">후원자조회</a></li>
+								<li><a href="match">후원매치현황</a></li>
+								<li><a href="blind">사각지대 관리</a></li>
+								<li><a href="mypage ">마이페이지</a></li>
+								<li><a href="<c:url value='/'/>">Logout</a></li>
+								<li><a href="" style="color: pink;">${user.fullname }</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
-
 
 					</div>
 				</div>
@@ -96,27 +107,18 @@
 							</table>
 
 						</div>
-						<!-- End table -->
-			</div>
 
-			<!--/ End blog -->
-			<div class="row">
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<!-- Start Pagination -->
-					<ul class="pagination" style="margin: 50px 0 0 0;">
-						<li class="prev"><a href="#"><span
-								class="fa fa-angle-left"></span></a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li class="next"><a href="#"><span
-								class="fa fa-angle-right"></span></a></li>
-					</ul>
-					<!--/ End Pagination -->
-				</div>
+						<!--/ End blog -->
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<!-- Start Pagination -->
+								<my:pagination pageSize="${ pagination.sz }"
+									recordCount="${ pagination.recordCount }" queryStringName="pg" />
+
+								<!--/ End Pagination -->
+							</div>
+					</div>
 			</div>
-		</div>
 	</section>
 	<!--/ End Project -->
 
@@ -127,14 +129,6 @@
 	<!--/#footer-->
 
 
-	<!-- javascript -->
-
-	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/res/js/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/res/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/res/js/common.js"></script>
 
 </body>
 </html>
