@@ -137,8 +137,8 @@ public class AdminController {
 	}
 	//사회복지사가 확인하는 사각지대 페이지
 	@GetMapping("/sw/blind")
-	public String blind(Model model) {
-		List<Blind> blinds=this.blindRepository.findAll();
+	public String blind(Pagination pagination,Model model) {
+		List<Blind> blinds=this.blindRepository.findAll(pagination);
 		model.addAttribute("blinds", blinds);
 		return "admin/sw/blind";
 	}
@@ -226,8 +226,8 @@ public class AdminController {
 	}
 	//관리하는 독거노인 목록 조회
 	@GetMapping("/sw/seniorList")
-	public String senior(Model model) {
-		List<Senior> seniors=this.seniorRepository.findAll();
+	public String senior(Pagination pagination, Model model) {
+		List<Senior> seniors=this.seniorRepository.findAll(pagination);
 
 		model.addAttribute("seniors", seniors);
 		return "admin/sw/seniorList";
@@ -286,8 +286,8 @@ public class AdminController {
 
 	//독거노인 그룹 관리
 	@GetMapping("/sw/circle")
-	public String circle(Model model) {
-		List<Circle> circles=this.circleRepository.findAll();
+	public String circle(Pagination pagination, Model model) {
+		List<Circle> circles=this.circleRepository.findAll(pagination);
 		model.addAttribute("circles", circles);
 		return "admin/sw/circle";
 	}
@@ -309,9 +309,9 @@ public class AdminController {
 
 	//후원자 관리-자신의 지역에 거주하는 방문후원자|방문후원지원자 목록 조회(포인트 순으로 나열)
 	@GetMapping("/sw/sponsor")
-	public String Sponsor(Model model) {
+	public String Sponsor(Pagination pagination, Model model) {
 
-		List<Sponsor> sponsors=this.sponsorRepository.findAll();
+		List<Sponsor> sponsors=this.sponsorRepository.findAll(pagination);
 		model.addAttribute("sponsors", sponsors);
 		return "admin/sw/sponsor";
 	}
@@ -331,9 +331,9 @@ public class AdminController {
 		}
 	//매칭 관리
 	@GetMapping("/sw/match")
-	public String match(Model model) {
+	public String match(Pagination pagination, Model model) {
 		List<Senior> seniors=this.seniorRepository.findByMatch(0);
-		//List<Senior> seniors=this.seniorRepository.findAll();
+		//List<Senior> seniors=this.seniorRepository.findAll(pagination);
 		model.addAttribute("seniors", seniors);
 		return "admin/sw/match";
 	}
