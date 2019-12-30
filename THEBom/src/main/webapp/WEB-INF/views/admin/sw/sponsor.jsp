@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +13,10 @@
 
 
 <!-- css -->
-
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/res/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/res/css/template.css" />
-
 
 <!-- javascript -->
 <script type="text/javascript"
@@ -28,37 +26,13 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/res/js/common.js"></script>
 
-<style>
-#portfolio .pagination {
-	display: block;
-	padding-left: 0;
-	border-radius: 4px;
-	text-align: left;
-	margin: 100px 0 0;
-}
-
-#portfolio .pagination li {
-	display: inline-block;
-	border: none;
-}
-
-#portfolio .pagination li a {
-	color: gray;
-	background-color: white;
-	border: 1px solid #2ec06c;
-	padding: 10px 25px;
-	font-weight: 400;
-}
-
-#portfolio .pagination li:hover a, #portfolio .pagination li.active a {
-	border-color: transparent;
-	color: black;
-}
-</style>
 
 
 </head>
+
 <body data-target="#nino-navbar" data-spy="scroll">
+	<!-- Header
+    ================================================== -->
 	<header id="nino-header" style="background-color: #fce38a";>
 		<div id="nino-headerInner">
 			<nav id="nino-navbar" class="navbar navbar-default" role="navigation">
@@ -69,15 +43,15 @@
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
 								<li><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
-								<li><a href="notice">공지사항</a></li>
-								<li><a href="circle">써클조회</a></li>
-								<li><a href="seniorList ">노인조회</a></li>
-								<li class="active"><a href="sponsor ">후원자조회</a></li>
-								<li><a href="match">후원매치현황</a></li>
-								<li><a href="blind">사각지대 관리</a></li>
-								<li><a href="mypage ">마이페이지</a></li>
-								<li><a href="<c:url value='/'/>">Logout</a></li>
-								<li><a href="" style="color: pink;">${user.fullname }</a></li>
+                                <li><a href="notice">공지사항</a></li>
+                                <li><a href="circle">써클조회</a></li>
+                                <li><a href="seniorList ">노인조회</a></li>
+                                <li class="active"><a href="sponsor ">후원자조회</a></li>
+                                <li><a href="match">후원매치현황</a></li>
+                                <li><a href="blind">사각지대 관리</a></li>
+                                <li><a href="mypage ">마이페이지</a></li>
+                                <li><a href="<c:url value='/'/>">Logout</a></li>
+                                <li><a href="" style="color:pink;">${user.fullname }</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -90,44 +64,52 @@
 		</div>
 	</header>
 	<!--/#header-->
-	<!-- What We Do
-    ================================================== -->
-	<section id="nino-whatWeDo">
+	<!-- Start Project -->
+	<section id="portfolio" class="section archive page">
 		<div class="container">
-			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">THE BOM</span> 후원자 조회
-			</h2>
-			<div style="float: right" class="search">
-				<div class=" col-sm-12 col-xs-12">
-					<form style="display: inline-block">
-						<select>
-							<option>이름</option>
-							<option>번호</option>
-						</select>
+			<div class="row">
+				<h2 class="nino-sectionHeading">
+					<span class="nino-subHeading">THE BOM</span> 후원자 조회
+				</h2>
 
-						<div>
-							<form>
-								<input />
-							</form>
-						</div>
-
-						<div style="display: inline-block">
-							<button class="search-button">검색</button>
-						</div>
-						<div>
-							페이지 크기 <select>
-								<option>10</option>
-								<option>15</option>
-								<option>30</option>
+				<!-- 독거노인 조건 검색바 -->
+				<div style="float: right" class="search">
+					<div class=" col-sm-12 col-xs-12">
+						<form style="display: inline-block">
+							<select>
+								<option>이름</option>
+								<option>번호</option>
 							</select>
-						</div>
-					</form>
+
+							<div>
+								<form>
+									<input />
+								</form>
+							</div>
+
+							<div style="display: inline-block">
+								<button class="search-button">검색</button>
+							</div>
+							<div>
+								페이지 크기 <select>
+									<option>10</option>
+									<option>15</option>
+									<option>30</option>
+								</select>
+							</div>
+						</form>
+					</div>
 				</div>
-			</div>
-			<p class="nino-sectionDesc">
-			<div class="skill-main">
-				<table class="table table-bordered">
-					<thead style="color: black">
+				<!-- 독거노인 조건 검색바 끝 -->
+				<!-- 독거노인 추가 버튼 -->
+				<div class="col-sm-12 col-xs-12" id="write">
+					<a href="seniorList_insert" style="margin-bottom: 30px;">어르신 추가</a>
+				</div>
+				<!-- 독거노인 추가 버튼 끝-->
+				<p class="nino-sectionDesc">
+				<div class="skill-main">
+					<table class="table table-bordered table-hover">
+						<thead style="color: black">
 						<tr>
 
 							<th>spNo</th>
@@ -154,25 +136,27 @@
 							</tr>
 						</c:forEach>
 					</tbody>
-				</table>
+					</table>
+				</div>
+				</p>
 			</div>
-			</p>
-
-
-
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<!-- Start Pagination -->
-					<my:pagination pageSize="${ pagination.sz }"
-						recordCount="${ pagination.recordCount }" queryStringName="pg" />
-
+			
+					  <my:pagination pageSize="${ pagination.sz }" recordCount="${ pagination.recordCount }" 
+                 queryStringName="pg" />
+					
 					<!--/ End Pagination -->
 				</div>
-
 			</div>
 		</div>
+
+	</section>
+	<!--/ End Project -->
 	</section>
 	<!--/#nino-whatWeDo-->
+
 
 
 	<!-- Footer
@@ -182,6 +166,6 @@
 
 
 
-</body>
 
+</body>
 </html>

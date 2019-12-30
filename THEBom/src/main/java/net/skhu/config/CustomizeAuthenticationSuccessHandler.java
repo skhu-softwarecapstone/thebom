@@ -23,12 +23,9 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
        
         for (GrantedAuthority auth : authentication.getAuthorities()) {
             if ("ADMIN".equals(auth.getAuthority())) {
-            	System.out.println("44444");
                 //response.sendRedirect("/sw/sw_main");
                 response.sendRedirect("/sw/sw_main");
-                System.out.println("4444-2");
             } else if ("USER".equals(auth.getAuthority())) {
-            	System.out.println(55555);
             	//로그인시, 'mobile' parameter로 redirect할 주소 구분
             	if(request.getParameter("mobile") != null) { 	// *****
             		System.out.println(request.getParameter("mobile"));
