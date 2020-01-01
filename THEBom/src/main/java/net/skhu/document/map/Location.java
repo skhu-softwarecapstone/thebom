@@ -11,11 +11,6 @@ public class Location {
 	@Field(value="1")
 	private double lng;
 
-	public Location(Double x, Double y) {
-		this.lat = x;
-		this.lng = y;
-	}
-
 	public double getLat() {
 		return lat;
 	}

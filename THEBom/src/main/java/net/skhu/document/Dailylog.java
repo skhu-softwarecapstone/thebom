@@ -20,16 +20,19 @@ public class Dailylog {
 	private String userId;
 	@Field(value="seniorName")
 	private String seniorName;
+	@Field(value="title")
+	private String title;
+	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getDNo() {
+	public int getdNo() {
 		return dNo;
 	}
-	public void setDNo(int dNo) {
+	public void setdNo(int dNo) {
 		this.dNo = dNo;
 	}
 	public Date getDate() {
@@ -55,6 +58,12 @@ public class Dailylog {
 	}
 	public void setSeniorName(String seniorName) {
 		this.seniorName = seniorName;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 	

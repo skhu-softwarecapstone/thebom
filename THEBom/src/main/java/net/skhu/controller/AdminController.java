@@ -268,7 +268,7 @@ public class AdminController {
 
 		HashMap<String, Object> coordinates=kakaoAPI.getCoords(seniorModel.getAddress1());
 
-		Location location = new Location((Double)coordinates.get("x"),(Double)coordinates.get("y"));
+		Location location=new Location((Double)coordinates.get("x"),(Double)coordinates.get("y"));
 
 		address.setLocation(location);
 		senior.setAddress(address);

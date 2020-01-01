@@ -61,7 +61,7 @@ public class MobileDailylogController {
 	@RequestMapping("/m/dailylog_detail")
 	public Dailylog dailylog_detail(@RequestBody Dailylog dailylogParam, HttpSession session) {
 		User user = (User) session.getAttribute("user");
-		Dailylog dailylog = dailylogRepository.findByUserIdAndDate(user.getEmail(), dailylogParam.getDate());
+		Dailylog dailylog = dailylogRepository.findByUserIdAndDNo(user.getEmail(), dailylogParam.getdNo());
 
 		return dailylog;
 	}

@@ -2,6 +2,7 @@ package net.skhu.document;
 
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,10 +14,13 @@ import net.skhu.document.map.Address;
 public class VisitSenior {
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@Id
+	private String id;
 	private Date visitDate;
 	private String sponsorId;
-	private String seniorId;
+	private int seNo;
 	private Address address;
+	private String SeniorName;
 	
 	public Date getVisitDate() {
 		return visitDate;
@@ -30,17 +34,24 @@ public class VisitSenior {
 	public void setSponsorId(String sponsorId) {
 		this.sponsorId = sponsorId;
 	}
-	public String getSeniorId() {
-		return seniorId;
+	
+	public int getSeNo() {
+		return seNo;
 	}
-	public void setSeniorId(String seniorId) {
-		this.seniorId = seniorId;
+	public void setSeNo(int seNo) {
+		this.seNo = seNo;
 	}
 	public Address getAddress() {
 		return address;
 	}
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	public String getSeniorName() {
+		return SeniorName;
+	}
+	public void setSeniorName(String seniorName) {
+		SeniorName = seniorName;
 	}
 	
 	

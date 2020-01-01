@@ -47,6 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/signup").permitAll()
         .antMatchers("/m/login").permitAll() // ***** mobile 영역 로그인, 회원가입 권한 허용
         .antMatchers("/m/signup").permitAll() // *****
+        .antMatchers("/m/nfc/match_senior").permitAll() // *****
 //        .antMatchers("/sw/**").access("ADMIN") //ADMIN 권한을 소요한 사용자만 요청할 수 있음
 //        .antMatchers("/sw/**").access("hasRole('ADMIN') or hasRole('ADMIN') and hasRole('DBA')")
 //        .antMatchers("/sw/**").access("hasRole('ADMIN')")

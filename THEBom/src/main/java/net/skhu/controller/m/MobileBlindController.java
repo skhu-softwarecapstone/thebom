@@ -51,7 +51,7 @@ public class MobileBlindController {
 		User user = (User) session.getAttribute("user");
 		Blind blind = new Blind();
 		int bno = (int) (this.blindRepository.count() + 1);
-		blind.setBNo(bno);
+		blind.setbNo(bno);
 		blind.setName(part.getName());
 		blind.setContent(part.getContent());
 		blind.setDate(new Date());
@@ -79,7 +79,7 @@ public class MobileBlindController {
 		MobileSuccessVO mSV = new MobileSuccessVO();
 		mSV.setType("blind_detail");
 		try {
-			Blind blind = this.blindRepository.findByBNo(part.getBNo());
+			Blind blind = this.blindRepository.findByBNo(part.getbNo());
 			this.blindRepository.delete(blind);
 			blind.setName(part.getName());
 			blind.setContent(part.getContent());

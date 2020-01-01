@@ -37,10 +37,10 @@ public class Blind {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getBNo() {
+	public int getbNo() {
 		return bNo;
 	}
-	public void setBNo(int bNo) {
+	public void setbNo(int bNo) {
 		this.bNo = bNo;
 	}
 	public String getName() {
