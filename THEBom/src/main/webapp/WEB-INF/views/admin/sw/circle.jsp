@@ -71,6 +71,10 @@
 				<h2 class="nino-sectionHeading">
 					<span class="nino-subHeading">Circle management </span> 써클관리
 				</h2>
+				<button class="search-button"
+							style="float: right; margin-bottom: 10px; margin-top: -10%;"
+							onclick="location.href='circle_add'">써클추가</button>
+				<!-- 
 				<div style="float: right" class="search">
 					<div class="pull-right col-sm-12 col-xs-12">
 						<form style="display: inline-block">
@@ -96,6 +100,7 @@
 					</div>
 
 				</div>
+				 -->
 				<!--모달창-->
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel" aria-hidden="true">

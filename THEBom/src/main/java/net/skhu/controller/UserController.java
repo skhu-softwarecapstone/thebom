@@ -31,7 +31,7 @@ import net.skhu.repository.PlaceRepository;
 import net.skhu.repository.SponsorRepository;
 import net.skhu.repository.UserRepository;
 import net.skhu.service.CustomUserDetailsService;
-
+import net.skhu.model.Pagination;
 @Controller
 public class UserController {
 	@Autowired
@@ -67,9 +67,9 @@ public class UserController {
 
 	// 유저 사각지대 신고 user/sp폴더로 옮겨야함
 	@GetMapping("/sp/blind")
-	public String blind(Model model, HttpSession session) {
+	public String blind(Pagination pagination, Model model, HttpSession session) {
 		User user = (User) session.getAttribute("user");
-		List<Blind> blinds = this.blindRepository.findByUserId(user.getEmail()); // 로그인 아이디로 변경해야함
+		List<Blind> blinds = this.blindRepository.findByUserId(pagination,user.getEmail()); 
 		model.addAttribute("blinds", blinds);
 		return "user/sp/blind";
 	}
@@ -122,9 +122,9 @@ public class UserController {
 	}
 
 	@GetMapping("/sp/dailylog")
-	public String dailylog(Model model, HttpSession session) {
+	public String dailylog(Pagination pagination, Model model, HttpSession session) {
 		User user = (User) session.getAttribute("user");
-		List<Dailylog> dailylogs = this.dailylogRepository.findByUserId(user.getEmail()); // 로그인 아이디로 변경해야함
+		List<Dailylog> dailylogs = this.dailylogRepository.findByUserId(pagination,user.getEmail()); // 로그인 아이디로 변경해야함
 		model.addAttribute("dailylogs", dailylogs);
 		return "user/sp/dailylog";
 	}
@@ -186,8 +186,8 @@ public class UserController {
 	}
 
 	@GetMapping("/sp/donate")
-	public String spon(Model model) {
-		List<Place> places = this.placeRepository.findAll();
+	public String spon(Pagination pagination, Model model) {
+		List<Place> places = this.placeRepository.findAll(pagination);
 		model.addAttribute("places", places);
 		return "user/sp/donate";
 	}
