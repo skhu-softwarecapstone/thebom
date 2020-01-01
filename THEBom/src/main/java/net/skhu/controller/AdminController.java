@@ -343,7 +343,7 @@ public class AdminController {
 	// 매칭 관리
 	@GetMapping("/sw/match")
 	public String match(Pagination pagination, Model model) {
-		List<Senior> seniors = this.seniorRepository.findByMatch(0);
+		List<Senior> seniors = this.seniorRepository.findByMatch(pagination,0);//0을  해당 Match 값으로 변경
 		// List<Senior> seniors=this.seniorRepository.findAll(pagination);
 		model.addAttribute("seniors", seniors);
 		return "admin/sw/match";
