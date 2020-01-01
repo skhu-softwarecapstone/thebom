@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,12 +23,14 @@ import org.springframework.web.servlet.ModelAndView;
 import net.skhu.document.Blind;
 import net.skhu.document.Dailylog;
 import net.skhu.document.Notice;
+import net.skhu.document.Reserve;
 import net.skhu.document.User;
 import net.skhu.document.sponsor.Place;
 import net.skhu.document.sponsor.Sponsor;
 import net.skhu.repository.BlindRepository;
 import net.skhu.repository.DailylogRepository;
 import net.skhu.repository.PlaceRepository;
+import net.skhu.repository.ReserveRepository;
 import net.skhu.repository.SponsorRepository;
 import net.skhu.repository.UserRepository;
 import net.skhu.service.CustomUserDetailsService;
@@ -46,6 +49,9 @@ public class UserController {
 	private DailylogRepository dailylogRepository;
 	@Autowired
 	private CustomUserDetailsService userService;
+	@Autowired
+	private ReserveRepository reserveRepository;
+	
 
 	// admin version 메인페이지-접속한 유저정보랑 공지사항 객체목록 5개 담을것
 	@RequestMapping(value = "/sp/sp_main", method = RequestMethod.GET)
@@ -114,9 +120,10 @@ public class UserController {
 
 		return "redirect:/sp/blind";
 	}
+
 	@GetMapping("/sp/blindDelete")
-	public String blindDelete(@RequestParam("bNo") int bNo,Model model) {
-		Blind blind=this.blindRepository.findByBNo(bNo);
+	public String blindDelete(@RequestParam("bNo") int bNo, Model model) {
+		Blind blind = this.blindRepository.findByBNo(bNo);
 		this.blindRepository.delete(blind);
 		return "redirect:/sp/blind";
 	}
@@ -172,14 +179,14 @@ public class UserController {
 
 		return "redirect:/sp/dailylog";
 	}
-	
+
 	@GetMapping("/sp/dailylog_delete")
-	public String dailylogDelete(@RequestParam("dNo") int dNo,Model model) {
-		Dailylog dailylog=this.dailylogRepository.findByDNo(dNo);
+	public String dailylogDelete(@RequestParam("dNo") int dNo, Model model) {
+		Dailylog dailylog = this.dailylogRepository.findByDNo(dNo);
 		this.dailylogRepository.delete(dailylog);
 		return "redirect:/sp/dailylog";
 	}
-	
+
 	@GetMapping("/sp/mypage")
 	public String sponMypage() {
 		return "user/sp/mypage";
@@ -192,23 +199,43 @@ public class UserController {
 		return "user/sp/donate";
 	}
 
+	@PostMapping("insertSpon")
+	@ResponseBody
+	public String insertSpon(@RequestParam(value = "day") String day, @RequestParam(value = "time") String time,
+			@RequestParam(value = "startDate") Date startDate, HttpSession session) throws Exception {
+
+		User user = (User) session.getAttribute("user");
+		Reserve reserve = new Reserve();
+		int rno=(int) (this.reserveRepository.count()+1);
+		reserve.setrNo(rno);
+		reserve.setDay(day);
+		reserve.setStartDate(startDate);
+		reserve.setTime(time);
+		reserve.setUserId(user.getEmail()); // 로그인한 아이디 넣기
+
+		this.reserveRepository.insert(reserve);
+		
+		return "redirect:/sp/donate";
+	}
+
 	/*
 	 * //사각지대 신고데이터 삽입
 	 */
-/*	@ResponseBody
-	@RequestMapping("/insertSpon")
-	public String insertLog(@RequestParam("seniorName") String seniorName, @RequestParam("date") Date date,
-			@RequestParam("logContent") String logContent) {
-		Dailylog dailylog = new Dailylog();
-		int dNo = (int) (this.dailylogRepository.count() + 1);
-		dailylog.setDNo(dNo);
-		dailylog.setDate(date);
-		dailylog.setUserId("jimin123"); // 로그인값으로 수정
-		dailylog.setContent(logContent);
-		dailylog.setSeniorName(seniorName); // 선택한 기관값
-		this.dailylogRepository.insert(dailylog);
-
-		return "";
-	}*/
+	/*
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping("/insertSpon") public String
+	 * insertLog(@RequestParam("seniorName") String
+	 * seniorName, @RequestParam("date") Date date,
+	 * 
+	 * @RequestParam("logContent") String logContent) { Dailylog dailylog = new
+	 * Dailylog(); int dNo = (int) (this.dailylogRepository.count() + 1);
+	 * dailylog.setDNo(dNo); dailylog.setDate(date); dailylog.setUserId("jimin123");
+	 * // 로그인값으로 수정 dailylog.setContent(logContent);
+	 * dailylog.setSeniorName(seniorName); // 선택한 기관값
+	 * this.dailylogRepository.insert(dailylog);
+	 * 
+	 * return ""; }
+	 */
 
 }

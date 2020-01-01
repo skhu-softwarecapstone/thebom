@@ -56,7 +56,6 @@
 								<li><a href="<c:url value='/'/>">Logout</a></li>
 								<li><a href="" style="color: pink;">${user.fullname }</a></li>
 							</ul>
-							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
 						<ul class="nino-iconsGroup nav navbar-nav">
@@ -88,11 +87,6 @@
 	</header>
 	<!--/#header-->
 
-
-	<!-- Footer
-    ================================================== -->
-	<!-- Portfolio
-    ================================================== -->
 
 
 	<!-- Search Form - Display when click magnify icon in menu
