@@ -73,6 +73,7 @@ public class MobileBlindController {
 		return mSV;
 	}
 
+	
 	// blind(사각지대 신고 기능) 유저 사각지대 신고 상세 사항 확인 메서드
 	@PostMapping("/m/blind_detail")
 	public MobileSuccessVO blindDetail(@RequestBody Blind part) {
