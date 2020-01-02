@@ -326,28 +326,28 @@ public class AdminController {
 //		return "admin/sw/circle_add";
 //	}
 //
-//	// 후원자 관리-자신의 지역에 거주하는 방문후원자|방문후원지원자 목록 조회(포인트 순으로 나열)
-//	@GetMapping("/sw/sponsor")
-//	public String Sponsor(Pagination pagination, Model model) {
-//
-//		List<Sponsor> sponsors = this.sponsorRepository.findAll(pagination);
-//		model.addAttribute("sponsors", sponsors);
-//		return "admin/sw/sponsor";
-//	}
-//
-//	// 해당 독거노인 세부페이지
-//	@GetMapping("/sw/sponsor_detail")
-//	public String SponsorDetail(@RequestParam("spNo") int spNo, Model model) {
-//		Sponsor sponsor = this.sponsorRepository.findBySpNo(spNo);
-//		// User socialWorker
-//		// =this.userRepository.findById(senior.getGroupInfo().getSocial_worker_id()).get();
-//
-//		model.addAttribute("sponsor", sponsor);
-//		System.out.print(sponsor.getAddress().getLocation());
-//		model.addAttribute("location", sponsor.getAddress().getLocation());
-//		// model.addAttribute("socialWorker", socialWorker);
-//		return "admin/sw/sponsor_detail";
-//	}
+	// 후원자 관리-자신의 지역에 거주하는 방문후원자|방문후원지원자 목록 조회(포인트 순으로 나열)
+	@GetMapping("/sw/sponsor")
+	public String Sponsor(Pagination pagination, Model model) {
+
+		List<Sponsor> sponsors = this.sponsorRepository.findAll(pagination);
+		model.addAttribute("sponsors", sponsors);
+		return "admin/sw/sponsor";
+	}
+
+	// 해당 독거노인 세부페이지
+	@GetMapping("/sw/sponsor_detail")
+	public String SponsorDetail(@RequestParam("spNo") int spNo, Model model) {
+		Sponsor sponsor = this.sponsorRepository.findBySpNo(spNo);
+		// User socialWorker
+		// =this.userRepository.findById(senior.getGroupInfo().getSocial_worker_id()).get();
+
+		model.addAttribute("sponsor", sponsor);
+		System.out.print(sponsor.getAddress().getLocation());
+		model.addAttribute("location", sponsor.getAddress().getLocation());
+		// model.addAttribute("socialWorker", socialWorker);
+		return "admin/sw/sponsor_detail";
+	}
 //
 //	// 매칭 관리
 //	@GetMapping("/sw/match")
