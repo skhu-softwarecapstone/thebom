@@ -117,7 +117,7 @@
 							<th>gender</th>
 							<th>point</th>
 							<th>phone</th>
-							<th>visits</th>
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -131,7 +131,7 @@
 									</c:choose></td>
 								<td>${ sponsor.point}</td>
 								<td>${ sponsor.phone}</td>
-								<td>${ sponsor.visits}</td>
+								
 
 							</tr>
 						</c:forEach>
