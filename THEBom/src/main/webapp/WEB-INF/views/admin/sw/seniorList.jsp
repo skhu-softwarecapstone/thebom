@@ -78,7 +78,7 @@
 						<form style="display: inline-block">
 							<select>
 								<option>이름</option>
-								<option>지역</option>
+								<option>번호</option>
 							</select>
 
 							<div>

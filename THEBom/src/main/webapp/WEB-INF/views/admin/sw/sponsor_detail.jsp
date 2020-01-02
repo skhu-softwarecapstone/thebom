@@ -82,8 +82,6 @@
 												<span>${ sponsor.address.address1 }${ sponsor.address.address_detail }(우편번호:${ senior.address.zipcode })</span> <br>
 											<span>거주지역 좌표:</span>
 												<span>lat:${ sponsor.address.location.lat }/lng:${ sponsor.address.location.lng }</span> <br>
-											<span>방문횟수:</span>
-												<span>${sponsor.visits }</span> <br>
 											<span>포인트:</span>
 												<span>${sponsor.point }</span>
 											

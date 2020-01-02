@@ -17,12 +17,15 @@ import net.skhu.model.Pagination;
 
 public interface BlindRepository extends MongoRepository<Blind,String> {
 
+	
+	
     public Page<Blind> findAll(Pageable pageable);
 	public Page<Blind> findByUserId(Pageable pageable,String email);
 	List<Blind> findByUserId(String email);
 	Blind findByBNo(int bNo);
 	int countByUserId(String email);
 	List<Blind> findAllByUserIdOrderByDateDesc(String email, PageRequest pageRequest);
+	
 	
 	public default List<Blind> findAll(Pagination pagination) {
         Pageable pageable = PageRequest.of(pagination.getPg() - 1, pagination.getSz(),

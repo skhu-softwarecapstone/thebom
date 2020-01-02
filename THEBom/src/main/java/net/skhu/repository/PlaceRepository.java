@@ -27,5 +27,4 @@ public interface PlaceRepository extends MongoRepository<Place, String>{
         return page.getContent();
     }
 
-	
 }

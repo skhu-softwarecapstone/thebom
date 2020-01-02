@@ -28,9 +28,70 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/res/js/common.js"></script>
 
+<script type="text/javascript">
+	var first_index = new Array('서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시',
+			'대전광역시', '울산광역시', '세종특별자치시', '경기도', '강원도', '충청북도', '충청남도', '전라북도',
+			'전라남도', '경상북도', '경상남도', '제주특별자치도');
+
+	var second_index = new Array();
+	var second_index
+	[ 0 ] = new Array('강남구', '강동구', '강북구', '강서구', '관악구', '광진구', '구로구', '금천구',
+			'노원구', '도봉구', '동대문구', '동작구', '마포구', '서대문구', '서초구', '성동구', '성북구',
+			'송파구', '양천구', '영등포구', '용산구', '은평구', '종로구', '중구', '중랑구');
+
+	var third_index = new Array();
+
+	var third_index[ 0 ] = new Array();var third_index[ 1 ] = new Array();var third_index[ 2 ] = new Array();var third_index[ 3 ] = new Array();
+	var third_index[ 4 ] = new Array();	var third_index[ 5 ] = new Array();var third_index[ 6 ] = new Array();var third_index[ 7 ] = new Array();
+	var third_index[ 8 ] = new Array();var third_index[ 9 ] = new Array();var third_index[ 10 ] = new Array();var third_index[ 11 ] = new Array();
+	var third_index[ 12 ] = new Array();var third_index[ 13 ] = new Array();var third_index[ 14 ] = new Array();var third_index[ 15 ] = new Array();
+	var third_index[ 16 ] = new Array();var third_index[ 17 ] = new Array();var third_index[ 18 ] = new Array();
+
+	var third_index[ 19 ] = new Array('당산동', '당산동1가', '당산동2가', '당산동3가', '당산동4가', '당산동4가',
+			'당산동5가', '당산동6가', '대림동', '도림동', '문래동1가', '문래동2가', '문래동3가', '문래동4가',
+			'문래동5가', '문래동6가', '신길동', '양평동', '양평동1가', '양평동2가', '양평동3가', '양평동4가',
+			'양평동5가', '양평동6가', '양화동', '여의도동', '영등포동', '영등포동1가', '영등포동2가',
+			'영등포동3가', '영등포동4가', '영등포동5가', '영등포동6가', '영등포동7가', '영등포동8가');
+
+	function init(f) {
+		var first_select = f.first;
+		var second_select = f.second;
+		var third_select = f.third;
+
+		first_index.options[0] = new Option("시도명", "");
+		second_index.options[0] = new Option("시군구명", "");
+		third_index.options[0] = new Option("읍면동명", "");
+
+		for (var i = 0; i < first_select.length; i++) {
+			first_select.options[i + 1] = new Option(first_index[i],f_selbox[i]);
+		}
+	}
+
+	function itemChange(f) {
+		var first_select = f.first;
+		var second_select = f.second;
+		
+
+		var select = first_select.selectedIndex;
+		for (var i = second_select.length; i >= 0; i--) {
+			second_select.options[i] = null;
+		}
+
+		second_select.options[0] = new Option("시군구명", "");
+
+		if (sel != 0) {
+			for (var i = 0; i < s_selbox[sel - 1].length; i++) {
+				s_sel.options[i + 1] = new Option(s_selbox[sel - 1][i],
+						s_selbox[sel - 1][i]);
+			}
+		}
+	}
+</script>
+
 </head>
 
-<body data-target="#nino-navbar" data-spy="scroll">
+<body data-target="#nino-navbar" data-spy="scroll"
+	onload="init(this.form);">
 	<!-- Header
     ================================================== -->
 
@@ -68,109 +129,39 @@
 	<section id="portfolio" class="section archive page">
 		<div class="container">
 			<div class="row" style="height: 490px";>
+				<form name="form">
+					<select id="first" style="width: 70px;"
+						onchange="itemChange(this.form);"></select> 
+						<select id="second"	style="width: 70px;"></select>
+				</form>
 				<h2 class="nino-sectionHeading">
 					<span class="nino-subHeading">Circle management </span> 써클관리
 				</h2>
+
+				<div style="display: inline-block;">
+					<button class="search-button" style="float: center;">검색</button>
+				</div>
+
 				<button class="search-button"
-							style="float: right; margin-bottom: 10px; margin-top: -10%;"
-							onclick="location.href='circle_add'">써클추가</button>
-				<!-- 
-				<div style="float: right" class="search">
-					<div class="pull-right col-sm-12 col-xs-12">
-						<form style="display: inline-block">
-							<select>
-								<option>이름</option>
-								<option>번호</option>
-							</select>
-							<div></div>
-							<div style="display: inline-block;">
-								<button class="search-button">검색</button>
-							</div>
-							<div>
-								페이지 크기 <select>
-									<option>10</option>
-									<option>15</option>
-									<option>30</option>
-								</select>
-							</div>
-						</form>
-						<button class="search-button"
-							style="float: right; margin-bottom: 10px; margin-top: -10%;"
-							onclick="location.href='circle_add'">써클추가</button>
-					</div>
-
-				</div>
-				 -->
-				<!--모달창-->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-					aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">×</button>
-								<h4 class="modal-title" id="myModalLabel">써클추가</h4>
-							</div>
-							<div class="modal-body">내용.</div>
-							<div class="modal-footer">
-								<button type="button" class=" search-button2"
-									data-dismiss="modal">닫기</button>
-								<button type="button" class=" search-button" id="myButtons1">
-									저장</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--모달창 끝-->
-
-				<!-- Start table -->
-				<div class="sectionContent">
-					<div class="row nino-hoverEffect">
-						<!--써클 반복문돌리기-->
-						<div class="col-md-4 col-sm-4">
-							<c:forEach var="circle" items="${ circles }">
-
-								<div data-url="circle_detail?cNo=${ circle.cNo }"
-									class="panel-group" id="accordion" role="tablist"
-									aria-multiselectable="true">
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingOne">
-											<h4 class="panel-title">
-												<a role="button" data-toggle="collapse"
-													data-parent="#accordion" href="#collapseOne"
-													aria-expanded="true" aria-controls="collapseOne"> <i
-													class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-													class="mdi mdi-camera nino-icon"></i> ${ circle.cNo }
-												</a>
-											</h4>
-										</div>
-										<div id="collapseOne" class="panel-collapse collapse in"
-											role="tabpanel" aria-labelledby="headingOne">
-											<div class="panel-body">${ circle.introduce }</div>
-										</div>
-									</div>
-								</div>
-
-							</c:forEach>
-						</div>
-
-						<!--써클-->
-					</div>
-				</div>
-
-
+					style="float: center; margin-bottom: 10px; margin-top: -10%;"
+					onclick="location.href='circle_add'">써클추가</button>
 			</div>
 
-			<!--/ End blog -->
-			<div class="row">
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<!-- Start Pagination -->
-					<my:pagination pageSize="${ pagination.sz }"
-						recordCount="${ pagination.recordCount }" queryStringName="pg" />
+		</div>
 
-					<!--/ End Pagination -->
-				</div>
+
+
+
+		<!--/ End blog -->
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<!-- Start Pagination -->
+				<my:pagination pageSize="${ pagination.sz }"
+					recordCount="${ pagination.recordCount }" queryStringName="pg" />
+
+				<!--/ End Pagination -->
 			</div>
+		</div>
 		</div>
 	</section>
 	<!--/ End Project -->

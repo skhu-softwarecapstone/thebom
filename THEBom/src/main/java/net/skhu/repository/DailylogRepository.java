@@ -19,7 +19,10 @@ public interface DailylogRepository extends MongoRepository<Dailylog,String> {
 	public Page<Dailylog> findAll(Pageable pageable);
 	public Page<Dailylog> findByUserId(Pageable pageable,String userId); // ***** Dailylog 전체 항목 확인
 	Dailylog findByUserIdAndDate(String id, Date date); // ***** Dailylog 해당 날짜 항목 확인
-
+	
+	List<Dailylog> findAllById(String id); // ***** Dailylog 전체 항목 확인
+	List<Dailylog> findByUserId(String userId);
+	
 	@Query(value="{'userId':?0}", fields="{'date':1}")
 	List<Dailylog> findAllByUserId(String id); // ***** Dailylog 해당 날짜리스트 확인에 필요
 	
@@ -42,6 +45,9 @@ public interface DailylogRepository extends MongoRepository<Dailylog,String> {
         return page.getContent();
     }
 
+	
 
 	
+	
 }
+

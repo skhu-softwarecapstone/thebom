@@ -1,6 +1,5 @@
 package net.skhu.document.map;
 
-
 import lombok.Data;
 
 @Data
