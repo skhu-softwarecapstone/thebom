@@ -10,6 +10,7 @@ import lombok.Data;
 import net.skhu.document.senior.Senior;
 import net.skhu.document.map.*;
 
+
 @Data
 public class Circle {
 	@Id

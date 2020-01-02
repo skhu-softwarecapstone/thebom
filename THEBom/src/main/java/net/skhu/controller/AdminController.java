@@ -240,8 +240,8 @@ public class AdminController {
 	// 관리하는 독거노인 목록 조회
 	@GetMapping("/sw/seniorList")
 	public String senior(Pagination pagination, Model model) {
-		List<Senior> seniors = this.seniorRepository.findAll(pagination);
-		List<Senior> seniors2=this.seniorRepository.findBySponsorIsNull();
+		List<Senior> seniors = this.seniorRepository.findAll();
+		List<Senior> seniors2=this.seniorRepository.findBySponsorIsNull(pagination);
 		model.addAttribute("seniors", seniors2);
 		return "admin/sw/seniorList";
 	}
@@ -358,12 +358,15 @@ public class AdminController {
 //		return "admin/sw/match";
 //	}
 
-	@GetMapping("/sw/matchDetail")
-	public String matchDetail(@RequestParam("seNo") int seNo, Model model) {
-		// List<Sponsor> sponsors=this.sponsorRepository.findBy
-		model.addAttribute("senior", this.seniorRepository.findBySeNo(seNo));
-		return "admin/sw/match_detail";
-	}
+
+	
+	@GetMapping("/sw/match_detail")
+	   public String matchDetail(@RequestParam("seNo") int seNo,@RequestParam("spNo") int spNo,Model model) {
+	      //List<Sponsor> sponsors=this.sponsorRepository.findBy
+	      model.addAttribute("sponsor",this.sponsorRepository.findBySpNo(spNo));
+	      model.addAttribute("senior", this.seniorRepository.findBySeNo(seNo));
+	      return "admin/sw/match_detail";
+	   }
 
 	// 개인정보 확인 수정 페이지-내가 후원하는 단체 목록이 아니라 사회복지사 소속 변경용
 	@GetMapping("/sw/mypage")

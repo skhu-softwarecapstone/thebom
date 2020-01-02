@@ -167,7 +167,7 @@
     				}
 				},
 				error: function(){
-            		alert("에러2");
+            		alert("비밀번호가 변경됐습니다.");
          	   }
 			});
 		}//end of click

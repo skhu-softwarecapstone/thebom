@@ -16,7 +16,8 @@ public interface SeniorRepository extends MongoRepository<Senior, String>{
 	List<Senior> findByMatch(int match);
 	Senior findTopByOrderBySeNoDesc();
 
-	List<Senior> findBySponsorIsNull();
+	//List<Senior> findBySponsorIsNull();
+	public Page<Senior>findBySponsorIsNull(Pageable pageable);
 	List<Senior> findBySponsorIsNotNull();
 	
 	
@@ -33,7 +34,7 @@ public interface SeniorRepository extends MongoRepository<Senior, String>{
 	public default List<Senior> findBySponsorIsNull(Pagination pagination) {
         Pageable pageable = PageRequest.of(pagination.getPg() - 1, pagination.getSz(),
                                            new Sort(Sort.Direction.ASC, "seNo"));
-        Page<Senior> page = findAll(pageable);
+        Page<Senior> page = findBySponsorIsNull(pageable);
         pagination.setRecordCount((int)page.getTotalElements());
         return page.getContent();
     }
