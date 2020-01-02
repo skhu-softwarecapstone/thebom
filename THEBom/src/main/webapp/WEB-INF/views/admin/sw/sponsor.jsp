@@ -103,7 +103,7 @@
 				<!-- 독거노인 조건 검색바 끝 -->
 				<!-- 독거노인 추가 버튼 -->
 				<div class="col-sm-12 col-xs-12" id="write">
-					<a href="seniorList_insert" style="margin-bottom: 30px;">어르신 추가</a>
+					<a href="seniorList_insert" style="margin-bottom: 30px;">방문후원자 추가</a>
 				</div>
 				<!-- 독거노인 추가 버튼 끝-->
 				<p class="nino-sectionDesc">

@@ -2,6 +2,9 @@ package net.skhu.repository;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+
+import net.skhu.document.SocialWorker;
 import net.skhu.document.senior.Senior;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,6 +18,20 @@ public interface SeniorRepository extends MongoRepository<Senior, String>{
 	List<Senior> findByMatch(int match);
 	Senior findTopByOrderBySeNoDesc();
 	
+	List<Senior> findBySponsorIsNull();
+	List<Senior> findBySponsorIsNotNull();
+	
+	//List<Senior> findByAddressAddress1StartsWith(String address);
+	
+	
+	
+	public default List<Senior> findBySponsorIsNull(Pagination pagination) {
+        Pageable pageable = PageRequest.of(pagination.getPg() - 1, pagination.getSz(),
+                                           new Sort(Sort.Direction.ASC, "seNo"));
+        Page<Senior> page = findAll(pageable);
+        pagination.setRecordCount((int)page.getTotalElements());
+        return page.getContent();
+    }
 	
 	public default List<Senior> findAll(Pagination pagination) {
         Pageable pageable = PageRequest.of(pagination.getPg() - 1, pagination.getSz(),

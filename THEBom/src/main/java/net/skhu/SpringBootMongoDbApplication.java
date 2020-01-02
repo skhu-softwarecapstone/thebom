@@ -21,7 +21,8 @@ public class SpringBootMongoDbApplication {
 
 		MappingMongoConverter converter = new MappingMongoConverter(new DefaultDbRefResolver(mongoDbFactory), context);
 		converter.setTypeMapper(new DefaultMongoTypeMapper(null));
-
+		converter.afterPropertiesSet();
+		
 		MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory, converter);
 
 		return mongoTemplate;

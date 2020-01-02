@@ -31,15 +31,15 @@
 							id="nino-navbar-collapse">
 							<ul class="nav navbar-nav">
 								<li><a href="sw_main">홈<span class="sr-only">(current)</span></a></li>
-                                <li><a href="notice">공지사항</a></li>
-                                <li><a href="circle">써클조회</a></li>
-                                <li class="active"><a href="seniorList ">노인조회</a></li>
-                                <li><a href="sponsor ">후원자조회</a></li>
-                                <li><a href="match">후원매치현황</a></li>
-                                <li><a href="blind">사각지대 관리</a></li>
-                                <li><a href="mypage ">마이페이지</a></li>
-                                <li><a href="<c:url value='/'/>">Logout</a></li>
-                                <li><a href="" style="color:pink;">${user.fullname }</a></li>
+								<li><a href="notice">공지사항</a></li>
+								<li><a href="circle">써클조회</a></li>
+								<li class="active"><a href="seniorList ">노인조회</a></li>
+								<li><a href="sponsor ">후원자조회</a></li>
+								<li><a href="match">후원매치현황</a></li>
+								<li><a href="blind">사각지대 관리</a></li>
+								<li><a href="mypage ">마이페이지</a></li>
+								<li><a href="<c:url value='/'/>">Logout</a></li>
+								<li><a href="" style="color: pink;">${user.fullname }</a></li>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -74,25 +74,65 @@
 										<hr />
 
 										<div id="info">
-											<span>성함: </span> <span>${ senior.name }</span> <br> 
-											<span>거주지역:</span>
-											<span>${ senior.address.address1 }${ senior.address.address_detail }(우편번호:${ senior.address.zipcode })</span> <br>
-											<span>거주지역 좌표:</span>
-											<span>lat:${ senior.address.location.lat }/lng:${ senior.address.location.lng }</span> <br>
-											 <span>연세:</span>
-											<span>${ senior.age}</span> <br> 
-											 <span>연락처:</span>
-											<span>${ senior.phone}</span> <br> 
-											<span>장애등급:</span> <span><c:choose>
+											<span>성함: </span> <span>${ senior.name }</span> <br> <span>거주지역:</span>
+											<span>${ senior.address.address1 }${ senior.address.address_detail }(우편번호:${ senior.address.zipcode })</span>
+											<br> <span>거주지역 좌표:</span> <span>lat:${ senior.address.location.lat }/lng:${ senior.address.location.lng }</span>
+											<br> <span>연세:</span> <span>${ senior.age}</span> <br>
+											<span>연락처:</span> <span>${ senior.phone}</span> <br> <span>장애등급:</span>
+											<span><c:choose>
 													<c:when test="${ senior.disabilityGrade==NULL}">X</c:when>
 													<c:otherwise>${ senior.disabilityGrade } </c:otherwise>
-												</c:choose></span><br> 
-												<%-- <span>담당복지사:</span> <span>${socialWorker.fullname }</span> --%>
+												</c:choose></span><br>
+											<%-- <span>담당복지사:</span> <span>${socialWorker.fullname }</span> --%>
 
 										</div>
 										<hr />
 										<div id="body">어르신 특이사항: ${ senior.uniqueness }</div>
 										<hr />
+
+										<!-- 방문후원자 목록 시작 -->
+										<p class="nino-sectionDesc">
+										<div class="skill-main">
+											<table class="table table-bordered table-hover">
+												<thead style="color: black">
+													<tr>
+														<th>번호</th>
+														<th>이름</th>
+														<th>거주지역</th>
+														<th>연락처</th>
+														<th>성별</th>
+														<th>좌표</th>
+														<th>매칭</th>
+
+													</tr>
+												</thead>
+												<tbody>
+
+													<c:forEach var="sponsor" items="${ sponsors }">
+
+														<td>${ sponsor.spNo }</td>
+														<td>${ sponsor.name }</td>
+														<td>${ sponsor.address.address1 }</td>
+														<td>${ sponsor.phone}</td>
+														<td><c:choose>
+																<c:when test="${ sponsor.gender==true}">男</c:when>
+																<c:otherwise>女</c:otherwise>
+															</c:choose></td>
+														<td>lat:${ sponsor.address.location.lat }/lng:${ sponsor.address.location.lng }</td>
+														<td>
+															<a href="matchComplete?seNo=${ senior.seNo}&spNo=${ sponsor.spNo }"
+															class="btn btn-primary pull-right"
+															style="background-color: #95e1d3; border-color: #95e1d3; margin-right: 5px;">매칭</a></td>
+
+
+														</tr>
+													</c:forEach>
+
+												</tbody>
+											</table>
+										</div>
+										</p>
+										<!-- 방문후원자 목록 끝 -->
 
 									</div>
 								</div>
@@ -107,10 +147,8 @@
 
 				<div class="list">
 					<button type="button" class="search-button"
-						onclick="location.href='seniorList' ">
-						목록으로
-					</button>
-				</div>		
+						onclick="location.href='seniorList' ">목록으로</button>
+				</div>
 			</div>
 	</section>
 	<!--/ End Project -->

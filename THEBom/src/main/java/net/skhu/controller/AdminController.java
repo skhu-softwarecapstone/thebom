@@ -13,6 +13,10 @@ import java.util.Random;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.geo.Distance;
+import org.springframework.data.geo.Metrics;
+import org.springframework.data.geo.Point;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -36,6 +40,7 @@ import com.google.code.geocoder.model.GeocoderRequest;
 import com.google.code.geocoder.model.GeocoderResult;
 import com.google.code.geocoder.model.GeocoderStatus;
 import com.google.code.geocoder.model.LatLng;
+import com.mongodb.client.FindIterable;
 
 import net.skhu.document.Blind;
 import net.skhu.document.Circle;
@@ -51,6 +56,7 @@ import net.skhu.model.SeniorModel;
 
 import net.skhu.repository.BlindRepository;
 import net.skhu.repository.CircleRepository;
+import net.skhu.repository.LocationRepository;
 import net.skhu.repository.NoticeRepository;
 import net.skhu.repository.SeniorRepository;
 import net.skhu.repository.SponsorRepository;
@@ -81,6 +87,8 @@ public class AdminController {
 	private KakaoAPI kakaoAPI;
 	@Autowired
 	private BlindRepository blindRepository;
+	@Autowired
+	private LocationRepository locationRepository;
 
 	//admin version 메인페이지-접속한 유저정보랑 공지사항 객체목록 5개 담을것 
 	@RequestMapping(value = "/sw/sw_main", method = RequestMethod.GET)
@@ -88,15 +96,15 @@ public class AdminController {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-		
+
 		session.setAttribute("user", user); //세션에 로그인 정보 넣어두기.
-		
+
 		System.out.println(user);
 		modelAndView.addObject("currentUser", user);
 		modelAndView.addObject("fullName", "Welcome " + user.getFullname());
 		//modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
 		modelAndView.setViewName("admin/sw/sw_main");
-		
+
 		List<Notice> notices= this.noticeRepository.findAll();
 		model.addAttribute("notices", notices);
 		return modelAndView;
@@ -149,7 +157,7 @@ public class AdminController {
 		model.addAttribute("part", blind);
 		return "admin/sw/blind_detail";
 	}
-	
+
 
 
 	@GetMapping("/sw/blindAccept")
@@ -228,8 +236,9 @@ public class AdminController {
 	@GetMapping("/sw/seniorList")
 	public String senior(Pagination pagination, Model model) {
 		List<Senior> seniors=this.seniorRepository.findAll(pagination);
+		List<Senior> seniors2=this.seniorRepository.findBySponsorIsNull();
 
-		model.addAttribute("seniors", seniors);
+		model.addAttribute("seniors", seniors2);
 		return "admin/sw/seniorList";
 	}
 
@@ -240,8 +249,13 @@ public class AdminController {
 		//		User socialWorker =this.userRepository.findById(senior.getGroupInfo().getSocial_worker_id()).get();
 
 		model.addAttribute("senior", senior);
-		System.out.print(senior.getAddress().getLocation());
-		model.addAttribute("location",senior.getAddress().getLocation());
+
+		Location location=senior.getAddress().getLocation();
+
+		model.addAttribute("location",location);
+
+		List<Sponsor> sponsors =locationRepository.findByAddressLocationNearAndMatch(new Point(location.getLat(),location.getLng()), new Distance(0.5,Metrics.KILOMETERS),0);
+		model.addAttribute("sponsors", sponsors);
 		//		model.addAttribute("socialWorker", socialWorker);
 		return "admin/sw/seniorList_detail";
 	}
@@ -284,28 +298,7 @@ public class AdminController {
 		return "redirect:seniorList";
 	}
 
-	//독거노인 그룹 관리
-	@GetMapping("/sw/circle")
-	public String circle(Pagination pagination, Model model) {
-		List<Circle> circles=this.circleRepository.findAll(pagination);
-		model.addAttribute("circles", circles);
-		return "admin/sw/circle";
-	}
-
-	//독거노인 그룹 관리 상세 페이지
-	@GetMapping("/sw/circle_detail")
-	public String circleDetail(@RequestParam("cNo") int cNo,Model model) {
-		model.addAttribute("circle", circleRepository.findByCNo(cNo));
-		model.addAttribute("seniors", seniorRepository.findByMatch(cNo));
-		return "admin/sw/circle_detail";
-	}
 	
-	//독거노인 그룹 추가
-	@GetMapping("/sw/circle_add")
-	public String circleAdd(Model model) {
-
-		return "admin/sw/circle_add";
-	}
 
 	//후원자 관리-자신의 지역에 거주하는 방문후원자|방문후원지원자 목록 조회(포인트 순으로 나열)
 	@GetMapping("/sw/sponsor")
@@ -316,28 +309,21 @@ public class AdminController {
 		return "admin/sw/sponsor";
 	}
 
-	
-	//해당 독거노인 세부페이지
-		@GetMapping("/sw/sponsor_detail")
-		public String SponsorDetail(@RequestParam("spNo") int spNo,Model model) {
-			Sponsor sponsor =this.sponsorRepository.findBySpNo(spNo);
-			//		User socialWorker =this.userRepository.findById(senior.getGroupInfo().getSocial_worker_id()).get();
 
-			model.addAttribute("sponsor", sponsor);
-			System.out.print(sponsor.getAddress().getLocation());
-			model.addAttribute("location",sponsor.getAddress().getLocation());
-			//		model.addAttribute("socialWorker", socialWorker);
-			return "admin/sw/sponsor_detail";
-		}
-	//매칭 관리
-	@GetMapping("/sw/match")
-	public String match(Pagination pagination, Model model) {
-		List<Senior> seniors=this.seniorRepository.findByMatch(0);
-		//List<Senior> seniors=this.seniorRepository.findAll(pagination);
-		model.addAttribute("seniors", seniors);
-		return "admin/sw/match";
+	//해당 독거노인 세부페이지
+	@GetMapping("/sw/sponsor_detail")
+	public String SponsorDetail(@RequestParam("spNo") int spNo,Model model) {
+		Sponsor sponsor =this.sponsorRepository.findBySpNo(spNo);
+		//		User socialWorker =this.userRepository.findById(senior.getGroupInfo().getSocial_worker_id()).get();
+
+		model.addAttribute("sponsor", sponsor);
+		System.out.print(sponsor.getAddress().getLocation());
+		model.addAttribute("location",sponsor.getAddress().getLocation());
+		//		model.addAttribute("socialWorker", socialWorker);
+		return "admin/sw/sponsor_detail";
 	}
 	
+
 	@GetMapping("/sw/matchDetail")
 	public String matchDetail(@RequestParam("seNo") int seNo,Model model) {
 		//List<Sponsor> sponsors=this.sponsorRepository.findBy
