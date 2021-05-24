@@ -13,3 +13,4 @@ double care system for the elderly living alone♥
 
 oece 노인 자살률 1위 대한민국에서 더불어 함께 살아가면서 봄이 전해진다면 좋겠다는 취지에서 시작되었습니다.
 
+https://www.youtube.com/watch?v=xB9hk_ElHQA&t=4s 
